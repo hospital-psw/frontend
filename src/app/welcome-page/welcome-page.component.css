@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
+@import '../../colors.scss';
 
 .background {
-  background-color: #a6d4fa;
+  background-color: var(--light-blue);
   height: 100vh;
 }
 .svg-background {
@@ -13,7 +14,7 @@
   background-position: center;
 }
 h1 {
-  color: #efefef;
+  color: var(--white);
   margin: 0 auto;
   text-align: center;
   padding-top: 10%;
@@ -23,7 +24,7 @@ h1 {
 .homeButton {
   display: block;
   margin: 7% auto;
-  background-color: #a6d4fa;
+  background-color: var(--light-blue);
   width: 15%;
   font-size: 20px;
 }
