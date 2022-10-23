@@ -6,7 +6,7 @@ import { RoomService } from "../services/room.service";
 @Component({
   selector: 'de-update-room',
   templateUrl: './update-room.component.html',
-  styleUrls: ['./update-room.component.css']
+  styleUrls: ['./update-room.component.scss']
 })
 
 export class UpdateRoomComponent implements OnInit {
