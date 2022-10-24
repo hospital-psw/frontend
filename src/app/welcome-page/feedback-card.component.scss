@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
+@import '../../colors.scss';
+
+.card-container {
+  width: 80%;
+  margin-top: 3%;
+
+}
+
+.card {
+  border: 0.1rem solid var(--dark-blue);
+  border-radius: 20px;
+  background-image: linear-gradient(var(--light-blue) 10%, var(--white) 90%, var(--light-blue));
+  color: var(--dark-blue);
+  box-shadow: 2px 2px var(--dark-blue);
+}
+
+.card-title {
+  font-family: 'Exo2';
+  font-weight: bolder;
+}
