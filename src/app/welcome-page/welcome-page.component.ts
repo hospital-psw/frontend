@@ -1,6 +1,7 @@
 import { getLocaleEraNames } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Feedback } from './feedback';
+import { WelcomePageServiceService } from './welcome-page-service.service';
 
 @Component({
   selector: 'app-welcome-page',
@@ -9,15 +10,14 @@ import { Feedback } from './feedback';
 })
 export class WelcomePageComponent implements OnInit {
 
-  feedback:Feedback[] = [
-    {user: 'Nikola', text: 'Ovde ide opis'},
-    {user: 'Gravara Grbovic', text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis sit suscipit ipsam cupiditate, excepturi quisquam in placeat facere earum enim, odio, nulla rem adipisci? Perspiciatis voluptatum in quibusdam quia qui!'},
-    {user: 'Andrija', text: 'Ja sam mala sisa'},
-  ]
+  feedback:any = {}
 
-  constructor() { }
+  constructor(private service:WelcomePageServiceService) { }
 
   ngOnInit(): void {
+    this.service.getData().subscribe((data) => {
+      this.feedback = data
+    })
   }
 
 }

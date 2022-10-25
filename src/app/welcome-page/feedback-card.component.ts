@@ -8,7 +8,7 @@ import { Feedback } from './feedback';
 })
 export class FeedbackCardComponent implements OnInit {
 
-  @Input() feedback:Feedback = {user: '', text: ''}
+  @Input() feedback:Feedback = {creator: '', message: ''}
 
 
   constructor() { }
