@@ -1,4 +1,4 @@
 export interface Feedback{
-  user:string;
-  text:string;
+  creator:string;
+  message:string;
 }

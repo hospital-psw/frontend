@@ -25,7 +25,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     HttpClientModule,
     MaterialModule,
     PagesModule,
-    HospitalModule
+    HospitalModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
