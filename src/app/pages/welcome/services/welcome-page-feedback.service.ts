@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class WelcomePageServiceService {
+export class WelcomePageFeedbackService {
 
   constructor(private http:HttpClient) { }
 

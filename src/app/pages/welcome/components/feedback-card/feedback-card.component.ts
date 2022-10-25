@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Feedback } from './feedback';
+import { Feedback } from '../../interfaces/feedback';
 
 @Component({
   selector: 'app-feedback-card',
@@ -9,7 +9,6 @@ import { Feedback } from './feedback';
 export class FeedbackCardComponent implements OnInit {
 
   @Input() feedback:Feedback = {creator: '', message: ''}
-
 
   constructor() { }
 

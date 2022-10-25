@@ -1,18 +1,16 @@
-import { getLocaleEraNames } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Feedback } from './feedback';
-import { WelcomePageServiceService } from './welcome-page-service.service';
+import { WelcomePageFeedbackService } from '../../services/welcome-page-feedback.service';
 
 @Component({
   selector: 'app-welcome-page',
   templateUrl: './welcome-page.component.html',
-  styleUrls: ['./welcome-page.component.css']
+  styleUrls: ['./welcome-page.component.scss']
 })
 export class WelcomePageComponent implements OnInit {
 
-  feedback:any = {}
+  feedback:any = []
 
-  constructor(private service:WelcomePageServiceService) { }
+  constructor(private service:WelcomePageFeedbackService) { }
 
   ngOnInit(): void {
     this.service.getData().subscribe((data) => {

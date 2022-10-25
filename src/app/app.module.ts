@@ -7,16 +7,13 @@ import { MaterialModule } from "./material/material.module";
 import { HospitalModule } from "./modules/hospital/hospital.module";
 import { PagesModule } from "./modules/pages/pages.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { WelcomePageComponent } from './welcome-page/welcome-page.component';
-import { FeedbackCardComponent } from './welcome-page/feedback-card.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FeedbackModule } from "./pages/feedback/feedback.module";
+import { WelcomeModule } from "./pages/welcome/welcome.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomePageComponent,
-    FeedbackCardComponent,
     NavbarComponent
   ],
   imports: [
@@ -27,7 +24,8 @@ import { FeedbackModule } from "./pages/feedback/feedback.module";
     MaterialModule,
     PagesModule,
     HospitalModule,
-    FeedbackModule
+    FeedbackModule,
+    WelcomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
