@@ -17,10 +17,13 @@
   place-items: center;
 }
 
+.feedback-card:last-child {
+  margin-bottom: 5%;
+}
+
 .background {
   background-color: var(--light-blue);
   height: 100%;
-
 }
 .svg-background {
   aspect-ratio: 900/450;
