@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { FeedbackCardComponent } from './welcome-page/feedback-card.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FeedbackModule } from "./pages/feedback/feedback.module";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     MaterialModule,
     PagesModule,
     HospitalModule,
-    HttpClientModule
+    FeedbackModule
   ],
   providers: [],
   bootstrap: [AppComponent]
