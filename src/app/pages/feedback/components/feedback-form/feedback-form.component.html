@@ -6,33 +6,48 @@
       expedita non quod sequi tenetur.
     </p>
   </div>
-  <div class="form-fields">
-    <div>
+  <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <div class="form-fields">
       <mat-form-field class="form-field" appearance="legacy">
         <mat-label>Leave a comment</mat-label>
         <textarea
           matInput
           placeholder="Be honest, tell us how to improve"
-          rows="7"
+          rows="5"
+          ngModel
+          name="message"
+          #message="ngModel"
+          required
         ></textarea>
       </mat-form-field>
-    </div>
-    <div class="security-settings">
-      <div class="privacy">
-        <label>Do you want your feedback to be anonymous: </label>
-        <mat-radio-group>
-          <mat-radio-button color="accent" value="auto">Yes</mat-radio-button>
-          <mat-radio-button color="accent" value="always">No</mat-radio-button>
-        </mat-radio-group>
+      <span *ngIf="!message.valid && message.touched" class="error-message"
+        >Upps, you cant send us empty message. Write somethnig before
+        submitting.</span
+      >
+      <div class="security-settings">
+        <div class="privacy">
+          <label>Do you want your feedback to be public: </label>
+          <mat-radio-group [ngModel]="defaultPublic" name="public">
+            <mat-radio-button color="accent" value="yes">Yes</mat-radio-button>
+            <mat-radio-button color="accent" value="no">No</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="anonymous">
+          <label>Do you want your feedback to be anonymous: </label>
+          <mat-radio-group [ngModel]="defaultAnonymous" name="anonymous">
+            <mat-radio-button color="accent" value="yes">Yes</mat-radio-button>
+            <mat-radio-button color="accent" value="no">No</mat-radio-button>
+          </mat-radio-group>
+        </div>
       </div>
-      <div class="anonymous">
-        <label>Do you want your feedback to be public: </label>
-        <mat-radio-group>
-          <mat-radio-button color="accent" value="auto">Yes</mat-radio-button>
-          <mat-radio-button color="accent" value="always">No</mat-radio-button>
-        </mat-radio-group>
-      </div>
+      <button
+        [disabled]="!form.valid"
+        type="submit"
+        mat-stroked-button
+        class="submit-button"
+      >
+        Submit
+      </button>
     </div>
-  </div>
-  <button mat-stroked-button>Submit</button>
+  </form>
 </div>

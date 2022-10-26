@@ -48,6 +48,11 @@
                 margin-left: 15px;
             }
         }
+    
+        .error-message{
+            color: red;
+            font-size: 1rem;
+        }
     }
 
     .divider{
@@ -55,20 +60,23 @@
     }
 }
 
-button{
+.submit-button{
     width: 100%;
     background-color: var(--submit-button-white);
     color: var(--blue);
     height: 50px;
-    border: 2px solid;
-    border-bottom-color: var(--blue);
     font-size: 1.5rem;
-    margin-top: 3rem;
+    margin-top: 6rem;
+    border: 2px solid var(--blue);
 }
 
 button:hover{
     background-color: var(--blue);
     color: var(--submit-button-white);
+}
+
+button:disabled:hover{
+    background-color: var(--submit-button-white);
 }
 
 // taken from stack overflow: https://stackoverflow.com/questions/52567808/how-to-change-angular-6-material-radio-button-outer-ripple-color/52569008#52569008
