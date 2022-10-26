@@ -6,7 +6,7 @@
       expedita non quod sequi tenetur.
     </p>
   </div>
-  <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+  <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
     <div class="form-fields">
       <mat-form-field class="form-field" appearance="legacy">
         <mat-label>Leave a comment</mat-label>
@@ -28,15 +28,23 @@
         <div class="privacy">
           <label>Do you want your feedback to be public: </label>
           <mat-radio-group [ngModel]="defaultPublic" name="public">
-            <mat-radio-button color="accent" value="yes">Yes</mat-radio-button>
-            <mat-radio-button color="accent" value="no">No</mat-radio-button>
+            <mat-radio-button color="accent" [value]="true"
+              >Yes</mat-radio-button
+            >
+            <mat-radio-button color="accent" [value]="false"
+              >No</mat-radio-button
+            >
           </mat-radio-group>
         </div>
         <div class="anonymous">
           <label>Do you want your feedback to be anonymous: </label>
           <mat-radio-group [ngModel]="defaultAnonymous" name="anonymous">
-            <mat-radio-button color="accent" value="yes">Yes</mat-radio-button>
-            <mat-radio-button color="accent" value="no">No</mat-radio-button>
+            <mat-radio-button color="accent" [value]="true"
+              >Yes</mat-radio-button
+            >
+            <mat-radio-button color="accent" [value]="false"
+              >No</mat-radio-button
+            >
           </mat-radio-group>
         </div>
       </div>

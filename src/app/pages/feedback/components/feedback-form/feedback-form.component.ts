@@ -1,5 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { TitleStrategy } from '@angular/router';
+import { GetFeedback } from '../../interface/GetFeedback';
+import { NewFeedbackDTO } from '../../interface/NewFeedbackDTO';
+import { FeedbackService } from '../../services/feedback.service';
 
 @Component({
   selector: 'app-feedback-form',
@@ -8,15 +12,24 @@ import { NgForm } from '@angular/forms';
 })
 export class FeedbackFormComponent implements OnInit {
 
-  defaultAnonymous = "yes"
-  defaultPublic = "no"
-  constructor() { }
+  defaultAnonymous = true
+  defaultPublic = false
+  
+  constructor(public fs: FeedbackService) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(form: NgForm){
-    console.log(form)
+  onSubmit(feedback: NewFeedbackDTO){     
+    this.fs.createFeedback(feedback).subscribe(
+      (response: GetFeedback) => 
+      {
+        console.log(response)
+      },
+      (error:HttpErrorResponse) => {
+        error.message
+      }
+      )
   }
 
 }
