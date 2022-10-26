@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { GetFeedback } from '../../interface/GetFeedback';
 import { NewFeedbackDTO } from '../../interface/NewFeedbackDTO';
 import { FeedbackService } from '../../services/feedback.service';
@@ -14,7 +15,7 @@ export class FeedbackFormComponent implements OnInit {
   defaultAnonymous = true
   defaultPublic = false
   
-  constructor(public fs: FeedbackService) { }
+  constructor(private fs: FeedbackService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -23,10 +24,11 @@ export class FeedbackFormComponent implements OnInit {
     this.fs.createFeedback(feedback).subscribe(
       (response: GetFeedback) => 
       {
-        console.log(response)
+        this.router.navigate(['/'])
+        alert("Your feedback has been sent!")
       },
       (error:HttpErrorResponse) => {
-        error.message
+        alert(error.message)
       }
       )
   }
