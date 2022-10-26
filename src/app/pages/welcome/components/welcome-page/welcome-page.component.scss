@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
-@import '../../colors.scss';
+@import '../../../../../colors.scss';
 
 .feedback-container {
   width: 80%;
@@ -28,7 +28,7 @@
 .svg-background {
   aspect-ratio: 900/450;
   width: 100%;
-  background-image: url('../../../public/wave.svg');
+  background-image: url('../../../../../../public/wave.svg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

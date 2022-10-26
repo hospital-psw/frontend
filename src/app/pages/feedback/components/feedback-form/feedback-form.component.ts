@@ -1,6 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { TitleStrategy } from '@angular/router';
 import { GetFeedback } from '../../interface/GetFeedback';
 import { NewFeedbackDTO } from '../../interface/NewFeedbackDTO';
 import { FeedbackService } from '../../services/feedback.service';
