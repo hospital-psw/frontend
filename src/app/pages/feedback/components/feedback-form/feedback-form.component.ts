@@ -21,14 +21,15 @@ export class FeedbackFormComponent implements OnInit {
   }
 
   onSubmit(feedback: NewFeedbackDTO){     
+    
     this.fs.createFeedback(feedback).subscribe(
       (response: GetFeedback) => 
       {
+        this.fs.showSuccess();
         this.router.navigate(['/'])
-        alert("Your feedback has been sent!")
       },
       (error:HttpErrorResponse) => {
-        alert(error.message)
+        this.fs.showError(error.message);
       }
       )
   }
