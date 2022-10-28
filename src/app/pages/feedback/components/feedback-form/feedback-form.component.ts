@@ -21,7 +21,6 @@ export class FeedbackFormComponent implements OnInit {
   }
 
   onSubmit(feedback: NewFeedbackDTO){     
-    
     this.fs.createFeedback(feedback).subscribe(
       (response: GetFeedback) => 
       {
