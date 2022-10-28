@@ -3,23 +3,23 @@
     height: 100vh;
     display: flex;
    
-    
     .left{
         width: 50%;
         height: 100%;
-        background-color: green;
         display: grid;
         place-items: center;
-        
+
         .feedback-form{
             width: 80%;
-            height: 80%;
+            height: 70%;
         }
     }
 
     .right{
         width: 50%;
         height: 100%;
-        background-color: black;
+        background-image: url("../../../../../../public/feedback-page.jpg");
+        background-size: cover;
+        background-position: center;
     }
 }

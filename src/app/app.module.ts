@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FeedbackModule } from "./pages/feedback/feedback.module";
 import { WelcomeModule } from "./pages/welcome/welcome.module";
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { WelcomeModule } from "./pages/welcome/welcome.module";
     PagesModule,
     HospitalModule,
     FeedbackModule,
-    WelcomeModule
+    WelcomeModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

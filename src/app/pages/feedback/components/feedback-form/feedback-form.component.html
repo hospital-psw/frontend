@@ -1,3 +1,61 @@
 <div class="form-container">
-    <h1>Leave us Feedback</h1>
+  <div class="text-container">
+    <h1>Tell us how you feel about our services!</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas,
+      expedita non quod sequi tenetur.
+    </p>
+  </div>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+    <div class="form-fields">
+      <mat-form-field class="form-field" appearance="legacy">
+        <mat-label>Leave a comment</mat-label>
+        <textarea
+          matInput
+          placeholder="Be honest, tell us how to improve"
+          rows="5"
+          ngModel
+          name="message"
+          #message="ngModel"
+          required
+        ></textarea>
+      </mat-form-field>
+      <span *ngIf="!message.valid && message.touched" class="error-message"
+        >Oops, you can't send us an empty message. Write something before
+        submitting.</span
+      >
+      <div class="security-settings">
+        <div class="privacy">
+          <label>Do you want your feedback to be public: </label>
+          <mat-radio-group [ngModel]="defaultPublic" name="public">
+            <mat-radio-button color="accent" [value]="true"
+              >Yes</mat-radio-button
+            >
+            <mat-radio-button color="accent" [value]="false"
+              >No</mat-radio-button
+            >
+          </mat-radio-group>
+        </div>
+        <div class="anonymous">
+          <label>Do you want your feedback to be anonymous: </label>
+          <mat-radio-group [ngModel]="defaultAnonymous" name="anonymous">
+            <mat-radio-button color="accent" [value]="true"
+              >Yes</mat-radio-button
+            >
+            <mat-radio-button color="accent" [value]="false"
+              >No</mat-radio-button
+            >
+          </mat-radio-group>
+        </div>
+      </div>
+      <button
+        [disabled]="!form.valid"
+        type="submit"
+        mat-stroked-button
+        class="submit-button"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
 </div>
