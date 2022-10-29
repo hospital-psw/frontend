@@ -11,11 +11,12 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FeedbackModule } from "./pages/feedback/feedback.module";
 import { WelcomeModule } from "./pages/welcome/welcome.module";
 import { ToastrModule } from 'ngx-toastr';
+import { LoaderModule } from "./shared/modules/loader/loader.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +29,7 @@ import { ToastrModule } from 'ngx-toastr';
     FeedbackModule,
     WelcomeModule,
     ToastrModule.forRoot(),
+    LoaderModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
