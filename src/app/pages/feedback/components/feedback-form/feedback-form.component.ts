@@ -17,16 +17,16 @@ export class FeedbackFormComponent implements OnInit {
   defaultPublic = false
   isCreating = false
 
-  constructor(private fs: FeedbackService, private router: Router, private loader: LoaderService) { }
+  constructor(private fs: FeedbackService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(feedback: NewFeedbackDTO){     
-    this.loader.show();
+    this.isCreating = true
     this.fs.createFeedback(feedback).subscribe(
     (response: GetFeedback) => {
-      this.loader.hide();
+      this.isCreating = false
       this.fs.showSuccess(); 
       this.router.navigate(['/'])
     },
