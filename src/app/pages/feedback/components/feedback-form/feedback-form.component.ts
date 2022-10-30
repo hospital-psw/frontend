@@ -1,7 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoaderService } from 'src/app/shared/modules/loader/services/loader.service';
 import { GetFeedback } from '../../interface/GetFeedback';
 import { NewFeedbackDTO } from '../../interface/NewFeedbackDTO';
 import { FeedbackService } from '../../services/feedback.service';
