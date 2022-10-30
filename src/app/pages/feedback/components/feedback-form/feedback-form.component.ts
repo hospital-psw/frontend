@@ -1,7 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoaderService } from 'src/app/shared/modules/loader/services/loader.service';
 import { GetFeedback } from '../../interface/GetFeedback';
 import { NewFeedbackDTO } from '../../interface/NewFeedbackDTO';
 import { FeedbackService } from '../../services/feedback.service';
@@ -17,16 +16,16 @@ export class FeedbackFormComponent implements OnInit {
   defaultPublic = false
   isCreating = false
 
-  constructor(private fs: FeedbackService, private router: Router, private loader: LoaderService) { }
+  constructor(private fs: FeedbackService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(feedback: NewFeedbackDTO){     
-    this.loader.show();
+    this.isCreating = true
     this.fs.createFeedback(feedback).subscribe(
     (response: GetFeedback) => {
-      this.loader.hide();
+      this.isCreating = false
       this.fs.showSuccess(); 
       this.router.navigate(['/'])
     },
