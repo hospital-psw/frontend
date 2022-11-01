@@ -1,8 +1,18 @@
 <div class="card-container">
   <mat-card class="card">
-    <h2>{{feedback.creator}}</h2>
+    <div class="card-title">
+      <h2 *ngIf="feedback.creator === 'Anonymous'">
+        <mat-icon class="person-icon">person_outline</mat-icon>
+        {{ feedback.creator }} user says:
+      </h2>
+      <h2 *ngIf="feedback.creator !== 'Anonymous'">
+        <mat-icon class="person-icon">person</mat-icon>
+        {{ feedback.creator }} says:
+      </h2>
+    </div>
+    <mat-divider></mat-divider>
     <mat-card-content>
-        {{feedback.message}}
+      {{ feedback.message }}
     </mat-card-content>
-</mat-card>
+  </mat-card>
 </div>
