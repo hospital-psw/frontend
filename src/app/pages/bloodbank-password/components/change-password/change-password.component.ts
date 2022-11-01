@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { BloodBankManagerLoginDTO } from '../../dto/BloodBankManagerLoginDTO';
+import { ChangePasswordDTO } from '../../dto/ChangePasswordDTO';
+import { ChangePasswordService } from '../../services/change-password.service';
 
 @Component({
   selector: 'app-change-password',
@@ -13,23 +17,54 @@ export class ChangePasswordComponent implements OnInit {
   repeatNewPassword: string = '';
   showError = false;
   showWrongUsernameOrPass = false;
+  isDummyPassword = false;
+  checkCredentialsDTO: BloodBankManagerLoginDTO;
+  changePasswordDTO: ChangePasswordDTO;
 
-  constructor() {}
-
+  constructor(private service: ChangePasswordService, private router: Router) {
+    this.checkCredentialsDTO = {
+      Email: '',
+      Password: '',
+    };
+    this.changePasswordDTO = {
+      Email: '',
+      OldPassword: '',
+      NewPassword: '',
+    };
+  }
   ngOnInit(): void {}
 
   checkCredentials(): void {
-    if (this.email === 'zika' && this.oldPassword === '123') {
-      this.credentialsCorrect = true;
-      this.showWrongUsernameOrPass = false;
-    } else {
-      this.showWrongUsernameOrPass = true;
-    }
+    this.checkCredentialsDTO.Email = this.email;
+    this.checkCredentialsDTO.Password = this.oldPassword;
+    this.service.checkCredentials(this.checkCredentialsDTO).subscribe(
+      (res) => {
+        if (!res) {
+          this.service.showSuccess('You already changed dummy password.');
+          this.router.navigate(['']);
+        } else {
+          this.credentialsCorrect = true;
+          this.showWrongUsernameOrPass = false;
+        }
+      },
+      (err) => {
+        this.showWrongUsernameOrPass = true;
+      }
+    );
   }
 
   changePassword(): void {
     if (!this.showError) {
-      //TODO send http
+      this.changePasswordDTO.Email = this.email;
+      this.changePasswordDTO.OldPassword = this.oldPassword;
+      this.changePasswordDTO.NewPassword = this.newPassword;
+      this.service.changePassword(this.changePasswordDTO).subscribe(
+        (res) => {
+          this.service.showSuccess('Your successfully changed password.');
+          this.router.navigate(['']);
+        },
+        (err) => this.service.showError('Username or password is incorect.')
+      );
     }
   }
 
