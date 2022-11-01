@@ -14,23 +14,24 @@ export class FeedbackFormComponent implements OnInit {
 
   defaultAnonymous = true
   defaultPublic = false
-  
+  isCreating = false
+
   constructor(private fs: FeedbackService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(feedback: NewFeedbackDTO){     
+    this.isCreating = true
     this.fs.createFeedback(feedback).subscribe(
-      (response: GetFeedback) => 
-      {
-        this.fs.showSuccess();
-        this.router.navigate(['/'])
-      },
-      (error:HttpErrorResponse) => {
+    (response: GetFeedback) => {
+      this.isCreating = false
+      this.fs.showSuccess(); 
+      this.router.navigate(['/'])
+    },
+    (error:HttpErrorResponse) => {
         this.fs.showError(error.message);
-      }
-      )
-  }
+      })
+}
 
 }

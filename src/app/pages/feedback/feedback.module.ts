@@ -4,6 +4,7 @@ import { FeedbackPageComponent } from './components/feedback-page/feedback-page.
 import { FeedbackFormComponent } from './components/feedback-form/feedback-form.component';
 import { MaterialModule } from 'src/app/material/material.module';
 import { FormsModule } from '@angular/forms';
+import { LoaderModule } from 'src/app/shared/modules/loader/loader.module';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';
     MaterialModule,
     CommonModule,
     FormsModule,
+    LoaderModule,
     
   ]
 })

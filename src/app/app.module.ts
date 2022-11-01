@@ -12,6 +12,7 @@ import { FeedbackModule } from './pages/feedback/feedback.module';
 import { WelcomeModule } from './pages/welcome/welcome.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BloodbankPasswordModule } from './pages/bloodbank-password/bloodbank-password.module';
+import { LoaderModule } from './shared/modules/loader/loader.module';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
@@ -27,6 +28,7 @@ import { BloodbankPasswordModule } from './pages/bloodbank-password/bloodbank-pa
     WelcomeModule,
     ToastrModule.forRoot(),
     BloodbankPasswordModule,
+    LoaderModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

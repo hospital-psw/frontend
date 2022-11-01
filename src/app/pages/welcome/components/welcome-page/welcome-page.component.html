@@ -5,8 +5,8 @@
       <button class="homeButton" mat-raised-button>See more..</button>
     </a>
   </div>
-  <h2>What our customers think about us:</h2>
+  <h2>Previous patient feedback:</h2>
   <div class="feedback-container">
-    <app-feedback-card *ngFor="let obj of feedback" [feedback]="obj" class="feedback-card"></app-feedback-card>
+    <app-carrousel class="carrousel" [feedbacks]="feedback"></app-carrousel>
   </div>
 </div>

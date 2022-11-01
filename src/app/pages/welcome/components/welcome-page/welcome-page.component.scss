@@ -1,17 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
-@import '../../../../../colors.scss';
+@import url("https://fonts.googleapis.com/css2?family=Exo+2&display=swap");
+@import "../../../../../colors.scss";
 
 .feedback-container {
   width: 80%;
   display: grid;
   place-items: center;
   margin: 0 auto;
-  gap: 10px;
   height: auto;
-  background-color: var(--light-blue);
+  padding-bottom: 2rem;
 }
 
-.feedback-card{
+.feedback-card {
   width: 100%;
   display: grid;
   place-items: center;
@@ -25,14 +24,16 @@
   background-color: var(--light-blue);
   height: 100%;
 }
+
 .svg-background {
   aspect-ratio: 900/450;
   width: 100%;
-  background-image: url('../../../../../../public/wave.svg');
+  background-image: url("../../../../../../public/wave.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
+
 h1 {
   color: var(--white);
   margin: 0 auto;
@@ -40,17 +41,20 @@ h1 {
   padding-top: 10%;
   font-size: 80px;
   line-height: 90px;
-  font-family: 'Exo2';
+  font-family: "Exo2";
 }
+
 h2 {
   color: var(--dark-blue);
   margin: 0 auto;
   text-align: center;
   font-size: 50px;
   line-height: 60px;
-  font-family: 'Exo2';
+  font-family: "Exo2";
   text-decoration: underline var(--dark-blue) 3px;
+  margin-bottom: 2.5rem;
 }
+
 .homeButton {
   display: block;
   margin: 7% auto;
@@ -64,3 +68,7 @@ a {
   text-decoration: none;
 }
 
+.carrousel {
+  width: 100%;
+  max-width: 700px;
+}
