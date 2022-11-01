@@ -1,0 +1,14 @@
+<div class="carrousel-container">
+  <app-feedback-card
+    *ngFor="let feedback of feedbacks; let i = index"
+    [feedback]="feedback"
+    [ngClass]="{'active' : selectedIndex === i}"
+    class="fade"
+  ></app-feedback-card>
+  <div class="btn-carrousel btn-prev" (click)="handleBack()">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+  </div>
+  <div class="btn-carrousel btn-next" (click)="handleNext()">
+    <mat-icon>keyboard_arrow_right</mat-icon>
+  </div>
+</div>
