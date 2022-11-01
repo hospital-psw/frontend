@@ -20,6 +20,9 @@ export class ChangePasswordComponent implements OnInit {
   isDummyPassword = false;
   checkCredentialsDTO: BloodBankManagerLoginDTO;
   changePasswordDTO: ChangePasswordDTO;
+  hideOld = true;
+  hideNew = true;
+  hideNewRepeat = true;
 
   constructor(private service: ChangePasswordService, private router: Router) {
     this.checkCredentialsDTO = {
