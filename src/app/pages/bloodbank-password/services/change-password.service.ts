@@ -8,7 +8,7 @@ import { ChangePasswordDTO } from '../dto/ChangePasswordDTO';
   providedIn: 'root',
 })
 export class ChangePasswordService {
-  apiString: string = 'http://localhost:5000';
+  apiString: string = 'http://localhost:45488';
   constructor(private http: HttpClient, private toastr: ToastrService) {}
 
   checkCredentials(bbDto: BloodBankManagerLoginDTO) {
