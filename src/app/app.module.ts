@@ -13,6 +13,7 @@ import { WelcomeModule } from './pages/welcome/welcome.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BloodbankPasswordModule } from './pages/bloodbank-password/bloodbank-password.module';
 import { LoaderModule } from './shared/modules/loader/loader.module';
+import { RegistrationModule } from './pages/registration/registration.module';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
@@ -29,6 +30,8 @@ import { LoaderModule } from './shared/modules/loader/loader.module';
     ToastrModule.forRoot(),
     BloodbankPasswordModule,
     LoaderModule,
+    RegistrationModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent],

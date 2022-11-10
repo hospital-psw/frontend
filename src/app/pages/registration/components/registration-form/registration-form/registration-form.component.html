@@ -1,0 +1,75 @@
+
+<div class="register-form-container">
+    <div class="text-container">
+        <h1>We are glad to have you as a patient!</h1>
+        <p>
+            Please fill out the registration form
+        </p>
+      </div>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+            <div class="left">
+            
+                <mat-form-field  appearance="legacy">
+                    <mat-label>Name</mat-label>
+                    <input matInput placeholder="Name" required >
+                    <mat-hint></mat-hint>
+                </mat-form-field>
+        
+                <mat-form-field appearance="legacy">
+                    <mat-label>Surname</mat-label>
+                    <input matInput placeholder="Surname" required>
+                    <mat-hint></mat-hint>
+                </mat-form-field>
+            
+                <mat-form-field appearance="legacy">
+                    <mat-label>JMBG</mat-label>
+                    <input matInput placeholder="JMBG" required>
+                    <mat-hint>Enter a 13-digit number</mat-hint>
+                </mat-form-field>
+            
+                <mat-form-field appearance="legacy">
+                    <mat-label>Adress</mat-label>
+                    <input matInput placeholder="Street name xy " required>
+                    <mat-hint>Insert your street and number</mat-hint>
+                </mat-form-field>
+
+                <button type="submit" mat-stroked-button class="submit-button">
+                     Submit
+                </button>
+            </div>
+            <div class="right">
+                <mat-form-field appearance="legacy">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="emailadress@gmail.com">
+                </mat-form-field>
+
+                <mat-form-field appearance="legacy">
+                    <mat-select>
+                        <mat-option  *ngFor="let i of bloodType" [value]="i.value">
+                        {{i.value}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-label>Blood type</mat-label>
+                    <mat-hint>Select blood type</mat-hint>
+                </mat-form-field>
+                
+                <mat-form-field appearance="legacy">
+                    <mat-label>Allergies</mat-label>
+                    <mat-select  multiple>
+                      <mat-option *ngFor="let i of allergies" [value]="i.item_text">{{i.item_text}}</mat-option>
+                    </mat-select>
+                    <mat-hint>Select allergies if you have any</mat-hint>
+                </mat-form-field>
+
+                <mat-form-field appearance="legacy">
+                    <mat-label>Doctor</mat-label>
+                    <mat-select >
+                      <mat-option *ngFor="let i of doctors" [value]="i">{{i.value}}</mat-option>
+                    </mat-select>
+                    <mat-hint>Choose your doctor</mat-hint>
+                </mat-form-field>
+               
+            </div>
+          
+    </form>
+</div>
