@@ -13,6 +13,7 @@ export class RegistrationFormComponent implements OnInit {
   allergies: any[] = [];
   bloodType: any[] = [];
   doctors: any[]=[];
+  gender: any[]=[];
   constructor() { }
   
 
@@ -35,9 +36,15 @@ export class RegistrationFormComponent implements OnInit {
       {value: 'AB'},
       {value: '0'},
     ];
+    this.gender = [
+      {value: ' Male'},
+      {value:  'Female'},
+      {value: 'Other'},
+      
+    ];
     this.doctors = [
-      {value: 'Doctor 1'},
-      {value:  'Doctor 2'}
+      {value: 'Petar Petrovic'},
+      {value:  'Marko Markovic'}
      
     ];
     
