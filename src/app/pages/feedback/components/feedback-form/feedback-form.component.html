@@ -21,9 +21,9 @@
           required
         ></textarea>
       </mat-form-field>
-      <mat-error *ngIf="!message.valid && message.touched" class="error-message"
+      <span *ngIf="!message.valid && message.touched" class="error-message"
         >Oops, you can't send us an empty message. Write something before
-        submitting.</mat-error
+        submitting.</span
       >
       <div class="security-settings">
         <div class="privacy">

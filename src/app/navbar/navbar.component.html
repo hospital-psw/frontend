@@ -10,7 +10,10 @@
       <button mat-button>Leave us Feedback</button>
     </a>
     <a routerLink="/login">
-      <button mat-button>Login</button>
+      <button mat-button *ngIf="!isLogged">Login</button>
+    </a>
+    <a routerLink="/home">
+      <button mat-button *ngIf="isLogged">Logout</button>
     </a>
   </mat-toolbar-row>
 </mat-toolbar>

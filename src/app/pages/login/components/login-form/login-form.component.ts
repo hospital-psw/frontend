@@ -1,9 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/shared/Auth/auth.service';
-import { LoginDTO } from 'src/app/shared/Auth/interface/LoginDTO';
 import { LoginResponseDTO } from 'src/app/shared/Auth/interface/LoginResponseDTO';
+import { AuthService } from 'src/app/shared/Auth/services/auth.service';
 
 @Component({
   selector: 'app-login-form',
@@ -15,17 +15,25 @@ export class LoginFormComponent{
   constructor(private authService: AuthService, private router: Router) { }
   
   hide = true;
-  defaultRemember = false
+  defaultRemember = true
   showError = false;
+  errorMessage = ''
+  isLogging = false;
 
-  onSubmit(data: LoginDTO){
-    this.authService.login(data).subscribe(
+  onSubmit(form: NgForm){
+    this.showError = false
+    if(form.value.rememberMe == null){
+      form.value.rememberMe = false
+    }
+    this.authService.login(form.value).subscribe(
       (response: LoginResponseDTO) =>{
         this.authService.showSuccess();
         this.router.navigate(['/home'])
       },
       (error: HttpErrorResponse) =>{
-       this.showError = true
+        this.showError = true
+        this.errorMessage = error.error
+        form.resetForm();
       }
     )
   }

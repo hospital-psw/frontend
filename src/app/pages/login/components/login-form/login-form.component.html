@@ -1,3 +1,4 @@
+<app-loader *ngIf="isLogging"></app-loader>
 <div class="form-container">
   <div class="text-container">
     <h1>Login</h1>
@@ -6,7 +7,7 @@
       expedita non quod sequi tenetur.
     </p>
   </div>
-  <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
     <div class="form-fields">
       <mat-form-field class="form-field" appearance="legacy">
         <mat-label>Email</mat-label>
@@ -20,7 +21,7 @@
           ngModel
         />
         <mat-error *ngIf="!email.valid && email.touched"
-          >Please enter valid email.</mat-error
+          >Please enter a valid email.</mat-error
         >
       </mat-form-field>
 
@@ -41,12 +42,14 @@
           >Please enter password.</mat-error
         >
       </mat-form-field>
+      <span onload="displayError()" class="error-message" *ngIf="showError">{{
+        errorMessage
+      }}</span>
       <div class="forgot-section">
         <mat-checkbox
-          [ngModel]="defaultRemember"
-          #rememberMe="ngModel"
           name="rememberMe"
           color="accent"
+          [(ngModel)]="defaultRemember"
           >Remember me</mat-checkbox
         >
         <div>

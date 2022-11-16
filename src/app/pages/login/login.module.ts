@@ -5,6 +5,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { MaterialModule } from 'src/app/material/material.module';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { LoaderModule } from 'src/app/shared/modules/loader/loader.module';
 
 
 
@@ -18,7 +19,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     FormsModule,
     MaterialModule,
     ReactiveFormsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    LoaderModule
   ]
 })
 export class LoginModule { }

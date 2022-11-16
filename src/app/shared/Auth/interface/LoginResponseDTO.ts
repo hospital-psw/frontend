@@ -1,3 +1,6 @@
 export interface LoginResponseDTO{
-    token: string
+    id: number,
+    email: string,
+    token: string,
+    expiresIn: number
 }
