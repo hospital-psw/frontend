@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiFeedbackUrl : "http://localhost:16177/api/Feedback"
+  apiFeedbackUrl : "http://localhost:16177/api/Feedback",
+  apiAuthUrl : "http://localhost:5003/api/Auth/login"
 };
 
 /*

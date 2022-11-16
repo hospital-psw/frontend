@@ -6,27 +6,22 @@
       expedita non quod sequi tenetur.
     </p>
   </div>
-  <form>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
     <div class="form-fields">
       <mat-form-field class="form-field" appearance="legacy">
         <mat-label>Email</mat-label>
         <input
           matInput
           type="email"
+          name="email"
+          #email="ngModel"
           required
-          [formControl]="emailFormControl"
+          email
+          ngModel
         />
-        <mat-error
-          *ngIf="
-            emailFormControl.hasError('email') &&
-            !emailFormControl.hasError('required')
-          "
+        <mat-error *ngIf="!email.valid && email.touched"
+          >Please enter valid email.</mat-error
         >
-          Please enter a valid email address
-        </mat-error>
-        <mat-error *ngIf="emailFormControl.hasError('required')">
-          Email is required
-        </mat-error>
       </mat-form-field>
 
       <mat-form-field class="form-field" appearance="legacy">
@@ -34,22 +29,40 @@
         <input
           matInput
           name="password"
+          [type]="hide ? 'password' : 'text'"
+          #password="ngModel"
           required
-          [formControl]="passwordFromControl"
+          ngModel
         />
-        <mat-error *ngIf="emailFormControl.hasError('required')">
-          Password is required
-        </mat-error>
+        <mat-icon matSuffix (click)="hide = !hide">{{
+          hide ? "visibility_off" : "visibility"
+        }}</mat-icon>
+        <mat-error *ngIf="!password.valid && password.touched"
+          >Please enter password.</mat-error
+        >
       </mat-form-field>
       <div class="forgot-section">
-        <mat-checkbox color="accent">Remember me</mat-checkbox>
+        <mat-checkbox
+          [ngModel]="defaultRemember"
+          #rememberMe="ngModel"
+          name="rememberMe"
+          color="accent"
+          >Remember me</mat-checkbox
+        >
         <div>
           <a href="/">Forgot Password?</a>
         </div>
       </div>
     </div>
+    <button
+      [disabled]="!form.valid"
+      type="submit"
+      mat-stroked-button
+      class="submit-button"
+    >
+      Submit
+    </button>
   </form>
-  <button type="submit" mat-stroked-button class="submit-button">Submit</button>
   <div class="sign-up-section">
     <span>Don't have an account yet? <a href="/"> Register here</a></span>
   </div>

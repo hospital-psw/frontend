@@ -1,5 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/Auth/auth.service';
+import { LoginDTO } from 'src/app/shared/Auth/interface/LoginDTO';
+import { LoginResponseDTO } from 'src/app/shared/Auth/interface/LoginResponseDTO';
 
 @Component({
   selector: 'app-login-form',
@@ -8,9 +12,22 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class LoginFormComponent{
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) { }
   
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-  passwordFromControl = new FormControl('', [Validators.required]);
+  hide = true;
+  defaultRemember = false
+  showError = false;
+
+  onSubmit(data: LoginDTO){
+    this.authService.login(data).subscribe(
+      (response: LoginResponseDTO) =>{
+        this.authService.showSuccess();
+        this.router.navigate(['/home'])
+      },
+      (error: HttpErrorResponse) =>{
+       this.showError = true
+      }
+    )
+  }
 
 }

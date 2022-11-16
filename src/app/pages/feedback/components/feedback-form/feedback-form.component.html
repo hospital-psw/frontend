@@ -21,9 +21,9 @@
           required
         ></textarea>
       </mat-form-field>
-      <span *ngIf="!message.valid && message.touched" class="error-message"
+      <mat-error *ngIf="!message.valid && message.touched" class="error-message"
         >Oops, you can't send us an empty message. Write something before
-        submitting.</span
+        submitting.</mat-error
       >
       <div class="security-settings">
         <div class="privacy">
@@ -49,7 +49,12 @@
           </mat-radio-group>
         </div>
       </div>
-      <button type="submit" mat-stroked-button class="submit-button">
+      <button
+        type="submit"
+        [disabled]="!form.valid"
+        mat-stroked-button
+        class="submit-button"
+      >
         Submit
       </button>
     </div>
