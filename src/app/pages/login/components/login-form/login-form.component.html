@@ -1,0 +1,56 @@
+<div class="form-container">
+  <div class="text-container">
+    <h1>Login</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas,
+      expedita non quod sequi tenetur.
+    </p>
+  </div>
+  <form>
+    <div class="form-fields">
+      <mat-form-field class="form-field" appearance="legacy">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="email"
+          required
+          [formControl]="emailFormControl"
+        />
+        <mat-error
+          *ngIf="
+            emailFormControl.hasError('email') &&
+            !emailFormControl.hasError('required')
+          "
+        >
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="legacy">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          name="password"
+          required
+          [formControl]="passwordFromControl"
+        />
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Password is required
+        </mat-error>
+      </mat-form-field>
+      <div class="forgot-section">
+        <mat-checkbox color="accent">Remember me</mat-checkbox>
+        <div>
+          <a href="/">Forgot Password?</a>
+        </div>
+      </div>
+    </div>
+  </form>
+  <button type="submit" mat-stroked-button class="submit-button">Submit</button>
+  <div class="sign-up-section">
+    <span>Don't have an account yet? <a href="/"> Register here</a></span>
+  </div>
+</div>

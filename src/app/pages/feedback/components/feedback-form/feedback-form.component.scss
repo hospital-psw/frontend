@@ -10,6 +10,7 @@
         
         h1{
             font-size: 3rem;
+            line-height: 2.5rem;
         }
         
         p{
@@ -76,7 +77,8 @@ button:hover{
 }
 
 button:disabled:hover{
-    background-color: var(--submit-button-white);
+    background-color: var(--blue);
+    color: var(--submit-button-white);
 }
 
 // taken from stack overflow: https://stackoverflow.com/questions/52567808/how-to-change-angular-6-material-radio-button-outer-ripple-color/52569008#52569008

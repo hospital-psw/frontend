@@ -1,0 +1,42 @@
+@import "../../../feedback/components/feedback-form/feedback-form.component.scss";
+
+.mat-form-field {
+  margin-bottom: 1rem;
+}
+
+.submit-button {
+  margin-top: 0rem;
+}
+
+.forgot-section {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-bottom: -1rem;
+}
+
+.sign-up-section {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 1.3rem;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--blue)
+}
+
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background-color: var(--blue) !important;
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  color: var(--blue);
+}
