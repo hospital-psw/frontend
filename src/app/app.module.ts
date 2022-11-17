@@ -11,11 +11,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FeedbackModule } from "./pages/feedback/feedback.module";
 import { WelcomeModule } from "./pages/welcome/welcome.module";
 import { ToastrModule } from 'ngx-toastr';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
