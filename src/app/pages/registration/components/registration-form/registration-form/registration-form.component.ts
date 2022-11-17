@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Allergies } from '../../../interface/Allergies';
 import { Patient } from '../../../interface/patient';
+import { RegistrationServiceService } from '../../../service/registration-service.service';
 
 
 
@@ -10,25 +12,18 @@ import { Patient } from '../../../interface/patient';
   styleUrls: ['./registration-form.component.scss']
 })
 export class RegistrationFormComponent implements OnInit {
-  allergies: any[] = [];
+  allergies: Allergies[] = [];
   bloodType: any[] = [];
   doctors: any[]=[];
   gender: any[]=[];
-  constructor() { }
+  constructor(private registrationService: RegistrationServiceService) {}
   
-
-  ngOnInit() {
-    this.allergies = [
-      { item_id: 1, item_text: 'Wheat' },
-      { item_id: 2, item_text: 'Sulphur Dioxide' },
-      { item_id: 3, item_text: 'Celery' },
-      { item_id: 4, item_text: 'Crustacean' },
-      { item_id: 5, item_text: 'Egg' },
-      { item_id: 6, item_text: 'Fish' },
-      { item_id: 7, item_text: 'Lupin' },
-      { item_id: 8, item_text: 'Milk' },
-      { item_id: 9, item_text: 'Mustard' }
-    ];
+  ngOnInit(): void
+  { 
+    this.registrationService.findAll().subscribe((res)=>{
+    this.allergies = res;
+    console.log(res)
+       })
     
     this.bloodType = [
       {value: 'A'},
