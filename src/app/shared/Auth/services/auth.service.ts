@@ -44,6 +44,7 @@ export class AuthService{
         this.user.next(null as any);
         this.router.navigate([''])
         this.toastr.success("You have been successfully logged out.","Goodbye!");
+        localStorage.clear()
     }
 
     public autoLogin(){
