@@ -22,6 +22,7 @@ export class LoginFormComponent{
 
   onSubmit(form: NgForm){
     this.showError = false
+    this.isLogging = true;
     if(form.value.rememberMe == null){
       form.value.rememberMe = false
     }
@@ -29,6 +30,7 @@ export class LoginFormComponent{
       (response: LoginResponseDTO) =>{
         this.authService.showSuccess();
         this.router.navigate(['/home'])
+        this.isLogging=false
       },
       (error: HttpErrorResponse) =>{
         console.log(error)

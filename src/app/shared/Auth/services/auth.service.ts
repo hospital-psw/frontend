@@ -10,6 +10,7 @@ import { Router } from "@angular/router";
 
 @Injectable({providedIn: "root"})
 export class AuthService{
+    private tokenExpirationTimer: any
     user = new BehaviorSubject<User>(null as any);
     api=environment.apiAuthUrl
     
@@ -34,17 +35,11 @@ export class AuthService{
     }
 
     private handleLogin(dto: LoginResponseDTO){
-        const expirationDate = new Date(new Date().getMinutes() + +dto.expiresIn)
+        const expirationDate = new Date(new Date().getTime() + dto.expiresIn*60000);
         const user = new User(dto.email, dto.id, dto.token, expirationDate);
         this.user.next(user);
+        this.autoLogout(dto.expiresIn*60000)
         localStorage.setItem('userData', JSON.stringify(user));
-    }
-
-    public logout(){
-        this.user.next(null as any);
-        this.router.navigate([''])
-        this.toastr.success("You have been successfully logged out.","Goodbye!");
-        localStorage.clear()
     }
 
     public autoLogin(){
@@ -63,7 +58,27 @@ export class AuthService{
 
         if(loadedUser.token){
             this.user.next(loadedUser)
+            this.autoLogout(new Date(userData._tokenExpirationDate).getTime() - new Date().getTime())
         }
+    }
+
+    public logout(){
+        this.user.next(null as any);
+        this.router.navigate([''])
+        this.toastr.success("You have been successfully logged out.","Goodbye!");
+        localStorage.removeItem('userData')
+        if(this.tokenExpirationTimer){
+            clearTimeout(this.tokenExpirationTimer)
+        }
+        this.tokenExpirationTimer = null;
+    }
+
+
+    //expireIn is in minutes
+    public autoLogout(expireIn: number){
+        this.tokenExpirationTimer = setTimeout(() =>{
+            this.logout()
+        }, expireIn);
     }
 
 }
