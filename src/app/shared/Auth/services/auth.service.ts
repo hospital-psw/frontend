@@ -37,7 +37,7 @@ export class AuthService{
         const expirationDate = new Date(new Date().getMinutes() + +dto.expiresIn)
         const user = new User(dto.email, dto.id, dto.token, expirationDate);
         this.user.next(user);
-        console.log(user)
+        localStorage.setItem('userData', JSON.stringify(user));
     }
 
     public logout(){
@@ -45,4 +45,24 @@ export class AuthService{
         this.router.navigate([''])
         this.toastr.success("You have been successfully logged out.","Goodbye!");
     }
+
+    public autoLogin(){
+       const userData:{
+        id: number,
+        email: string,
+        _token: string,
+        _tokenExpirationDate: string
+        } = JSON.parse(localStorage.getItem('userData') || '{}');
+        console.log(userData)
+        if(!userData){
+            return;
+        }
+
+        const loadedUser = new User(userData.email,userData.id,userData._token,new Date(userData._tokenExpirationDate))
+
+        if(loadedUser.token){
+            this.user.next(loadedUser)
+        }
+    }
+
 }
