@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,7 +15,6 @@ import { BloodbankPasswordModule } from './pages/bloodbank-password/bloodbank-pa
 import { LoaderModule } from './shared/modules/loader/loader.module';
 import { LoginModule } from './pages/login/login.module';
 import {MatInputModule} from '@angular/material/input';
-
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
   imports: [
@@ -38,3 +37,5 @@ import {MatInputModule} from '@angular/material/input';
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+//{provide: HTTP_INTERCEPTORS, useClass: AuthService, multi:true}

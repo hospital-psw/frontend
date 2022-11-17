@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../shared/Auth/services/auth.service';
@@ -12,7 +13,7 @@ export class NavbarComponent implements OnInit, OnDestroy{
   private userSub: Subscription;
   isLogged = false
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private http: HttpClient) { }
   
   ngOnInit(){
     this.userSub = this.authService.user.subscribe(user =>{
@@ -24,5 +25,14 @@ export class NavbarComponent implements OnInit, OnDestroy{
     this.userSub.unsubscribe();
   }
 
+  onTest(){
+    return this.http.get<string>("http://localhost:5003/test").subscribe(response=>{
+      console.log(response)
+    })
+  }
+
+  onLogout(){
+    this.authService.logout();
+  }
 
 }

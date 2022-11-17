@@ -4,22 +4,27 @@ import { LoginDTO } from "../interface/LoginDTO";
 import { environment } from "src/environments/environment";
 import { LoginResponseDTO } from "../interface/LoginResponseDTO";
 import { ToastrService } from "ngx-toastr";
-import { Subject, tap } from "rxjs";
+import { BehaviorSubject, ReplaySubject, tap } from "rxjs";
 import { User } from "../model/user.module";
+import { Router } from "@angular/router";
 
 @Injectable({providedIn: "root"})
 export class AuthService{
-    user = new Subject<User>();
-    
-    constructor(private http: HttpClient, private toastr: ToastrService){}
+    user = new BehaviorSubject<User>(null as any);
     api=environment.apiAuthUrl
+    
+    constructor(private http: HttpClient, private toastr: ToastrService, private router: Router){}
 
     public showSuccess(){
-        this.toastr.success("You have been successfuly logged in.","Welcome back!");
+        this.toastr.success("You have been successfully logged in.","Welcome back!");
     }
 
      public showError(message: string){
         this.toastr.error(message,"Error!")
+    }
+
+    public isLogged(){
+        return !!this.user
     }
 
     public login(data: LoginDTO){
@@ -32,5 +37,12 @@ export class AuthService{
         const expirationDate = new Date(new Date().getMinutes() + +dto.expiresIn)
         const user = new User(dto.email, dto.id, dto.token, expirationDate);
         this.user.next(user);
+        console.log(user)
+    }
+
+    public logout(){
+        this.user.next(null as any);
+        this.router.navigate([''])
+        this.toastr.success("You have been successfully logged out.","Goodbye!");
     }
 }

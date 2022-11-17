@@ -15,7 +15,7 @@ export class LoginFormComponent{
   constructor(private authService: AuthService, private router: Router) { }
   
   hide = true;
-  defaultRemember = true
+  defaultRemember = false
   showError = false;
   errorMessage = ''
   isLogging = false;
@@ -31,6 +31,7 @@ export class LoginFormComponent{
         this.router.navigate(['/home'])
       },
       (error: HttpErrorResponse) =>{
+        console.log(error)
         this.showError = true
         this.errorMessage = error.error
         form.resetForm();

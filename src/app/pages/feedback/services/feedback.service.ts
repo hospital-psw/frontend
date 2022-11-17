@@ -5,6 +5,8 @@ import { Observable } from 'rxjs'
 import { NewFeedbackDTO } from '../interface/NewFeedbackDTO';
 import { GetFeedback } from '../interface/GetFeedback';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/shared/Auth/services/auth.service';
+import { take, exhaustMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +14,17 @@ import { ToastrService } from 'ngx-toastr';
 export class FeedbackService {
 
   api = environment.apiFeedbackUrl
-
-  constructor(private http: HttpClient, private toastr: ToastrService) { }
+  kita = "http://localhost:5003/api/Auth/proradi"
+  constructor(private http: HttpClient, private toastr: ToastrService, private authService: AuthService) { }
 
   public createFeedback(feedback : NewFeedbackDTO): Observable<GetFeedback>{
-    feedback.creatorId = 1;
-    return this.http.post<GetFeedback>(`${this.api}/add`, feedback);
+    return this.authService.user.pipe(
+      take(1),
+      exhaustMap(user =>{
+        feedback.creatorId = user.id
+        return this.http.post<GetFeedback>(`${this.api}/add`, feedback)
+      })
+    )
   }
 
   public showSuccess(){
