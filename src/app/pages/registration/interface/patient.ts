@@ -1,11 +1,16 @@
 export interface Patient {
-    name:string;
-    surname:string;
-    jmbg:string;
-    adress:string;
-    email:string;
-    bloodtype:number;
-    allergies:string;
-    doctor:string;
+     applicationUserDTO: {
+          firstName: string;
+          lastName:string; 
+          email : string;
+          dateOfBirth : Date;
+          male : boolean;
+          password : string;
+          confirmPassword : string;
+     },
+    
+     bloodType : number;
+     choosenDoctor : number;
+     allergies : number[];
 
 }

@@ -5,6 +5,8 @@ import { MaterialModule } from 'src/app/material/material.module';
 import { FormsModule } from '@angular/forms';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldControl } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 
 
@@ -20,7 +22,9 @@ import { MatSelectModule } from '@angular/material/select';
     FormsModule,
     NgMultiSelectDropDownModule.forRoot(),
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatFormFieldModule
+   
     
   ]
 })

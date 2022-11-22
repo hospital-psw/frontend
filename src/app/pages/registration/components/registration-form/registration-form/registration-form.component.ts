@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { Allergies } from '../../../interface/Allergies';
-import { Patient } from '../../../interface/patient';
+import { Doctor } from '../../../interface/Doctor';
+import { Patient } from '../../../interface/Patient';
 import { RegistrationServiceService } from '../../../service/registration-service.service';
 
 
@@ -12,37 +12,21 @@ import { RegistrationServiceService } from '../../../service/registration-servic
   styleUrls: ['./registration-form.component.scss']
 })
 export class RegistrationFormComponent implements OnInit {
-  allergies: Allergies[] = [];
-  bloodType: any[] = [];
-  doctors: any[]=[];
-  gender: any[]=[];
+  public allergies: Allergies[] = [];
+  public  doctors: Doctor[] = [];
   constructor(private registrationService: RegistrationServiceService) {}
   
   ngOnInit(): void
-  { 
-    this.registrationService.findAll().subscribe((res)=>{
+{
+    this.registrationService.findAllAllergies().subscribe((res)=>{
     this.allergies = res;
-    console.log(res)
-       })
-    
-    this.bloodType = [
-      {value: 'A'},
-      {value:  'B'},
-      {value: 'AB'},
-      {value: '0'},
-    ];
-    this.gender = [
-      {value: ' Male'},
-      {value:  'Female'},
-      {value: 'Other'},
-      
-    ];
-    this.doctors = [
-      {value: 'Petar Petrovic'},
-      {value:  'Marko Markovic'}
-     
-    ];
-    
+    })
+    this.registrationService.findAllDoctors().subscribe((result)=>{
+      this.doctors = result;
+      console.log(this.doctors)
+    })
   }
-  onSubmit(feedback: Patient){}
+  onSubmit(n: any){
+    console.log(n)
+  }
 }
