@@ -17,6 +17,7 @@ import { LoginModule } from './pages/login/login.module';
 import {MatInputModule} from '@angular/material/input';
 import { AuthService } from './shared/Auth/services/auth.service';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { RegistrationModule } from './pages/registration/registration.module';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
@@ -34,7 +35,9 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
     BloodbankPasswordModule,
     LoaderModule,
     LoginModule,
-    MatInputModule
+    MatInputModule,
+    RegistrationModule
+    
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true}],
   bootstrap: [AppComponent],
