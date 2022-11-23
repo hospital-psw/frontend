@@ -20,6 +20,16 @@
   margin-bottom: 5%;
 }
 
+.news-card {
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.news-card:last-child {
+  margin-bottom: 5%;
+}
+
 .background {
   background-color: var(--light-blue);
   height: 100%;
