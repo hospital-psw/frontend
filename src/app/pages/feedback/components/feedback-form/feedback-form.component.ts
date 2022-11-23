@@ -10,16 +10,14 @@ import { FeedbackService } from '../../services/feedback.service';
   templateUrl: './feedback-form.component.html',
   styleUrls: ['./feedback-form.component.scss']
 })
-export class FeedbackFormComponent implements OnInit {
+
+export class FeedbackFormComponent {
 
   defaultAnonymous = true
   defaultPublic = false
   isCreating = false
-
+  
   constructor(private fs: FeedbackService, private router: Router) { }
-
-  ngOnInit(): void {
-  }
 
   onSubmit(feedback: NewFeedbackDTO){     
     this.isCreating = true
@@ -27,11 +25,13 @@ export class FeedbackFormComponent implements OnInit {
     (response: GetFeedback) => {
       this.isCreating = false
       this.fs.showSuccess(); 
-      this.router.navigate(['/'])
+      this.router.navigate(['/home'])
     },
     (error:HttpErrorResponse) => {
         this.fs.showError(error.message);
       })
-}
+  }
+
+
 
 }
