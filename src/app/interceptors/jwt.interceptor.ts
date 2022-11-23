@@ -4,7 +4,6 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
-  HttpParams
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AuthService } from '../shared/Auth/services/auth.service';
@@ -14,7 +13,7 @@ import { take, exhaustMap } from 'rxjs/operators'
 export class JwtInterceptor implements HttpInterceptor {
   constructor(private authenticationService: AuthService) {}
 
-  intercept(request: HttpRequest<any>, next: HttpHandler){
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>{
     return this.authenticationService.user.pipe(
       take(1),
       exhaustMap(user => {
@@ -22,7 +21,9 @@ export class JwtInterceptor implements HttpInterceptor {
           return next.handle(request)
         }
         const modifiedRequest = request.clone({
-          params: new HttpParams().set('auth', user.token)
+           setHeaders: {
+          'Authorization': `Bearer ${user.token}`
+        }
         });
           return next.handle(modifiedRequest);
       })); 
