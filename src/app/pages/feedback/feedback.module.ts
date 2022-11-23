@@ -17,7 +17,6 @@ import { LoaderModule } from 'src/app/shared/modules/loader/loader.module';
     CommonModule,
     FormsModule,
     LoaderModule,
-    
   ]
 })
 export class FeedbackModule { }

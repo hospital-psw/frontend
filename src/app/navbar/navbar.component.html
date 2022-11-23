@@ -7,7 +7,16 @@
       <button mat-button>Home</button>
     </a>
     <a routerLink="/feedback">
-      <button mat-button>Leave us Feedback</button>
+      <button mat-button *ngIf="isLogged">Leave us Feedback</button>
+    </a>
+    <a routerLink="/login">
+      <button mat-button *ngIf="!isLogged">Login</button>
+    </a>
+    <a>
+      <button mat-button *ngIf="isLogged" (click)="onLogout()">Logout</button>
+    </a>
+    <a>
+      <button mat-button *ngIf="isLogged" (click)="onTest()">Test</button>
     </a>
     <span class="spacer"></span>
     <a routerLink="/registration">
