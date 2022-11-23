@@ -2,5 +2,17 @@
   <div class="left">
     <app-login-form class="form"></app-login-form>
   </div>
-  <div class="right"></div>
+  <div class="right">
+    <div class="example-button-container">
+      <button
+        (click)="onHome()"
+        mat-fab
+        color="primary"
+        aria-label="Example icon button with a home icon"
+      >
+        <mat-icon>home</mat-icon>
+      </button>
+    </div>
+    <!-- <button  mat-button>Home</button> -->
+  </div>
 </div>
