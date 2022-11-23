@@ -25,7 +25,7 @@ export class FeedbackFormComponent {
     (response: GetFeedback) => {
       this.isCreating = false
       this.fs.showSuccess(); 
-      this.router.navigate(['/'])
+      this.router.navigate(['/home'])
     },
     (error:HttpErrorResponse) => {
         this.fs.showError(error.message);
