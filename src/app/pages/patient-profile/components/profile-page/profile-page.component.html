@@ -1,0 +1,49 @@
+<div class="profile-div">
+    <div class="left">
+        <img class="profile-pic" src="https://icons.veryicon.com/png/o/miscellaneous/two-color-icon-library/user-286.png">
+        <mat-label class="user-name">{{loggedPatient.firstName}} {{loggedPatient.lastName}}</mat-label>
+        <mat-label class="email">{{loggedPatient.email}}</mat-label>
+        <button mat-raised-button>Edit profile</button>
+        <button mat-raised-button>Change password</button>
+    </div>
+    <mat-divider vertical></mat-divider>
+    <div class="right">
+        <mat-label class="heading">PERSONAL DETAILS</mat-label>
+        <table>
+            <tr>
+                <td>
+                    <mat-label class="p-question">Last name</mat-label>
+                    <mat-label class="p-answer">{{loggedPatient.lastName}}</mat-label>
+                </td>
+                <td>
+                    <mat-label class="p-question">First name</mat-label>
+                    <mat-label class="p-answer">{{loggedPatient.firstName}}</mat-label>
+                </td>
+                <td>
+                    <mat-label class="p-question">Gender</mat-label>
+                    <mat-label class="p-answer">M</mat-label>
+                </td>
+                <td>
+                    <mat-label class="p-question">Birth date</mat-label>
+                    <mat-label class="p-answer">12/12/2000</mat-label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-label class="p-question">Blood type</mat-label>
+                    <mat-label class="p-answer">A</mat-label>
+                </td>
+                <td colspan="2">
+                    <mat-label class="p-question">Doctor</mat-label>
+                    <mat-label class="p-answer">Petar Petrovic</mat-label>
+                </td>
+            </tr>
+        </table>
+        <mat-label class="heading">ALLERGIES</mat-label>
+        <ul>
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+        </ul>
+    </div>
+</div>
