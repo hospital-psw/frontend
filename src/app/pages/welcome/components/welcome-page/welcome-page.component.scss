@@ -20,6 +20,16 @@
   margin-bottom: 5%;
 }
 
+.news-card {
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.news-card:last-child {
+  margin-bottom: 5%;
+}
+
 .background {
   background-color: var(--light-blue);
   height: 100%;
@@ -38,10 +48,10 @@ h1 {
   color: var(--white);
   margin: 0 auto;
   text-align: center;
-  padding-top: 10%;
+  padding-top: 0;
   font-size: 80px;
   line-height: 90px;
-  font-family: "Exo2";
+  font-family: "Georgia";
 }
 
 h2 {
@@ -50,14 +60,15 @@ h2 {
   text-align: center;
   font-size: 50px;
   line-height: 60px;
-  font-family: "Exo2";
-  text-decoration: underline var(--dark-blue) 3px;
-  margin-bottom: 2.5rem;
+  font-family: "Georgia";
+  margin-bottom: 3rem;
+  margin-top: 5rem;
 }
 
 .homeButton {
   display: block;
-  margin: 7% auto;
+  margin: auto;
+  margin-top: 5rem;
   background-color: var(--white);
   width: 15%;
   font-size: 20px;
@@ -71,4 +82,25 @@ a {
 .carrousel {
   width: 100%;
   max-width: 700px;
+}
+
+.not-logged-buttons {
+  display: flex;
+  justify-content: end;
+  margin-right: 5rem;
+  color: var(--white);
+}
+
+.mat-button {
+  margin-top: 3rem;
+  margin-bottom: 10rem;
+  font-size: 1.5rem !important;
+}
+
+.shrink {
+  transition: all .2s ease-in-out;
+}
+
+.shrink:hover {
+  transform: scale(0.9);
 }

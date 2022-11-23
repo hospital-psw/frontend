@@ -1,12 +1,25 @@
 <div class="background">
   <div class="svg-background">
+    <div class="not-logged-buttons">
+      <a (click)="onClick('login')">
+        <button mat-button class="shrink">Login</button>
+      </a>
+      <a (click)="onClick('home')">
+        <button mat-button class="shrink">Register</button>
+      </a>
+    </div>
     <h1><i>Welcome to PSW Hospital</i></h1>
     <a routerLink="/home">
       <button class="homeButton" mat-raised-button>See more..</button>
     </a>
   </div>
-  <h2>Previous patient feedback:</h2>
+  <h2>What others think about us:</h2>
   <div class="feedback-container">
     <app-carrousel class="carrousel" [feedbacks]="feedback"></app-carrousel>
+  </div>
+
+  <h2>Blood bank news:</h2>
+  <div class="feedback-container">
+    <app-news-carousel class="carrousel" [allNews]="allNews"></app-news-carousel>
   </div>
 </div>

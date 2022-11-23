@@ -5,15 +5,16 @@ import { ChangePasswordComponent } from './pages/bloodbank-password/components/c
 import { FeedbackPageComponent } from './pages/feedback/components/feedback-page/feedback-page.component';
 import { LoginPageComponent } from './pages/login/components/login-page/login-page.component';
 import { WelcomePageComponent } from './pages/welcome/components/welcome-page/welcome-page.component';
+import { AuthGuard } from './shared/Auth/guard/auth.guard';
 import { ProfilePageComponent } from './pages/patient-profile/components/profile-page/profile-page.component';
 
 const routes: Routes = [
   { path: '', component: WelcomePageComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'feedback', component: FeedbackPageComponent },
+  { path: 'feedback', component: FeedbackPageComponent, canActivate:[AuthGuard]},
   { path: 'changePassword', component: ChangePasswordComponent },
-  { path: 'profile', component: ProfilePageComponent },
   { path: 'login', component: LoginPageComponent },
+  { path: 'profile', component: ProfilePageComponent },
 ];
 
 @NgModule({

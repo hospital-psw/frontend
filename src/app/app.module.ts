@@ -15,6 +15,8 @@ import { BloodbankPasswordModule } from './pages/bloodbank-password/bloodbank-pa
 import { LoaderModule } from './shared/modules/loader/loader.module';
 import { LoginModule } from './pages/login/login.module';
 import {MatInputModule} from '@angular/material/input';
+import { AuthService } from './shared/Auth/services/auth.service';
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { PatientProfileModule } from './pages/patient-profile/patient-profile.module';
 
 @NgModule({
@@ -36,7 +38,7 @@ import { PatientProfileModule } from './pages/patient-profile/patient-profile.mo
     MatInputModule,
     PatientProfileModule,
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

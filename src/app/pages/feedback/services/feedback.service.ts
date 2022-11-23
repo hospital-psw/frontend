@@ -14,7 +14,6 @@ import { take, exhaustMap } from 'rxjs';
 export class FeedbackService {
 
   api = environment.apiFeedbackUrl
-  kita = "http://localhost:5003/api/Auth/proradi"
   constructor(private http: HttpClient, private toastr: ToastrService, private authService: AuthService) { }
 
   public createFeedback(feedback : NewFeedbackDTO): Observable<GetFeedback>{
