@@ -7,7 +7,7 @@ export const environment = {
   apiUrl: "http://localhost:16177/api",
   apiAuthUrl : "http://localhost:16177/api/Auth/login",
   apiFeedbackUrl : "http://localhost:16177/api/Feedback",
-  apiNewsUrl : "http://localhost:45488/api/News"
+  apiNewsUrl : "http://localhost:45488/api/News",
   apiPatientUrl : "http://localhost:16177/api/ApplicationPatient"
 };
 
