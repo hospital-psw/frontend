@@ -7,6 +7,7 @@ import { RegistrationFormComponent } from './pages/registration/components/regis
 import { LoginPageComponent } from './pages/login/components/login-page/login-page.component';
 import { WelcomePageComponent } from './pages/welcome/components/welcome-page/welcome-page.component';
 import { AuthGuard } from './shared/Auth/guard/auth.guard';
+import { ProfilePageComponent } from './pages/patient-profile/components/profile-page/profile-page.component';
 
 const routes: Routes = [
   { path: '', component: WelcomePageComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'changePassword', component: ChangePasswordComponent },
   { path: 'registration', component: RegistrationFormComponent},
   { path: 'login', component: LoginPageComponent },
+  { path: 'profile', component: ProfilePageComponent },
 ];
 
 @NgModule({
