@@ -7,7 +7,7 @@
       <button mat-button>Home</button>
     </a>
     <a routerLink="/profile">
-      <button mat-button>My profile</button>
+      <button mat-button *ngIf="isLogged">My profile</button>
     </a>
     <a routerLink="/feedback">
       <button mat-button *ngIf="isLogged">Leave us Feedback</button>

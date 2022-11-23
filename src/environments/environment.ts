@@ -6,8 +6,8 @@ export const environment = {
   production: false,
   apiUrl: "http://localhost:16177/api",
   apiFeedbackUrl : "http://localhost:16177/api/Feedback",
-  apiAuthUrl : "http://localhost:16177/api/Auth/login"
-  apiPatientUrl : "http://localhost:16177/api/Patient"
+  apiAuthUrl : "http://localhost:16177/api/Auth/login",
+  apiPatientUrl : "http://localhost:16177/api/ApplicationPatient"
 };
 
 /*

@@ -33,7 +33,7 @@ import { PatientProfileModule } from './pages/patient-profile/patient-profile.mo
     BloodbankPasswordModule,
     LoaderModule,
     LoginModule,
-    MatInputModule
+    MatInputModule,
     PatientProfileModule,
   ],
   providers: [],
