@@ -1,5 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Allergies } from '../../../interface/Allergies';
+import { applicationUserDTO } from '../../../interface/ApplicationUser';
 import { Doctor } from '../../../interface/Doctor';
 import { Patient } from '../../../interface/Patient';
 import { RegistrationServiceService } from '../../../service/registration-service.service';
@@ -14,6 +16,7 @@ import { RegistrationServiceService } from '../../../service/registration-servic
 export class RegistrationFormComponent implements OnInit {
   public allergies: Allergies[] = [];
   public  doctors: Doctor[] = [];
+ 
   constructor(private registrationService: RegistrationServiceService) {}
   
   ngOnInit(): void
@@ -26,7 +29,36 @@ export class RegistrationFormComponent implements OnInit {
       console.log(this.doctors)
     })
   }
-  onSubmit(n: any){
-    console.log(n)
+  date (d:any): any 
+  {
+    return "1936-05-10T12:45:55.747Z";
+    
   }
+  onSubmit(n: any){
+    let registerUser: applicationUserDTO = {
+      firstName: n.name,
+      lastName:n.surname, 
+      email : n.email,
+      dateOfBirth : "1936-05-10T12:45:55.747Z",
+      male : n.gender,
+      password : n.password,
+      confirmPassword : n.cpassword
+    };
+
+    let patient : Patient ={
+      applicationUserDTO : registerUser,
+      bloodType: n.bloodtype,
+      choosenDoctor : 7,
+      allergies : [1,2]
+    }
+    this.registrationService.register(patient).subscribe(
+      (data) => {
+        alert("Success!");
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+  
 }

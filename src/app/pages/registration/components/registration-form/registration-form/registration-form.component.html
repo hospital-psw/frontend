@@ -19,33 +19,23 @@
                     <mat-hint></mat-hint>
                 </mat-form-field>
             
-               <!-- <mat-form-field appearance="legacy">
-                    <mat-label>JMBG</mat-label>
-                    <input matInput placeholder="JMBG" required>
-                    <mat-hint>Enter a 13-digit number</mat-hint>
-                </mat-form-field>
             
-                <mat-form-field appearance="legacy">
-                    <mat-label>Adress</mat-label>
-                    <input matInput placeholder="Street name xy " required>
-                    <mat-hint>Insert your street and number</mat-hint>
-                </mat-form-field>
-                -->
                 <mat-form-field appearance="legacy">
                     <mat-label>Email</mat-label>
                     <input matInput ngModel name="email" #email="ngModel" placeholder="emailadress@gmail.com">
                 </mat-form-field>
 
+               
                 <mat-form-field appearance="legacy">
                     <mat-label>Date of birth</mat-label>
-                    <input matInput ngModel name="dateOfBirth" #dateOfBirth="ngModel" placeholder="xx/yy/zzzz " required>
-                    <mat-hint></mat-hint>
+                    <input matInput ngModel name="date" #date="ngModel" placeholder="xx/yy/zzzz">
                 </mat-form-field>
-
+                
+                    
                 <mat-form-field appearance="legacy">
                     <mat-select ngModel name="gender" #gender="ngModel">
-                        <mat-option [value]='0' >Male</mat-option>
-                        <mat-option  [value]='1' >Female</mat-option>
+                        <mat-option [value]='true' >Male</mat-option>
+                        <mat-option  [value]='false' >Female</mat-option>
                     </mat-select>
                     <mat-label>Gender</mat-label>
                     <mat-hint></mat-hint>
@@ -63,11 +53,7 @@
                     <mat-hint></mat-hint>
                 </mat-form-field>
 
-                <mat-form-field appearance="legacy">
-                    <mat-label>Telephone</mat-label>
-                    <input matInput ngModel name="telephone" #telephone="ngModel" placeholder="+(xxx) xxx-xxx" >
-                    <mat-hint></mat-hint>
-                </mat-form-field>
+                
                 <button type="submit" mat-stroked-button class="submit-button">
                     Submit
                 </button>
@@ -92,7 +78,7 @@
                 <mat-form-field appearance="legacy">
                     <mat-label>Doctor</mat-label>
                     <mat-select  ngModel name="doctor" #doctor="ngModel">
-                      <mat-option *ngFor="let i of doctors" [value]="i">dr.{{i.firstName}} {{i.lastName}}</mat-option>
+                      <mat-option *ngFor="let i of doctors" [value]="i.id">dr.{{i.firstName}} {{i.lastName}}</mat-option>
                     </mat-select>
                     <mat-hint>Choose your doctor</mat-hint>
                 </mat-form-field>
