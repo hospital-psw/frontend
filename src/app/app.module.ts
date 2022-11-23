@@ -17,6 +17,7 @@ import { LoginModule } from './pages/login/login.module';
 import {MatInputModule} from '@angular/material/input';
 import { AuthService } from './shared/Auth/services/auth.service';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { RegistrationModule } from './pages/registration/registration.module';
 import { PatientProfileModule } from './pages/patient-profile/patient-profile.module';
 
 @NgModule({
@@ -37,6 +38,7 @@ import { PatientProfileModule } from './pages/patient-profile/patient-profile.mo
     LoginModule,
     MatInputModule,
     PatientProfileModule,
+    RegistrationModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true}],
   bootstrap: [AppComponent],
