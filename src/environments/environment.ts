@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiFeedbackUrl : "http://localhost:16177/api/Feedback"
+  apiFeedbackUrl : "http://localhost:16177/api/Feedback",
+  apiNewsUrl : "http://localhost:45488/api/News"
 };
 
 /*

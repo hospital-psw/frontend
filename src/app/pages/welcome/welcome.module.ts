@@ -6,6 +6,8 @@ import { MaterialModule } from 'src/app/material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CarrouselComponent } from './components/carrousel/carrousel.component';
 import { MatIconModule } from '@angular/material/icon';
+import { NewsCardComponent } from './components/news-card/news-card.component';
+import { NewsCarouselComponent } from './components/news-carousel/news-carousel.component';
 
 
 
@@ -13,7 +15,9 @@ import { MatIconModule } from '@angular/material/icon';
   declarations: [
     WelcomePageComponent,
     FeedbackCardComponent,
-    CarrouselComponent
+    CarrouselComponent,
+    NewsCardComponent,
+    NewsCarouselComponent
   ],
   imports: [
     CommonModule,
