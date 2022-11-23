@@ -1,92 +1,99 @@
 @import "../../../../../colors.scss";
 
-.form-container{
+.form-container {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+
+  .text-container {
+    padding-top: 1rem;
+
+    h1 {
+      font-size: 3rem;
+      line-height: 2.5rem;
+    }
+
+    p {
+      line-height: 2rem;
+      padding-top: 1rem;
+      font-size: 1.5rem;
+      font-weight: 300;
+    }
+  }
+
+  .form-fields {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
     width: 100%;
-    height: 100%;
-    background-color: white;
-    
-    .text-container{
-        padding-top: 1rem; 
-        
-        h1{
-            font-size: 3rem;
-        }
-        
-        p{
-            line-height: 2rem;
-            padding-top: 1rem;
-            font-size: 1.5rem;
-            font-weight: 300;
-        }  
+
+    .form-field {
+      width: 100%;
+      font-size: 1.5rem;
     }
 
-    .form-fields{
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-        width: 100%;
+    .security-settings {
+      width: 100%;
+      font-size: 1.5rem;
+      font-weight: 300;
 
-        .form-field{
-            width: 100%;
-            font-size: 1.5rem;
-        }
+      .privacy {
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+      }
 
-        .security-settings{
-            width: 100%;
-            font-size: 1.5rem;
-            font-weight: 300;
+      .anonymous {
+        margin-bottom: 2rem;
+      }
 
-            .privacy{
-                margin-top: 3rem;
-                margin-bottom: 2rem;
-            }
-
-            .anonymous{
-                margin-bottom: 2rem;
-            }
-
-            .mat-radio-button{
-                margin-left: 15px;
-            }
-        }
-    
-        .error-message{
-            color: red;
-            font-size: 1rem;
-        }
+      .mat-radio-button {
+        margin-left: 15px;
+      }
     }
 
-    .divider{
-        border-top-width: 3px;
+    .error-message {
+      color: red;
+      font-size: 1.3rem;
     }
+  }
+
+  .divider {
+    border-top-width: 3px;
+  }
 }
 
-.submit-button{
-    width: 100%;
-    background-color: var(--submit-button-white);
-    color: var(--blue);
-    height: 50px;
-    font-size: 1.5rem;
-    margin-top: 6rem;
-    border: 2px solid var(--blue);
+.submit-button {
+  width: 100%;
+  background-color: var(--submit-button-white);
+  color: var(--blue);
+  height: 50px;
+  font-size: 1.5rem;
+  margin-top: 6rem;
+  border: 2px solid var(--blue);
 }
 
-button:hover{
-    background-color: var(--blue);
-    color: var(--submit-button-white);
+.submit-button:disabled {
+  color: var(--blue);
 }
 
-button:disabled:hover{
-    background-color: var(--submit-button-white);
+button:hover {
+  background-color: var(--blue);
+  color: var(--submit-button-white);
+}
+
+button:disabled {
+  background-color: var(--submit-button-white);
+  color: var(--blue);
+  cursor: not-allowed;
 }
 
 // taken from stack overflow: https://stackoverflow.com/questions/52567808/how-to-change-angular-6-material-radio-button-outer-ripple-color/52569008#52569008
 
 ::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
-    background-color: var(--blue)!important;
+  background-color: var(--blue) !important;
 }
 
 ::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
-    border-color: var(--blue)!important;
+  border-color: var(--blue) !important;
 }
 
 /* input color class */
@@ -96,10 +103,10 @@ button:disabled:hover{
 
 /* Change label color on focused */
 ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
-  color: var(--blue)!important;
+  color: var(--blue) !important;
 }
 
 /* underline border color on focused */
-::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple{
+::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple {
   background-color: var(--blue) !important;
 }

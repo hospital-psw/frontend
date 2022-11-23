@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +13,8 @@ import { WelcomeModule } from './pages/welcome/welcome.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BloodbankPasswordModule } from './pages/bloodbank-password/bloodbank-password.module';
 import { LoaderModule } from './shared/modules/loader/loader.module';
+import { LoginModule } from './pages/login/login.module';
+import {MatInputModule} from '@angular/material/input';
 import { PatientProfileModule } from './pages/patient-profile/patient-profile.module';
 
 @NgModule({
@@ -30,9 +32,13 @@ import { PatientProfileModule } from './pages/patient-profile/patient-profile.mo
     ToastrModule.forRoot(),
     BloodbankPasswordModule,
     LoaderModule,
+    LoginModule,
+    MatInputModule
     PatientProfileModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+//{provide: HTTP_INTERCEPTORS, useClass: AuthService, multi:true}
