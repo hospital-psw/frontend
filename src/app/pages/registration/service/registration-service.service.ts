@@ -15,7 +15,7 @@ export class RegistrationServiceService {
  
 
   findAllAllergies() {
-    return this.http.get<Allergies[]>('http://localhost:16177/api/Allergies/allAllergies');
+    return this.http.get<Allergies[]>('http://localhost:16177/api/Allergies/all');
   }
   findAllDoctors() {
     return this.http.get<Doctor[]>('http://localhost:16177/api/ApplicationDoctor/allrecommended');
