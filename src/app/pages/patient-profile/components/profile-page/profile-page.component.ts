@@ -15,6 +15,7 @@ export class ProfilePageComponent implements OnInit {
   private userSub: Subscription;
   public userGender: string;
   public userBloodType: string;
+  public date: string;
 
 
   constructor(private authService: AuthService,private patientService:PatientProfileService) { }

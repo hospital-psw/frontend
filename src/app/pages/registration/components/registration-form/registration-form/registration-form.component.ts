@@ -31,7 +31,7 @@ export class RegistrationFormComponent implements OnInit {
   }
   date (d:any): any 
   {
-    return "1936-05-10T12:45:55.747Z";
+    return d+"T12:45:55.747Z";
     
   }
   onSubmit(n: any){
@@ -39,7 +39,7 @@ export class RegistrationFormComponent implements OnInit {
       firstName: n.name,
       lastName:n.surname, 
       email : n.email,
-      dateOfBirth : "1936-05-10T12:45:55.747Z",
+      dateOfBirth :this.date(n.date),
       male : n.gender,
       password : n.password,
       confirmPassword : n.cpassword
@@ -48,7 +48,7 @@ export class RegistrationFormComponent implements OnInit {
     let patient : Patient ={
       applicationUserDTO : registerUser,
       bloodType: n.bloodtype,
-      choosenDoctor : 7,
+      choosenDoctor : n.doctor,
       allergies : [1,2]
     }
     this.registrationService.register(patient).subscribe(

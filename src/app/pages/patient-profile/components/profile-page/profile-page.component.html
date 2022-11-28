@@ -25,7 +25,7 @@
                 </td>
                 <td>
                     <mat-label class="p-question">Birth date</mat-label>
-                    <mat-label class="p-answer">{{loggedPatient.dateOfBirth}}</mat-label>
+                    <mat-label class="p-answer">{{loggedPatient.dateOfBirth | date:'mediumDate'}}</mat-label>
                 </td>
             </tr>
             <tr>
@@ -40,10 +40,6 @@
             </tr>
         </table>
         <mat-label class="heading">ALLERGIES</mat-label>
-        <ul>
-            <li>Coffee</li>
-            <li>Tea</li>
-            <li>Milk</li>
-        </ul>
+        
     </div>
 </div>
