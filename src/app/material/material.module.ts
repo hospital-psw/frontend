@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [],
@@ -25,7 +26,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatToolbarModule,
     MatFormFieldModule,
     MatDividerModule,
-    MatRadioModule
+    MatRadioModule,
+    MatListModule
   ],
   exports: [
     CommonModule,

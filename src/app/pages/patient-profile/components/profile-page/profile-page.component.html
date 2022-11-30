@@ -1,8 +1,8 @@
 <div class="profile-div">
     <div class="left">
         <img class="profile-pic" src="https://icons.veryicon.com/png/o/miscellaneous/two-color-icon-library/user-286.png">
-        <mat-label class="user-name">{{loggedPatient.firstName}} {{loggedPatient.lastName}}</mat-label>
-        <mat-label class="email">{{loggedPatient.email}}</mat-label>
+        <mat-label class="user-name">{{loggedPatient.applicationPatient.firstName}} {{loggedPatient.applicationPatient.lastName}}</mat-label>
+        <mat-label class="email">{{loggedPatient.applicationPatient.email}}</mat-label>
         <button mat-raised-button>Edit profile</button>
         <button mat-raised-button>Change password</button>
     </div>
@@ -13,11 +13,11 @@
             <tr>
                 <td>
                     <mat-label class="p-question">Last name</mat-label>
-                    <mat-label class="p-answer">{{loggedPatient.lastName}}</mat-label>
+                    <mat-label class="p-answer">{{loggedPatient.applicationPatient.lastName}}</mat-label>
                 </td>
                 <td>
                     <mat-label class="p-question">First name</mat-label>
-                    <mat-label class="p-answer">{{loggedPatient.firstName}}</mat-label>
+                    <mat-label class="p-answer">{{loggedPatient.applicationPatient.firstName}}</mat-label>
                 </td>
                 <td>
                     <mat-label class="p-question">Gender</mat-label>
@@ -25,7 +25,7 @@
                 </td>
                 <td>
                     <mat-label class="p-question">Birth date</mat-label>
-                    <mat-label class="p-answer">{{loggedPatient.dateOfBirth | date:'mediumDate'}}</mat-label>
+                    <mat-label class="p-answer">{{loggedPatient.birthDate | date:'mediumDate'}}</mat-label>
                 </td>
             </tr>
             <tr>
@@ -35,11 +35,15 @@
                 </td>
                 <td colspan="2">
                     <mat-label class="p-question">Doctor</mat-label>
-                    <mat-label class="p-answer">Petar Petrovic</mat-label>
+                    <mat-label class="p-answer">{{loggedPatient.choosenDoctor}}</mat-label>
                 </td>
             </tr>
         </table>
         <mat-label class="heading">ALLERGIES</mat-label>
+        <mat-list>
+            <mat-list-item *ngFor="let a of loggedPatient.allergies">{{loggedPatient.allergies}}
+            </mat-list-item>
+          </mat-list>
         
     </div>
 </div>

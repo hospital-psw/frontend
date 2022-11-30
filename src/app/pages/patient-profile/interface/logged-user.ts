@@ -1,11 +1,7 @@
 export interface LoggedUser {
-    id: string;
+    id: number;
     firstName: string;
     lastName: string;
-    dateOfBirth: Date;
-    gender: number;
-    bloodType:  number;
     email: string;
-    bloodtype: string;
-    allergies: string[];
+    role: string;
 }
