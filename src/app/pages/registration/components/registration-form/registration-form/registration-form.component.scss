@@ -46,6 +46,9 @@
         padding-bottom: 2%;
         width: 45%;
 
+        .mat-datepicker-toggle{
+            float: right;
+        }
         .submit-button{
             width: 100%;
             background-color: var(--submit-button-white);

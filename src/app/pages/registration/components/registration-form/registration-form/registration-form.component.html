@@ -25,11 +25,18 @@
                     <input matInput ngModel name="email" #email="ngModel" placeholder="emailadress@gmail.com">
                 </mat-form-field>
 
-               
                 <mat-form-field appearance="legacy">
-                    <mat-label>Date of birth</mat-label>
-                    <input matInput ngModel name="date" #date="ngModel" placeholder="xx/yy/zzzz">
+                   <mat-label>Date of birth</mat-label>
+                   <input matInput [matDatepicker]="datePicker" ngModel name="date" #date="ngModel">
+                   <mat-datepicker-toggle [for]="datePicker" matSuffix></mat-datepicker-toggle>
+                   <mat-datepicker #datePicker> </mat-datepicker>
                 </mat-form-field>
+                  
+
+               <!--<mat-form-field appearance="legacy">
+                    <mat-label>Date of birth</mat-label>
+                    <input matInput ngModel name="date" #date="ngModel" placeholder="yyyy-mm-dd">
+                </mat-form-field> --> 
                 
                     
                 <mat-form-field appearance="legacy">
@@ -40,19 +47,6 @@
                     <mat-label>Gender</mat-label>
                     <mat-hint></mat-hint>
                 </mat-form-field>
-
-                <mat-form-field appearance="legacy">
-                    <mat-label>Password</mat-label>
-                    <input matInput ngModel name="password" #password="ngModel" type="password" >
-                    <mat-hint></mat-hint>
-                </mat-form-field>
-
-                <mat-form-field appearance="legacy">
-                    <mat-label>Confirm password</mat-label>
-                    <input matInput ngModel name="cpassword" #cpassword="ngModel" type="password" >
-                    <mat-hint></mat-hint>
-                </mat-form-field>
-
                 
                 <button type="submit" mat-stroked-button class="submit-button">
                     Submit
@@ -86,9 +80,21 @@
                 <mat-form-field appearance="legacy">
                     <mat-label>Allergies</mat-label>
                     <mat-select  multiple ngModel name="allergie" #allergie="ngModel" >
-                      <mat-option *ngFor="let i of allergies" [value]="i.name">{{i.name}}</mat-option>
+                      <mat-option *ngFor="let i of allergies" [value]="i.id">{{i.name}}</mat-option>
                     </mat-select>
                     <mat-hint>Select allergies if you have any</mat-hint>
+                </mat-form-field>
+
+                <mat-form-field appearance="legacy">
+                    <mat-label>Password</mat-label>
+                    <input matInput ngModel name="password" #password="ngModel" type="password" >
+                    <mat-hint></mat-hint>
+                </mat-form-field>
+
+                <mat-form-field appearance="legacy">
+                    <mat-label>Confirm password</mat-label>
+                    <input matInput ngModel name="cpassword" #cpassword="ngModel" type="password" >
+                    <mat-hint></mat-hint>
                 </mat-form-field>
              </div>
              

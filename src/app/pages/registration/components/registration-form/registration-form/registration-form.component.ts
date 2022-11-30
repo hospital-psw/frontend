@@ -39,7 +39,7 @@ export class RegistrationFormComponent implements OnInit {
       firstName: n.name,
       lastName:n.surname, 
       email : n.email,
-      dateOfBirth :this.date(n.date),
+      dateOfBirth :n.date,
       male : n.gender,
       password : n.password,
       confirmPassword : n.cpassword
@@ -49,8 +49,9 @@ export class RegistrationFormComponent implements OnInit {
       applicationUserDTO : registerUser,
       bloodType: n.bloodtype,
       choosenDoctor : n.doctor,
-      allergies : [1,2]
+      allergies : n.allergie
     }
+    console.log(registerUser.dateOfBirth)
     this.registrationService.register(patient).subscribe(
       (data) => {
         alert("Success!");
