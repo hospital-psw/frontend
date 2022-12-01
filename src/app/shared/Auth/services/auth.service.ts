@@ -1,10 +1,10 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { LoginDTO } from "../interface/LoginDTO";
 import { environment } from "src/environments/environment";
 import { LoginResponseDTO } from "../interface/LoginResponseDTO";
 import { ToastrService } from "ngx-toastr";
-import { BehaviorSubject, ReplaySubject, tap } from "rxjs";
+import { BehaviorSubject, catchError, ReplaySubject, tap, throwError } from "rxjs";
 import { User } from "../model/user.module";
 import { Router } from "@angular/router";
 import { JWTService } from "./jwt.service";
@@ -35,7 +35,7 @@ export class AuthService{
     public login(data: LoginDTO){
         return this.http.post<LoginResponseDTO>(this.api, data).pipe(tap(response=>{
             this.handleLogin(response)
-        }))
+        })).pipe(catchError(this.handleError))
     }
 
     private handleLogin(dto: LoginResponseDTO){
@@ -44,7 +44,6 @@ export class AuthService{
         this.user.next(user);
         this.autoLogout(dto.expiresIn*60000)
         localStorage.setItem('userData', JSON.stringify(user));
-        console.log(this.decoder.decodeToken(dto.token))
     }
 
     public autoLogin(){
@@ -85,4 +84,12 @@ export class AuthService{
         }, expireIn);
     }
 
+
+    private handleError(errorResp: HttpErrorResponse){
+        let errorMessage = "An unknown error occurred!"
+        if(!errorResp.error || !errorResp.error.error){
+            return throwError(errorMessage);
+        }
+        return throwError(errorResp.error);
+    }
 }

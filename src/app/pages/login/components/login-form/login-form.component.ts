@@ -32,10 +32,9 @@ export class LoginFormComponent{
         this.router.navigate(['/home'])
         this.isLogging=false
       },
-      (error: HttpErrorResponse) =>{
-        console.log(error)
+      message =>{
         this.showError = true
-        this.errorMessage = error.error
+        this.errorMessage = message;
         form.resetForm();
       }
     )
