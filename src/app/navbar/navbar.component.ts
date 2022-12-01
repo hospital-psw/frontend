@@ -24,13 +24,7 @@ export class NavbarComponent implements OnInit, OnDestroy{
   ngOnDestroy(): void {
     this.userSub.unsubscribe();
   }
-
-  onTest(){
-    return this.http.get<string>("http://localhost:16177/api/Auth/test").subscribe(response=>{
-      console.log(response)
-    })
-  }
-
+  
   onLogout(){
     this.authService.logout();
   }

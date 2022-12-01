@@ -7,6 +7,7 @@ import { ToastrService } from "ngx-toastr";
 import { BehaviorSubject, ReplaySubject, tap } from "rxjs";
 import { User } from "../model/user.module";
 import { Router } from "@angular/router";
+import { JWTService } from "./jwt.service";
 
 @Injectable({providedIn: "root"})
 export class AuthService{
@@ -14,7 +15,10 @@ export class AuthService{
     user = new BehaviorSubject<User>(null as any);
     api=environment.apiAuthUrl
     
-    constructor(private http: HttpClient, private toastr: ToastrService, private router: Router){}
+    constructor(private http: HttpClient, 
+                private toastr: ToastrService, 
+                private router: Router,
+                private decoder: JWTService){}
 
     public showSuccess(){
         this.toastr.success("You have been successfully logged in.","Welcome back!");
@@ -40,6 +44,7 @@ export class AuthService{
         this.user.next(user);
         this.autoLogout(dto.expiresIn*60000)
         localStorage.setItem('userData', JSON.stringify(user));
+        console.log(this.decoder.decodeToken(dto.token))
     }
 
     public autoLogin(){

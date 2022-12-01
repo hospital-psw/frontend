@@ -2,8 +2,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginResponseDTO } from 'src/app/shared/Auth/interface/LoginResponseDTO';
 import { AuthService } from 'src/app/shared/Auth/services/auth.service';
+import { LoginResponseDTO } from 'src/app/shared/Auth/interface/LoginResponseDTO';
 
 @Component({
   selector: 'app-login-form',

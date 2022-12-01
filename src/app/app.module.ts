@@ -19,6 +19,7 @@ import { AuthService } from './shared/Auth/services/auth.service';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { RegistrationModule } from './pages/registration/registration.module';
 import { PatientProfileModule } from './pages/patient-profile/patient-profile.module';
+import { JWTService } from './shared/Auth/services/jwt.service';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
@@ -40,7 +41,7 @@ import { PatientProfileModule } from './pages/patient-profile/patient-profile.mo
     PatientProfileModule,
     RegistrationModule
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true}],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true}, JWTService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
