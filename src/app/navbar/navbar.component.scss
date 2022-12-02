@@ -68,9 +68,10 @@ nav ul li a {
 
 .sub-menu {
   border: 1px solid black;
-  background-color: var(--dark-gray);
+  background-color: var(--submit-button-white);
   padding: 20px;
   margin: 10px;
+  border-radius: 10px;
 }
 
 .user-info {

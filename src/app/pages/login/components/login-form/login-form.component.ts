@@ -34,7 +34,7 @@ export class LoginFormComponent{
       },
       message =>{
         this.showError = true
-        this.errorMessage = message;
+        this.errorMessage = message
         form.resetForm();
       }
     )
