@@ -10,6 +10,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [],
@@ -25,7 +28,10 @@ import {MatRadioModule} from '@angular/material/radio';
     MatToolbarModule,
     MatFormFieldModule,
     MatDividerModule,
-    MatRadioModule
+    MatRadioModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   exports: [
     CommonModule,
@@ -40,6 +46,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatFormFieldModule,
     MatDividerModule,
     MatRadioModule,
+    MatStepperModule,
+    MatDatepickerModule
   ]
 })
 export class MaterialModule {}

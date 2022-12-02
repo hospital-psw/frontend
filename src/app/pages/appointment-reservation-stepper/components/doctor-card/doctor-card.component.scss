@@ -1,0 +1,27 @@
+.background{
+  background-color: lightblue;
+  display: flex;
+  margin: 1rem auto;
+  width: 40%;
+  transition: all ease 300ms;
+}
+.selected {
+  display: flex;
+  margin: 1rem auto;
+  width: 40%;
+  background-color: #00FF00;
+  border: green 3px solid;
+}
+
+.background:hover{
+  transform: scale(110%);
+  background-color: #00FF00 !important;
+  cursor: pointer;
+}
+
+.credentials{
+  text-align: center;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}

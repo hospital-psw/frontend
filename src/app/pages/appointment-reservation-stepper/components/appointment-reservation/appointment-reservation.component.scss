@@ -1,0 +1,38 @@
+.container {
+  padding: 5% 15% 0% 15%;
+  text-align: center;
+}
+h1 {
+  font-size: 35px;
+  font-weight: bold;
+}
+::ng-deep .mat-form-field-infix{
+  display: flex !important;
+}
+::ng-deep .mat-horizontal-stepper-header-container {
+  margin-bottom: 2rem;
+}
+.card-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  row-gap: 2rem;
+}
+.description {
+  padding-bottom: 1rem;
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+}
+.date-selector{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+button {
+  background-color: #673AB7;
+  margin: 5px;
+  color: #fefefe;
+}
+::ng-deep .mat-horizontal-stepper-header{
+  pointer-events: none !important;
+}

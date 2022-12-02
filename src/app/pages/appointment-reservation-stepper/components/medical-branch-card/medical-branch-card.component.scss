@@ -1,0 +1,25 @@
+.background {
+  background-color: lightblue;
+  width: 70%;
+  margin: 0 auto;
+  padding: 1rem 0rem;
+  border-radius: 10px;
+  transition: all ease 300ms;
+}
+.background:hover {
+  transform: scale(110%);
+  background-color: #00FF00 !important;
+  cursor: pointer;
+}
+.selected {
+  width: 70%;
+  margin: 0 auto;
+  padding: 1rem 0rem;
+  border-radius: 10px;
+  background-color: #00FF00;
+  border: green 3px solid;
+}
+h3 {
+  margin: 0;
+  padding: 0;
+}

@@ -1,0 +1,52 @@
+<div class="container">
+  <h1>Appointment reservation</h1>
+  <mat-stepper orientation="horizontal" linear="true">
+    <!-- //TODO: make normal binding when you bind date picker to field -->
+    <mat-step label="Select a date 😄" [completed]="true">
+      <div class="date-selector">
+        <div class="description">When would you like your appointment to take place?</div>
+        <mat-form-field class="example-full-width field" appearance="fill">
+          <mat-label>Choose a date</mat-label>
+          <input readonly="true" matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="buttons">
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+
+    <mat-step label="Select the medical branch 🥼" [completed]="selectedBranchId !== -1">
+      <p class="description">Pick one of the many specialties we offer:</p>
+      <div class="card-container">
+        <app-medical-branch-card *ngFor="let discipline of branches" [content]="discipline"
+          [selected]="selectedBranchId === discipline.id" (click)="selectBranch(discipline.id)">
+        </app-medical-branch-card>
+      </div>
+      <div class="buttons">
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext [disabled]="selectedBranchId === -1">Next</button>
+      </div>
+    </mat-step>
+
+    <mat-step label="Pick a doctor 👨‍⚕️" [completed]="selectedDoctorId !== -1">
+      <p class="description">Pick one of our highly qualified experts:</p>
+      <app-doctor-card *ngFor="let doctor of doctors" [doctor]="doctor" [selected]="selectedDoctorId === doctor.id"
+        (click)="selectDoctor(doctor.id)"></app-doctor-card>
+      <div class="buttons">
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext [disabled]="selectedDoctorId === -1">Next</button>
+      </div>
+    </mat-step>
+
+    <mat-step label="Almost done, pick an appointment 📅" completed="false">
+      <p class="description">Pick the appointment that suits you the best:</p>
+      <div class="buttons">
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button>Schedule</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</div>
