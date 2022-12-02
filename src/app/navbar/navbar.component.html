@@ -1,10 +1,10 @@
 <header>
   <nav>
-    <img src="assets/navbar/logo.png" class="logo" />
+    <img (click)="onHome()" src="assets/navbar/logo.png" class="logo shrink" />
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Feedback</a></li>
-      <li><a href="#">About</a></li>
+      <li class="shrink"><a href="/home">Home</a></li>
+      <li class="shrink"><a href="/feedback">Feedback</a></li>
+      <li class="shrink"><a href="/home">About</a></li>
     </ul>
     <img (click)="onToggle()" src="assets/navbar/user.png" class="user-pic" />
 
@@ -12,20 +12,25 @@
       <div class="sub-menu">
         <div class="user-info">
           <img src="assets/navbar/user.png" />
-          <h2>John Doe</h2>
+          <h2>{{ name }}</h2>
         </div>
         <hr />
+        <a href="/profile" class="sub-menu-link">
+          <img src="assets/navbar/profile.png" />
+          <p>My Profile</p>
+          <span>></span>
+        </a>
         <a href="#" class="sub-menu-link">
           <img src="assets/navbar/setting.png" />
-          <p>Edit Profile</p>
+          <p>Settings</p>
           <span>></span>
         </a>
         <a href="#" class="sub-menu-link">
           <img src="assets/navbar/help.png" />
-          <p>Edit Profile</p>
+          <p>Help</p>
           <span>></span>
         </a>
-        <a href="#" class="sub-menu-link">
+        <a (click)="onLogout()" href="#" class="sub-menu-link red">
           <img src="assets/navbar/logout.png" />
           <p>Logout</p>
           <span>></span>

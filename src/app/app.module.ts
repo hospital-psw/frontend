@@ -34,7 +34,9 @@ import { MatMenuModule } from '@angular/material/menu';
     HospitalModule,
     FeedbackModule,
     WelcomeModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right',
+    }),
     BloodbankPasswordModule,
     LoaderModule,
     LoginModule,

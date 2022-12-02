@@ -67,7 +67,8 @@ nav ul li a {
 }
 
 .sub-menu {
-  background-color: white;
+  border: 1px solid black;
+  background-color: var(--dark-gray);
   padding: 20px;
   margin: 10px;
 }
@@ -79,10 +80,11 @@ nav ul li a {
 
 .user-info h2 {
   font-weight: 500;
+  margin: 0;
 }
 
 .user-info img {
-  width: 60px;
+  width: 50px;
   border-radius: 50%;
   margin-right: 15px;
 }
@@ -117,6 +119,7 @@ nav ul li a {
 }
 
 .sub-menu-link span {
+  margin-right: 10px;
   font-size: 20px;
   transition: transform 0.5s;
 }
@@ -127,4 +130,12 @@ nav ul li a {
 
 .sub-menu-link:hover p {
   font-weight: 600;
+}
+
+.shrink {
+  transition: all .2s ease-in-out;
+}
+
+.shrink:hover {
+  transform: scale(0.9);
 }
