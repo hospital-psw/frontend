@@ -20,6 +20,7 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { RegistrationModule } from './pages/registration/registration.module';
 import { PatientProfileModule } from './pages/patient-profile/patient-profile.module';
 import { JWTService } from './shared/Auth/services/jwt.service';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
@@ -38,6 +39,7 @@ import { JWTService } from './shared/Auth/services/jwt.service';
     LoaderModule,
     LoginModule,
     MatInputModule,
+    MatMenuModule,
     PatientProfileModule,
     RegistrationModule
   ],

@@ -1,26 +1,36 @@
-<mat-toolbar class="nav-background">
-  <mat-toolbar-row>
-    <a routerLink="/">
-      <button mat-button>Welcome</button>
-    </a>
-    <a routerLink="/home">
-      <button mat-button>Home</button>
-    </a>
-    <a routerLink="/profile">
-      <button mat-button *ngIf="isLogged">My profile</button>
-    </a>
-    <a routerLink="/feedback">
-      <button mat-button *ngIf="isLogged">Leave us Feedback</button>
-    </a>
-    <a routerLink="/login">
-      <button mat-button *ngIf="!isLogged">Login</button>
-    </a>
-    <a>
-      <button mat-button *ngIf="isLogged" (click)="onLogout()">Logout</button>
-    </a>
-    <span class="spacer"></span>
-    <a routerLink="/registration">
-      <button mat-button *ngIf="!isLogged">Register</button>
-    </a>
-  </mat-toolbar-row>
-</mat-toolbar>
+<header>
+  <nav>
+    <img src="assets/navbar/logo.png" class="logo" />
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Feedback</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+    <img (click)="onToggle()" src="assets/navbar/user.png" class="user-pic" />
+
+    <div [ngClass]="isToggled ? 'open-menu ' : 'sub-menu-wrap'">
+      <div class="sub-menu">
+        <div class="user-info">
+          <img src="assets/navbar/user.png" />
+          <h2>John Doe</h2>
+        </div>
+        <hr />
+        <a href="#" class="sub-menu-link">
+          <img src="assets/navbar/setting.png" />
+          <p>Edit Profile</p>
+          <span>></span>
+        </a>
+        <a href="#" class="sub-menu-link">
+          <img src="assets/navbar/help.png" />
+          <p>Edit Profile</p>
+          <span>></span>
+        </a>
+        <a href="#" class="sub-menu-link">
+          <img src="assets/navbar/logout.png" />
+          <p>Logout</p>
+          <span>></span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>

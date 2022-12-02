@@ -12,6 +12,7 @@ export class NavbarComponent implements OnInit, OnDestroy{
   
   private userSub: Subscription;
   isLogged = false
+  isToggled = false
 
   constructor(private authService: AuthService, private http: HttpClient) { }
   
@@ -29,4 +30,7 @@ export class NavbarComponent implements OnInit, OnDestroy{
     this.authService.logout();
   }
 
+  onToggle(){
+    this.isToggled = !this.isToggled;
+  }
 }
