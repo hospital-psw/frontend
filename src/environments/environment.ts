@@ -8,7 +8,8 @@ export const environment = {
   apiAuthUrl : "http://localhost:16177/api/Auth/login",
   apiFeedbackUrl : "http://localhost:16177/api/Feedback",
   apiNewsUrl : "http://localhost:45488/api/News",
-  apiPatientUrl : "http://localhost:16177/api/ApplicationPatient"
+  apiPatientUrl : "http://localhost:16177/api/ApplicationPatient",
+  apiAppointmentUrl: "http://localhost:16177/api/Appointment"
 };
 
 /*

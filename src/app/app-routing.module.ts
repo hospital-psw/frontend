@@ -11,7 +11,7 @@ import { HomePageComponent } from './pages/home/components/home-page/home-page.c
 
 const routes: Routes = [
   { path: '', component: WelcomePageComponent },
-  { path: 'home', component: HomePageComponent},
+  { path: 'home', component: HomePageComponent, canActivate:[AuthGuard]},
   { path: 'feedback', component: FeedbackPageComponent, canActivate:[AuthGuard]},
   { path: 'changePassword', component: ChangePasswordComponent },
   { path: 'registration', component: RegistrationFormComponent},

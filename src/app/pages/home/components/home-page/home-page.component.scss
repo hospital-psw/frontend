@@ -4,47 +4,50 @@
   padding: 0;
 }
 
-.grid-container {
+.page-layout {
   width: calc(100% - 300px);
   margin: auto;
+}
+
+.grid-container {
   display: grid;
   padding: 5rem 5%;
   grid-template-areas:
-    'left left left left left right'
     'middle middle middle middle middle middle'
+    'left left left left left right'
 }
 
 .left {
   grid-area: left;
-  height: 400px;
   background-color: black;
 }
 
 .right {
   grid-area: right;
-  background-color: yellow;
+  height: 300px;
+  background-color: red;
 }
 
 .middle {
   grid-area: middle;
-  height: 500px;
-  background-color: green
+  // height: auto;
+  // width: auto;
 }
 
 .left,
 .middle,
 .right {
   border-radius: 10px;
-  margin-left: 2rem;
-  margin-bottom: 2rem;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
 }
 
 
 @media (max-width: 1200px) {
   .grid-container {
     grid-template-areas:
+      'middle middle middle middle middle middle'
       'left left left left left left'
       'right right right right right right'
-      'middle middle middle middle middle middle'
   }
 }
