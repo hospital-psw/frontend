@@ -8,9 +8,10 @@ import { WelcomePageComponent } from './pages/welcome/components/welcome-page/we
 import { AuthGuard } from './shared/Auth/guard/auth.guard';
 import { ProfilePageComponent } from './pages/patient-profile/components/profile-page/profile-page.component';
 import { HomePageComponent } from './pages/home/components/home-page/home-page.component';
+import { LoggedAuthGuard } from './shared/Auth/guard/logged.auth.guard';
 
 const routes: Routes = [
-  { path: '', component: WelcomePageComponent },
+  { path: '', component: WelcomePageComponent, canActivate:[LoggedAuthGuard]},
   { path: 'home', component: HomePageComponent, canActivate:[AuthGuard]},
   { path: 'feedback', component: FeedbackPageComponent, canActivate:[AuthGuard]},
   { path: 'changePassword', component: ChangePasswordComponent },

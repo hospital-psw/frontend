@@ -1,5 +1,5 @@
-import { Doctor } from "../../registration/interface/Doctor";
-import { Patient } from "../../registration/interface/Patient";
+import { AppointmentDoctor } from "./AppointmentDoctor";
+import { AppointmentPatient } from "./AppointmentPatient";
 import { IRoom } from "./Room";
 
 export interface Appointment {
@@ -10,6 +10,6 @@ export interface Appointment {
   examType: number;
   isDone: boolean;
   room: IRoom;
-  patient: Patient;
-  doctor: Doctor;
+  patient: AppointmentPatient;
+  doctor: AppointmentDoctor;
 }

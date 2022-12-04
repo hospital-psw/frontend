@@ -94,6 +94,7 @@ export class CalendarComponent implements OnInit {
       )
       .subscribe(
         (response: CalendarEvent<{ appointment: Appointment }>[]) => {
+          console.log(response)
           this.appointments = response;
         },
         (error: HttpErrorResponse) => {
@@ -104,12 +105,13 @@ export class CalendarComponent implements OnInit {
 
 
   createTitle(appointment: Appointment): string {
+    console.log(appointment)
     return (
       this.examinationTypes[appointment.examType] +
       '\n' +
-      appointment.patient.applicationUserDTO.firstName +
+      appointment.patient.firstName +
       ' ' +
-      appointment.patient.applicationUserDTO.lastName +
+      appointment.patient.lastName +
       '\n' +
       appointment.room.floor.building.name +
       ', Floor: ' +

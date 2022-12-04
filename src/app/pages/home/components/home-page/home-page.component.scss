@@ -5,7 +5,7 @@
 }
 
 .page-layout {
-  width: calc(100% - 300px);
+  width: calc(100vw);
   margin: auto;
 }
 
@@ -30,8 +30,7 @@
 
 .middle {
   grid-area: middle;
-  // height: auto;
-  // width: auto;
+  height: auto;
 }
 
 .left,
