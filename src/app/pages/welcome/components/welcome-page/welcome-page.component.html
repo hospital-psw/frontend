@@ -7,6 +7,12 @@
       <a (click)="onClick('registration')">
         <button mat-button class="shrink">Register</button>
       </a>
+      <!-- I know this should not be here but it's just so that I can navigate easily to tenders page 
+           This menu item will be moved to navbar when everything is integrated.
+      -->
+      <a (click)="onClick('tenders')">
+        <button mat-button class="shrink">Active tenders</button>
+      </a>
     </div>
     <h1><i>Welcome to PSW Hospital</i></h1>
     <a routerLink="/home">

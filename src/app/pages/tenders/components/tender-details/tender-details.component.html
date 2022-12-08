@@ -1,0 +1,45 @@
+<div class="tender-container">
+    <div class="text-container">
+        <h1>Tender unique id: {{tender.id}}</h1>
+        <p>
+            Due date: {{tender.dueDate | date: "dd.MMMM.yyyy HH:MM" }}
+        </p>
+        <h2>Make an offer</h2>
+        <p>{{form.value | json}}</p>
+        <form [formGroup]="form">
+            <div formArrayName="bloodTypes">
+                <div *ngFor="let bloodType of bloodTypeForms.controls; let i=index" [formGroupName]="i">
+                    <mat-form-field appearance="legacy" required>
+                        <mat-select formControlName="bloodType">
+                            <mat-option [value]="0">A+</mat-option>
+                            <mat-option [value]="1">A-</mat-option>
+                            <mat-option [value]="2">B+</mat-option>
+                            <mat-option [value]="3">B-</mat-option>
+                            <mat-option [value]="4">AB+</mat-option>
+                            <mat-option [value]="5">AB-</mat-option>
+                            <mat-option [value]="6">0+</mat-option>
+                            <mat-option [value]="7">0-</mat-option>
+                        </mat-select>
+                        <mat-label>Blood type</mat-label>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Quantity</mat-label>
+                        <input matInput type="number" formControlName="quantity" required>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Price</mat-label>
+                        <input matInput type="number" formControlName="price" required>
+                    </mat-form-field>
+
+                    <button mat-button (click)="deleteBloodType(i)" color="warn">Delete</button>
+                </div>
+            </div>
+            <button mat-button (click)="addBloodType()" color="primary" [disabled]="!canAddBloodType()">Add blood type</button>
+
+            <button mat-button (click)="sendTenderOffer()" color="primary" [disabled]="!form.valid">Submit</button>
+        </form>
+
+    </div>
+
+</div>
