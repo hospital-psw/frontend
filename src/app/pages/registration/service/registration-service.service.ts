@@ -12,16 +12,19 @@ export class RegistrationServiceService {
 
   constructor(private http: HttpClient) { }
 
- 
+ api =environment.apiUrl
 
   findAllAllergies() {
-    return this.http.get<Allergies[]>('http://localhost:16177/api/Allergies/all');
+    return this.http.get<Allergies[]>(`${this.api}/Allergies/all`);
+  }
+  findRecomendedDoctors() {
+    return this.http.get<Doctor[]>(`${this.api}/ApplicationDoctor/allrecommended`);
   }
   findAllDoctors() {
-    return this.http.get<Doctor[]>('http://localhost:16177/api/ApplicationDoctor/allrecommended');
+    return this.http.get<Doctor[]>(`${this.api}/ApplicationDoctor/all`);
   }
   register(user : Patient) {
     console.log("ovde", user);
-    return this.http.post<Patient>('http://localhost:16177/api/Auth/register/patient',user);
+    return this.http.post<Patient>(`${this.api}/Auth/register/patient`,user);
   }
 }

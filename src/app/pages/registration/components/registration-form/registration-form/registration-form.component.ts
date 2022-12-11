@@ -24,16 +24,12 @@ export class RegistrationFormComponent implements OnInit {
     this.registrationService.findAllAllergies().subscribe((res)=>{
     this.allergies = res;
     })
-    this.registrationService.findAllDoctors().subscribe((result)=>{
+    this.registrationService.findRecomendedDoctors().subscribe((result)=>{
       this.doctors = result;
       console.log(this.doctors)
     })
   }
-  date (d:any): any 
-  {
-    return d+"T12:45:55.747Z";
-    
-  }
+ 
   onSubmit(n: any){
     let registerUser: applicationUserDTO = {
       firstName: n.name,

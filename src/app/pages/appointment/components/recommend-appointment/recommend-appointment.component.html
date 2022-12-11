@@ -1,0 +1,49 @@
+<div class="appointment-container">
+    <div class="text-container">
+        <h1>Book your appointment</h1>
+    </div>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+        <div class="appointment-left">
+            <mat-form-field>
+                <mat-label>Select date range</mat-label>
+                <mat-date-range-input [rangePicker]="picker">
+                    <input matInput ngModel name="st" #st="ngModel" matStartDate placeholder="Start time"/>
+                    <input matInput ngModel name="et" #et="ngModel" matEndDate placeholder="End time"/>
+                </mat-date-range-input>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy">
+                <mat-label>Doctor</mat-label>
+                <mat-select  ngModel name="doctor" #doctor="ngModel">
+                  <mat-option *ngFor="let i of doctors" [value]="i">dr.{{i.firstName}} {{i.lastName}}</mat-option>
+                </mat-select>
+                <mat-hint>Choose your doctor</mat-hint>
+            </mat-form-field>
+            
+            
+            <mat-radio-group ngModel #pritority="ngModel"  name="priority">
+                <mat-label class="priority">Select a priority:</mat-label>
+                <mat-radio-button [value]='0'>Doctor</mat-radio-button>
+                <mat-radio-button [value]='1'>Time</mat-radio-button>
+            </mat-radio-group>
+            <button type="submit" mat-stroked-button class="submit-button">
+                Submit
+            </button>
+        </div>
+    </form>
+
+    <div class="appointment-right">
+        <mat-card *ngFor="let i of appointments" >
+            <mat-card-header >dr.{{i.firstName}} {{i.lastName}}</mat-card-header>
+            <mat-card-content>
+                Date: 22.04.2022.<br> 
+                Time: 11:30
+            </mat-card-content>
+            <mat-card-footer> 
+                <button mat-button>schedule</button>
+            </mat-card-footer>
+        </mat-card>
+    </div>
+</div>
