@@ -16,6 +16,7 @@ export class AppointmentService {
   getDoctorBySpec(spec : any):Observable<Doctor[]>{
     return this.http.get<Doctor[]>(`${this.api}/ApplicationDoctor/specialization/${spec}`);
   }
+ 
 
 }
 
