@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { MaterialModule } from 'src/app/material/material.module';
+import {MatListModule} from '@angular/material/list';
 
 
 
@@ -11,7 +12,8 @@ import { MaterialModule } from 'src/app/material/material.module';
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    MatListModule
   ]
 })
 export class PatientProfileModule { }

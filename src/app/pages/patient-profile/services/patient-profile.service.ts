@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { LoggedUser } from '../interface/logged-user';
+import { ProfileInfo } from '../interface/profile-info';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class PatientProfileService {
 
   constructor(private http: HttpClient) { }
 
-  public getPatient(patientId: number):Observable<LoggedUser>{
-    return this.http.get<LoggedUser>(`${this.apiServerUrl}/${patientId}`);
+  public getPatient(patientId: number):Observable<ProfileInfo>{
+    return this.http.get<ProfileInfo>(`${this.apiServerUrl}/getprofile/${patientId}`);
   }
 }
