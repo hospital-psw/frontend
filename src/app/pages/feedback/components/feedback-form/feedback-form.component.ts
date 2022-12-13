@@ -29,13 +29,14 @@ export class FeedbackFormComponent {
     },
     (error:HttpErrorResponse) => {
         if(error.status === 403) {
-          this.handleForbidden(error);
+          this.fs.showError(this.handleForbidden(error))
+          
         }
       })
   }
 
 private handleForbidden = (error: HttpErrorResponse) => {
-    this.router.navigate(["/forbidden"], { queryParams: { returnUrl: this.router.url }});
+    this.router.navigate(["/error/forbidden"], { queryParams: { returnUrl: this.router.url }});
     return "Forbidden";
   }
 

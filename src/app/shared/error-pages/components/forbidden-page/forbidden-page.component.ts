@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-forbidden-page',
@@ -8,14 +8,9 @@ import { Router } from '@angular/router';
 })
 export class ForbiddenPageComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private route: ActivatedRoute,private router: Router) { }
 
   ngOnInit(): void {
   }
-
-  navigateToLogin(){
-    this.router.navigate(['/home'])
-  }
-
-
+  
 }

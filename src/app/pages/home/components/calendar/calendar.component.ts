@@ -72,6 +72,7 @@ export class CalendarComponent implements OnInit {
       this.patientId = user.id    
     });
     this.getAllAppointments();
+    
   }
 
   getAllAppointments(): void {
@@ -105,7 +106,6 @@ export class CalendarComponent implements OnInit {
 
 
   createTitle(appointment: Appointment): string {
-    console.log(appointment)
     return (
       this.examinationTypes[appointment.examType] +
       '\n' +

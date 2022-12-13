@@ -7,9 +7,9 @@ import { LoginPageComponent } from './pages/login/components/login-page/login-pa
 import { WelcomePageComponent } from './pages/welcome/components/welcome-page/welcome-page.component';
 import { AuthGuard } from './shared/Auth/guard/auth.guard';
 import { ProfilePageComponent } from './pages/patient-profile/components/profile-page/profile-page.component';
-import { ForbiddenPageComponent } from './shared/forbidden-page/forbidden-page.component';
 import { HomePageComponent } from './pages/home/components/home-page/home-page.component';
 import { LoggedAuthGuard } from './shared/Auth/guard/logged.auth.guard';
+import { ErrorPageComponent } from './shared/error-pages/error-page.component';
 
 const routes: Routes = [
   { path: '', component: WelcomePageComponent, canActivate:[LoggedAuthGuard]},
@@ -19,7 +19,11 @@ const routes: Routes = [
   { path: 'registration', component: RegistrationFormComponent},
   { path: 'login', component: LoginPageComponent },
   { path: 'profile', component: ProfilePageComponent },
-  { path: 'forbidden', component: ForbiddenPageComponent },
+  {
+    path:'error',
+    component: ErrorPageComponent,
+    loadChildren:() =>import('./shared/error-pages/error-pages.module').then(x=>x.ErrorPagesModule)
+  },
 ];
 
 @NgModule({
