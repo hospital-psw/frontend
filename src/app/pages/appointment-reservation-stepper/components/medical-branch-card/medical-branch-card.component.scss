@@ -9,7 +9,7 @@
 }
 .background:hover {
   transform: scale(110%);
-  background-color: #0147af !important;
+  background-color: #3785fb !important;
   cursor: pointer;
 }
 .selected {
@@ -17,11 +17,13 @@
   margin: 0 auto;
   padding: 1rem 0rem;
   border-radius: 10px;
-  background-color: #3785fb;
+  background-color: #0147af;
   color: #fefefe;
-  border: rgb(0, 0, 183) 4px solid;
+  border: black 4px solid;
   transition: all ease 300ms;
-  font-weight: bolder;
+}
+.selected > h3 {
+  font-weight: 500;
 }
 h3 {
   margin: 0;

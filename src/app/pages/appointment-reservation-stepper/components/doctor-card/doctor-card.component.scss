@@ -3,19 +3,25 @@
   display: flex;
   margin: 1rem auto;
   width: 50%;
+  border-radius: 10px;
   transition: all ease 300ms;
+  color: #fefefe;
 }
 .selected {
   display: flex;
   margin: 1rem auto;
   width: 35%;
-  background-color: #3785fb;
-  border: rgb(0, 0, 183) 4px solid;
+  background-color: #0147af;
+  color: #fefefe;
+  border: black 4px solid;
   transition: all ease 300ms;
+}
+.selected > h3 {
+  font-weight: 500;
 }
 .background:hover{
   transform: scale(110%);
-  background-color: #0147af !important;
+  background-color: #3785fb !important;
   cursor: pointer;
 }
 .credentials{

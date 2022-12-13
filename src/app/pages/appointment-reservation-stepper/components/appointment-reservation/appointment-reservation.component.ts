@@ -55,7 +55,6 @@ export class AppointmentReservationComponent implements OnInit {
   }
   selectAppointment(date: Date) {
     this.selectedAppointment = date;
-    console.log(this.selectedAppointment)
   }
   getDoctors(): void {
     this.service.GetDoctorsBySpecialization(this.selectedBranchId).subscribe((data) => {
@@ -67,6 +66,7 @@ export class AppointmentReservationComponent implements OnInit {
   }
   pickNewDate() {
     this.stepper.selectedIndex = 0;
+    this.appointments = []
     this.noneFound = false;
   }
   pickNewDoctor() {
@@ -80,8 +80,10 @@ export class AppointmentReservationComponent implements OnInit {
     this.noneFound = false;
   }
   getAppointments(): any {
+    var temp = this.selectedDate
+    temp.setDate(temp.getDate() + 1);
     this.recommendAppointmentDTO = {
-      date: this.selectedDate,
+      date: temp,
       patientId: this.userData.id,
       doctorID: this.selectedDoctorId,
     }
