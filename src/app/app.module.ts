@@ -21,9 +21,10 @@ import { RegistrationModule } from './pages/registration/registration.module';
 import { PatientProfileModule } from './pages/patient-profile/patient-profile.module';
 import { JWTService } from './shared/Auth/services/jwt.service';
 import { MatMenuModule } from '@angular/material/menu';
+import { ForbiddenPageComponent } from './shared/forbidden-page/forbidden-page.component';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent],
+  declarations: [AppComponent, NavbarComponent, ForbiddenPageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

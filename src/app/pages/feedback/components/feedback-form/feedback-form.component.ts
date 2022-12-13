@@ -28,11 +28,15 @@ export class FeedbackFormComponent {
       this.router.navigate(['/home'])
     },
     (error:HttpErrorResponse) => {
-        console.log(error)
-        this.fs.showError(error.message);
+        if(error.status === 403) {
+          this.handleForbidden(error);
+        }
       })
   }
 
-
+private handleForbidden = (error: HttpErrorResponse) => {
+    this.router.navigate(["/forbidden"], { queryParams: { returnUrl: this.router.url }});
+    return "Forbidden";
+  }
 
 }
