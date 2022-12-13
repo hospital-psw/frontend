@@ -1,6 +1,6 @@
 .background {
-  background-color: #3283fd;
-  width: 70%;
+  background-color: #0066FF;
+  width: 80%;
   margin: 0 auto;
   padding: 1rem 0rem;
   border-radius: 10px;
@@ -9,16 +9,19 @@
 }
 .background:hover {
   transform: scale(110%);
-  background-color: #00FF00 !important;
+  background-color: #0147af !important;
   cursor: pointer;
 }
 .selected {
-  width: 70%;
+  width: 60%;
   margin: 0 auto;
   padding: 1rem 0rem;
   border-radius: 10px;
-  background-color: #00FF00;
-  border: green 3px solid;
+  background-color: #3785fb;
+  color: #fefefe;
+  border: rgb(0, 0, 183) 4px solid;
+  transition: all ease 300ms;
+  font-weight: bolder;
 }
 h3 {
   margin: 0;

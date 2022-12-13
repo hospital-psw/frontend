@@ -28,6 +28,7 @@ export class FeedbackFormComponent {
       this.router.navigate(['/home'])
     },
     (error:HttpErrorResponse) => {
+        console.log(error)
         this.fs.showError(error.message);
       })
   }

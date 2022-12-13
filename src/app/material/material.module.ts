@@ -13,6 +13,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [],
@@ -32,6 +33,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatStepperModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatListModule
   ],
   exports: [
     CommonModule,

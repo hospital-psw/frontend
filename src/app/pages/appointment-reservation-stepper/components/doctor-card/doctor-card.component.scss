@@ -2,23 +2,22 @@
   background-color: #0066FF;
   display: flex;
   margin: 1rem auto;
-  width: 40%;
+  width: 50%;
   transition: all ease 300ms;
 }
 .selected {
   display: flex;
   margin: 1rem auto;
-  width: 40%;
-  background-color: #00FF00;
-  border: green 3px solid;
+  width: 35%;
+  background-color: #3785fb;
+  border: rgb(0, 0, 183) 4px solid;
+  transition: all ease 300ms;
 }
-
 .background:hover{
   transform: scale(110%);
-  background-color: #00FF00 !important;
+  background-color: #0147af !important;
   cursor: pointer;
 }
-
 .credentials{
   text-align: center;
   width: 100%;

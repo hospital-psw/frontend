@@ -1,26 +1,42 @@
-<mat-toolbar class="nav-background">
-  <mat-toolbar-row>
-    <a routerLink="/">
-      <button mat-button>Welcome</button>
-    </a>
-    <a routerLink="/home">
-      <button mat-button>Home</button>
-    </a>
-    <a routerLink="/profile">
-      <button mat-button *ngIf="isLogged">My profile</button>
-    </a>
-    <a routerLink="/feedback">
-      <button mat-button *ngIf="isLogged">Leave us Feedback</button>
-    </a>
-    <a routerLink="/login">
-      <button mat-button *ngIf="!isLogged">Login</button>
-    </a>
-    <a routerLink="/reservation">
-      <button mat-button *ngIf="isLogged">Make a reservation</button>
-    </a>
-    <a>
-      <button mat-button *ngIf="isLogged" (click)="onLogout()">Logout</button>
-    </a>
-    <span class="spacer"></span>
-  </mat-toolbar-row>
-</mat-toolbar>
+<header>
+  <nav>
+    <img (click)="onHome()" src="assets/navbar/logo.png" class="logo shrink" />
+    <ul>
+      <li class="shrink"><a href="/home">Home</a></li>
+      <li class="shrink"><a href="/reservation">Reservations</a></li>
+      <li class="shrink"><a href="/feedback">Feedback</a></li>
+      <li class="shrink"><a href="/home">About</a></li>
+    </ul>
+    <img (click)="onToggle()" src="assets/navbar/user.png" class="user-pic" />
+
+    <div [ngClass]="isToggled ? 'open-menu ' : 'sub-menu-wrap'">
+      <div class="sub-menu">
+        <div class="user-info">
+          <img src="assets/navbar/user.png" />
+          <h2>{{ name }}</h2>
+        </div>
+        <hr />
+        <a href="/profile" class="sub-menu-link">
+          <img src="assets/navbar/profile.png" />
+          <p>My Profile</p>
+          <span>></span>
+        </a>
+        <a href="/home" class="sub-menu-link">
+          <img src="assets/navbar/setting.png" />
+          <p>Settings</p>
+          <span>></span>
+        </a>
+        <a href="/home" class="sub-menu-link">
+          <img src="assets/navbar/help.png" />
+          <p>Help</p>
+          <span>></span>
+        </a>
+        <a (click)="onLogout()" href="#" class="sub-menu-link red">
+          <img src="assets/navbar/logout.png" />
+          <p>Logout</p>
+          <span>></span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>

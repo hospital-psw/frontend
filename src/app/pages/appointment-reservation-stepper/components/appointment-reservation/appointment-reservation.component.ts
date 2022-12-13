@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatStepper } from '@angular/material/stepper';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import Branch from '../../interfaces/branch';
 import NewAppointmentDTO from '../../interfaces/newAppointmentDTO';
 import RecommendAppointmentDTO from '../../interfaces/recommendAppointmentDTO';
@@ -34,7 +35,7 @@ export class AppointmentReservationComponent implements OnInit {
     { id: 1, name: "Cardiology" },
     { id: 2, name: "Neurology" }]
 
-  constructor(private service: AppointmentReservationService, private router: Router) { }
+  constructor(private service: AppointmentReservationService, private router: Router, private toaster:ToastrService) { }
 
   ngOnInit(): void {
     this.selectedDate = new Date();
@@ -97,11 +98,8 @@ export class AppointmentReservationComponent implements OnInit {
       examType: 1
     }
     this.service.CreateReservation(this.newAppointmentDTO).subscribe((response) => {
-      console.log(response)
+      this.router.navigate(['/home'])
+      this.toaster.success('Your appointment has successfully been scheduled! 😀')
     });
   }
-  myFilter = (d: Date | null): boolean => {
-    const day = (d || new Date()).getDay();
-    return day !== 0 && day !== 6;
-  };
 }
