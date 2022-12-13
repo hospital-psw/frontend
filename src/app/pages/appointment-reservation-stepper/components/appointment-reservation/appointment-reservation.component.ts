@@ -1,43 +1,107 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatStepper } from '@angular/material/stepper';
+import { Router } from '@angular/router';
 import Branch from '../../interfaces/branch';
-import Doctor from '../../interfaces/doctor';
-
-
-
+import NewAppointmentDTO from '../../interfaces/newAppointmentDTO';
+import RecommendAppointmentDTO from '../../interfaces/recommendAppointmentDTO';
+import UserData from '../../interfaces/userData';
+import { AppointmentReservationService } from '../../services/appointment-reservation.service';
 @Component({
   selector: 'app-appointment-reservation',
   templateUrl: './appointment-reservation.component.html',
   styleUrls: ['./appointment-reservation.component.scss']
 })
 export class AppointmentReservationComponent implements OnInit {
-  selectedDate:Date;    //TODO: bind date picker
-  selectedBranchId:number = -1;
-  selectedDoctorId:number = -1;
+
+  @ViewChild('stepper') stepper: MatStepper;
+
+  noneFound: boolean = false;
+  selectedDate: Date;
+  selectedBranchId: number = -1;
+  selectedBranch?: string = '';
+  selectedDoctorId: number = -1;
+  selectedDoctor: string;
+  selectedAppointment: Date;
+  recommendAppointmentDTO: RecommendAppointmentDTO;
+  newAppointmentDTO: NewAppointmentDTO;
+  minDate: Date;
+  userData: UserData;
+  doctors: any = []
+  appointments: any = []
 
   branches: Branch[] = [
     { id: 0, name: "General" },
     { id: 1, name: "Cardiology" },
     { id: 2, name: "Neurology" }]
-  doctors: Doctor[] = [
-    { id: 0, name: 'Nikola', surname: 'Grbovic' },
-    { id: 1, name: 'Andrija', surname: 'Stanisic' },
-    { id: 2, name: 'Kicblo', surname: 'Tru' }]
 
-    selectBranch(id:number) {
-      this.selectedBranchId = id;
-    }
-    selectDoctor(id:number) {
-      this.selectedDoctorId = id;
-    }
-
-  constructor() { }
+  constructor(private service: AppointmentReservationService, private router: Router) { }
 
   ngOnInit(): void {
+    this.selectedDate = new Date();
+    this.selectedDate.setDate(this.selectedDate.getDate() + 1);
+    this.minDate = new Date();
+    this.minDate.setDate(this.minDate.getDate() + 1);
+    this.userData = JSON.parse(localStorage.getItem('userData') || '{}');
   }
-
+  selectBranch(id: number) {
+    this.selectedBranchId = id;
+    this.selectedBranch = this.branches.find((branch) => branch.id === id)?.name;
+  }
+  selectDoctor(id: number) {
+    this.selectedDoctorId = id;
+    var doc = this.doctors.find((doctor: any) => doctor.id === id);
+    this.selectedDoctor = `${doc.firstName} ${doc.lastName}`
+  }
+  selectAppointment(date: Date) {
+    this.selectedAppointment = date;
+    console.log(this.selectedAppointment)
+  }
+  getDoctors(): void {
+    this.service.GetDoctorsBySpecialization(this.selectedBranchId).subscribe((data) => {
+      this.doctors = data;
+    })
+  }
+  test() {
+    this.noneFound = !this.noneFound
+  }
+  pickNewDate() {
+    this.stepper.selectedIndex = 0;
+    this.noneFound = false;
+  }
+  pickNewDoctor() {
+    this.selectedDoctorId = -1;
+    this.selectedDoctor = "";
+    this.stepper.selectedIndex = 2;
+    this.noneFound = false;
+  }
+  toHomePage() {
+    this.router.navigate(['/home']);
+    this.noneFound = false;
+  }
+  getAppointments(): any {
+    this.recommendAppointmentDTO = {
+      date: this.selectedDate,
+      patientId: this.userData.id,
+      doctorID: this.selectedDoctorId,
+    }
+    this.service.GetAppointments(this.recommendAppointmentDTO).subscribe((data) => {
+      this.appointments = data;
+      if (!this.appointments) this.noneFound = true;
+    })
+  }
+  Schedule(): void {
+    this.newAppointmentDTO = {
+      date: this.selectedDate,
+      patientId: this.userData.id,
+      doctorID: this.selectedDoctorId,
+      examType: 1
+    }
+    this.service.CreateReservation(this.newAppointmentDTO).subscribe((response) => {
+      console.log(response)
+    });
+  }
   myFilter = (d: Date | null): boolean => {
     const day = (d || new Date()).getDay();
     return day !== 0 && day !== 6;
   };
-
 }

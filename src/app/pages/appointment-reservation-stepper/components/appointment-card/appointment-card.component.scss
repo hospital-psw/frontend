@@ -1,0 +1,36 @@
+.background{
+    background-color: #0066FF;
+    display: flex;
+    margin: 1rem auto;
+    width: 60%;
+    transition: all ease 300ms;
+    border-radius: 5px;
+  }
+  .selected {
+    display: flex;
+    margin: 1rem auto;
+    width: 50%;
+    background-color: #00FF00;
+    border: green 3px solid;
+    transition: all ease 300ms;
+  }
+  .background:hover{
+    transform: scale(110%);
+    background-color: #00FF00 !important;
+    cursor: pointer;
+  }
+  h3 {
+    color: #fefefe;
+  }
+  .info {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    flex-direction: column;
+    width: 100%;
+  }
+  .head {
+   border-bottom: #fefefe 1px solid;
+  }

@@ -1,0 +1,7 @@
+<div [class]="!selected ? 'background' : 'selected'">
+    <div class="info">
+        <h3>Potential appointment:</h3>
+        <p>Selected date: {{appointment.date | date : 'dd.MM.yyyy'}}</p>
+        <p>Recommended time: {{appointment.date | date : 'HH:mm'}}</p>
+    </div>
+</div>

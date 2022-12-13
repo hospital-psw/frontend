@@ -1,6 +1,8 @@
 .container {
-  padding: 5% 15% 0% 15%;
+  padding: 5% 5% 0% 5%;
   text-align: center;
+  display: grid;
+  grid-template-columns: 80% 20%;
 }
 h1 {
   font-size: 35px;
@@ -18,21 +20,40 @@ h1 {
   row-gap: 2rem;
 }
 .description {
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
   display: grid;
   place-items: center;
   font-size: 1.5rem;
 }
 .date-selector{
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  gap: 1rem;
 }
 button {
-  background-color: #673AB7;
+  background-color: #0066FF;
   margin: 5px;
   color: #fefefe;
 }
 ::ng-deep .mat-horizontal-stepper-header{
   pointer-events: none !important;
 }
+.dateCard{
+  background-color: #0066FF;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.dateCard:hover{
+  background-color: red;
+}
+::ng-deep .mat-step-header .mat-step-icon-selected {
+  background-color: #0066FF;
+}
+::ng-deep .mat-step-header .mat-step-icon-state-edit {
+  background-color: #0066FF;
+}
+.buttons{
+  margin-top: 2rem;
+}
+

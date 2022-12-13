@@ -1,10 +1,11 @@
 .background {
-  background-color: lightblue;
+  background-color: #3283fd;
   width: 70%;
   margin: 0 auto;
   padding: 1rem 0rem;
   border-radius: 10px;
   transition: all ease 300ms;
+  color: #fefefe;
 }
 .background:hover {
   transform: scale(110%);
