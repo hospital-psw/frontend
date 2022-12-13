@@ -27,7 +27,11 @@
   </div>
   <div class="button-group">
     <button class="button-group__button-app">SCHEDULE</button>
-    <button [disabled]="!canClick" class="button-group__button-app">
+    <button
+      [disabled]="!canClick"
+      (click)="handleCancel($event)"
+      class="button-group__button-app"
+    >
       CANCEL
     </button>
   </div>

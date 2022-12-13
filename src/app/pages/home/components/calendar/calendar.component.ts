@@ -39,8 +39,8 @@ export class CalendarComponent implements OnInit {
   view: CalendarView = CalendarView.Week;
   viewDate: Date;
   viewDateEnd: Date;
-  dayStartHour = 8;
-  dayEndHour = 12;
+  dayStartHour = 6;
+  dayEndHour = 24;
   hourSegmentHeight = 80;
   daysInWeek = 7;
 
@@ -109,9 +109,9 @@ export class CalendarComponent implements OnInit {
     return (
       this.examinationTypes[appointment.examType] +
       '\n' +
-      appointment.patient.firstName +
+      appointment.doctor.firstName +
       ' ' +
-      appointment.patient.lastName +
+      appointment.doctor.lastName +
       '\n' +
       appointment.room.floor.building.name +
       ', Floor: ' +
@@ -141,6 +141,13 @@ export class CalendarComponent implements OnInit {
     this.selectedEvent.color = colors['blue'];
     this.selectedEvent = event.event;
     this.selectedEvent.color = colors['green'];
+  }
+
+  handleCancel(event: any): void{
+    this.appointmentService.cancelAppointment(this.selectedEvent.meta?.appointment.id as number)
+    .subscribe((response) =>{
+        this.toastr.success('Your appointment has been successfully canceled!')
+    })
   }
 
 }

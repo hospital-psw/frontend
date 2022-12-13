@@ -14,8 +14,11 @@ export class AppointmentService {
   constructor(private http: HttpClient) { }
 
   public getPatientAppointments(id: number): Observable<Appointment[]>{
-    console.log(id)
     return this.http.get<Appointment[]>(`${this.api}/patient/${id}`)
+  }
+
+  public cancelAppointment(id: number) : Observable<void>{
+    return this.http.delete<void>(`${this.api}/cancel/${id}`)
   }
 
 }
