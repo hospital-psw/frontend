@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
 import { HospitalModule } from './modules/hospital/hospital.module';
-import { PagesModule } from './modules/pages/pages.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FeedbackModule } from './pages/feedback/feedback.module';
@@ -15,13 +14,13 @@ import { BloodbankPasswordModule } from './pages/bloodbank-password/bloodbank-pa
 import { LoaderModule } from './shared/modules/loader/loader.module';
 import { LoginModule } from './pages/login/login.module';
 import {MatInputModule} from '@angular/material/input';
-import { AuthService } from './shared/Auth/services/auth.service';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { RegistrationModule } from './pages/registration/registration.module';
 import { PatientProfileModule } from './pages/patient-profile/patient-profile.module';
 import { JWTService } from './shared/Auth/services/jwt.service';
 import { MatMenuModule } from '@angular/material/menu';
 import { ForbiddenPageComponent } from './shared/forbidden-page/forbidden-page.component';
+import { HomeModule } from './pages/home/home.module';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent, ForbiddenPageComponent],
@@ -31,7 +30,6 @@ import { ForbiddenPageComponent } from './shared/forbidden-page/forbidden-page.c
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
-    PagesModule,
     HospitalModule,
     FeedbackModule,
     WelcomeModule,
@@ -44,7 +42,8 @@ import { ForbiddenPageComponent } from './shared/forbidden-page/forbidden-page.c
     MatInputModule,
     MatMenuModule,
     PatientProfileModule,
-    RegistrationModule
+    RegistrationModule,
+    HomeModule,
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true}, JWTService],
   bootstrap: [AppComponent],
