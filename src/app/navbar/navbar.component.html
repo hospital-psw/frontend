@@ -15,6 +15,9 @@
     <a routerLink="/login">
       <button mat-button *ngIf="!isLogged">Login</button>
     </a>
+    <a routerLink="/reservation">
+      <button mat-button *ngIf="isLogged">Make a reservation</button>
+    </a>
     <a>
       <button mat-button *ngIf="isLogged" (click)="onLogout()">Logout</button>
     </a>

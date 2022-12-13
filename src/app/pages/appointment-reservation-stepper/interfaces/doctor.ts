@@ -1,6 +1,10 @@
 export default interface Doctor {
+  specialization:string;
   id: number;
-  name: string;
-  surname: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  role: string;
+  clientURI?: string;
 }
-//this is temporary until it's connected to BE
+
