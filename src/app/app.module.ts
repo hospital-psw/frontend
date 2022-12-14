@@ -19,6 +19,7 @@ import { AuthService } from './shared/Auth/services/auth.service';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { RegistrationModule } from './pages/registration/registration.module';
 import { PatientProfileModule } from './pages/patient-profile/patient-profile.module';
+import { TendersModule } from './pages/tenders/tenders.module';
 import { AppointmentReservationComponent } from './pages/appointment-reservation-stepper/components/appointment-reservation/appointment-reservation.component';
 import { MedicalBranchCardComponent } from './pages/appointment-reservation-stepper/components/medical-branch-card/medical-branch-card.component';
 import { DoctorCardComponent } from './pages/appointment-reservation-stepper/components/doctor-card/doctor-card.component';
@@ -50,6 +51,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatMenuModule,
     PatientProfileModule,
     RegistrationModule,
+    TendersModule,
     FormsModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true}, JWTService],
