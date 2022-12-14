@@ -12,6 +12,9 @@
     <a routerLink="/feedback">
       <button mat-button *ngIf="isLogged">Leave us Feedback</button>
     </a>
+    <a routerLink="/tenders">
+      <button mat-button *ngIf="isLogged">Active tenders</button>
+    </a>
     <a routerLink="/login">
       <button mat-button *ngIf="!isLogged">Login</button>
     </a>

@@ -15,7 +15,7 @@
 
                     <ng-container matColumnDef="bloodType">
                         <th mat-header-cell *matHeaderCellDef> Blood type </th>
-                        <td mat-cell *matCellDef="let element"> {{element.bloodType}} </td>
+                        <td mat-cell *matCellDef="let element"> {{bloodType[element.bloodType]}} </td>
                     </ng-container>
 
                     <ng-container matColumnDef="quantity">
@@ -28,7 +28,7 @@
                 </table>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-stroked-button (click)="makeAnOffer(tender.id)">
+                <button mat-button color="primary" (click)="makeAnOffer(tender.id)">
                     Make an offer
                 </button>
             </mat-card-actions>

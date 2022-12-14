@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { BloodType } from '../../enum/BloodType';
 import { Tender } from '../../interface/Tender';
+import { TenderService } from '../../service/tender.service';
 
 @Component({
   selector: 'app-tender-details',
@@ -9,44 +12,65 @@ import { Tender } from '../../interface/Tender';
   styleUrls: ['./tender-details.component.scss']
 })
 export class TenderDetailsComponent implements OnInit {
-  tender: Tender = {id: 3, dueDate: new Date(), items: [
-    {bloodType: BloodType.B_PLUS, quantity: 5, price: 0},
-    {bloodType: BloodType.B_MINUS, quantity: 10, price: 0},
-  ]};
-
+  tender: Tender;
   form: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  tenderId: number;
+  constructor(private fb: FormBuilder, private tenderService: TenderService, private route: ActivatedRoute, private toastrService: ToastrService) { }
 
   ngOnInit(): void {
+    this.loadTender();
+    this.createForm();
+  }
+
+  private fillFormArray() {
+    this.tender.items.forEach(item => {
+      this.addBloodType(item.bloodType, item.quantity, 0);
+    })
+  }
+  private createForm() {
     this.form = this.fb.group({
-      bloodTypes: this.fb.array([])
-    })
+      items: this.fb.array([])
+    });
   }
 
+  private loadTender() {
+    this.route.params
+      .subscribe(params => {
+        this.tenderService.getTender(params['id']).subscribe(
+          (res) => {
+           this.tender = res; 
+           this.tenderId = params['id'];
+           this.fillFormArray();
+          }
+        );
+      }
+    );
+  }
   get bloodTypeForms() {
-    return this.form.get('bloodTypes') as FormArray;
+    return this.form.get('items') as FormArray;
   }
 
-  addBloodType() {
+  addBloodType(type: BloodType, quantity: number, currency: number) {
     const bloodType = this.fb.group({
-      bloodType: [null, [Validators.required]],
-      quantity: [1, [Validators.required, Validators.min(1), Validators.max(1000)]],
-      price: [1, [Validators.required, Validators.min(1), Validators.max(1000)]],
+      bloodType: [type, [Validators.required]],
+      quantity: [quantity, [Validators.required, Validators.min(1), Validators.max(1000)]],
+      money: this.fb.group({
+        amount: [1, [Validators.required, Validators.min(1), Validators.max(1000)]] 
+      })
     })
-
     this.bloodTypeForms.push(bloodType);
   }
 
-  deleteBloodType(i: number) {
-    this.bloodTypeForms.removeAt(i);
-  }
-
-  canAddBloodType(): boolean {
-    return this.bloodTypeForms.length <= 8;
-  }
   
   sendTenderOffer() {
-
+    if(this.form.valid) {
+      this.tenderService.makeAnOffer(this.form.value, this.tenderId).subscribe(
+        (res) => {
+          console.log(this.form.value);
+          this.toastrService.success("You've successfully made an offer! We'll get back to you by emai!")
+        }
+      )
+    }
   }
 
 }
