@@ -12,6 +12,7 @@
       <mat-form-field class="form-field" appearance="legacy">
         <mat-label>Email</mat-label>
         <input
+          id="email"
           matInput
           type="email"
           name="email"
@@ -28,6 +29,7 @@
       <mat-form-field class="form-field" appearance="legacy">
         <mat-label>Password</mat-label>
         <input
+          id="pass"
           matInput
           name="password"
           [type]="hide ? 'password' : 'text'"
@@ -58,6 +60,7 @@
       </div>
     </div>
     <button
+      id="submit"
       [disabled]="!form.valid"
       type="submit"
       mat-stroked-button
@@ -67,6 +70,8 @@
     </button>
   </form>
   <div class="sign-up-section">
-    <span>Don't have an account yet? <a href="/"> Register here</a></span>
+    <span
+      >Don't have an account yet? <a href="/register"> Register here</a></span
+    >
   </div>
 </div>
