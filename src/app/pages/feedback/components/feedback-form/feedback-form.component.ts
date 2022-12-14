@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ErrorPagesService } from 'src/app/shared/error-pages/service/error-pages.service';
 import { GetFeedback } from '../../interface/GetFeedback';
 import { NewFeedbackDTO } from '../../interface/NewFeedbackDTO';
 import { FeedbackService } from '../../services/feedback.service';
@@ -17,7 +18,7 @@ export class FeedbackFormComponent {
   defaultPublic = false
   isCreating = false
   
-  constructor(private fs: FeedbackService, private router: Router) { }
+  constructor(private fs: FeedbackService, private router: Router, private errorService: ErrorPagesService) { }
 
   onSubmit(feedback: NewFeedbackDTO){     
     this.isCreating = true
@@ -25,19 +26,12 @@ export class FeedbackFormComponent {
     (response: GetFeedback) => {
       this.isCreating = false
       this.fs.showSuccess(); 
-      this.router.navigate(['/home'])
+      this.router.navigate(['/app/home'])
     },
     (error:HttpErrorResponse) => {
         if(error.status === 403) {
-          this.fs.showError(this.handleForbidden(error))
-          
+          this.fs.showWarning(this.errorService.handleError(error))
         }
       })
   }
-
-private handleForbidden = (error: HttpErrorResponse) => {
-    this.router.navigate(["/error/forbidden"], { queryParams: { returnUrl: this.router.url }});
-    return "Forbidden";
-  }
-
 }

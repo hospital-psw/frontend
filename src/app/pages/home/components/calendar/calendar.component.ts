@@ -10,6 +10,8 @@ import { map, Subscription } from 'rxjs';
 import { AuthService } from 'src/app/shared/Auth/services/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ExaminationType } from '../../interface/ExaminationType';
+import { ModalDialogService } from 'src/app/shared/modal-dialog/modal-dialog.service';
+import { ModalDialogData } from 'src/app/shared/modal-dialog/interface/ModalDialogData';
 
 const colors: Record<string, EventColor> = {
   red: {
@@ -26,6 +28,11 @@ const colors: Record<string, EventColor> = {
   },
 };
 
+const dialogData : ModalDialogData= {
+    title: "Cancel appointment",
+    description: "Would you like to cancel this appointment?" 
+  }
+
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
@@ -35,6 +42,8 @@ export class CalendarComponent implements OnInit {
 
   private userSub: Subscription;
   private patientId: number;
+  private dialogAnswer:  boolean;
+  isCanceling: boolean = false;
 
   view: CalendarView = CalendarView.Week;
   viewDate: Date;
@@ -59,7 +68,8 @@ export class CalendarComponent implements OnInit {
   constructor(private appointmentService: AppointmentService, 
               private router: Router,
               private toastr: ToastrService,
-              private authService: AuthService) { }
+              private authService: AuthService,
+              private dialogService: ModalDialogService) { }
 
 
 
@@ -95,7 +105,6 @@ export class CalendarComponent implements OnInit {
       )
       .subscribe(
         (response: CalendarEvent<{ appointment: Appointment }>[]) => {
-          console.log(response)
           this.appointments = response;
         },
         (error: HttpErrorResponse) => {
@@ -143,9 +152,20 @@ export class CalendarComponent implements OnInit {
     this.selectedEvent.color = colors['green'];
   }
 
-  handleCancel(event: any): void{
-    this.appointmentService.cancelAppointment(this.selectedEvent.meta?.appointment.id as number)
+  openDialog(event: any): void{
+    this.dialogService.openYesNoDialog(dialogData)
+    .afterClosed().subscribe(response =>{
+        if(response){
+          this.handleCancel(this.selectedEvent.meta?.appointment.id as number)
+        }
+    })
+  }
+
+  handleCancel(id: number){
+    this.isCanceling = true;
+    this.appointmentService.cancelAppointment(id)
     .subscribe((response) =>{
+        this.isCanceling = false;
         this.toastr.success('Your appointment has been successfully canceled!')
     })
   }

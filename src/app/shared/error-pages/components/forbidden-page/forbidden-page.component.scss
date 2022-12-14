@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
+@import './../../../../../colors.scss';
 
 $animationTime: 2s;
 
@@ -19,14 +20,40 @@ body {
   background: linear-gradient(to bottom right, #EEE, #AAA);
 }
 
+.container {
+  position: absolute;
+  left: calc(50vw);
+  top: calc(40vh);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
 h1 {
-  margin: 40px 0 20px;
+  margin: 3rem 0 1.5rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+p {
+  font-size: 2rem;
+  line-height: 2rem;
+}
+
+.back-link {
+  font-size: 2rem;
+  color: var(--blue);
+  cursor: pointer;
+}
+
+a:hover {
+  color: var(--blue);
 }
 
 .lock {
+  margin-left: 45%;
   border-radius: 5px;
-  width: 55px;
-  height: 45px;
+  width: 65px;
+  height: 55px;
   background-color: #333;
   animation: dip 1s;
   animation-delay: ($animationTime - .5);
@@ -36,9 +63,9 @@ h1 {
     content: '';
     position: absolute;
     border-left: 5px solid #333;
-    height: 20px;
-    width: 15px;
-    left: calc(50% - 12.5px);
+    height: 25px;
+    width: 20px;
+    left: calc(50% - 15px);
   }
 
   &::before {

@@ -33,4 +33,8 @@ export class FeedbackService {
   public showError(message: string){
     this.toastr.error(message,"Error");
   }
+
+  public showWarning(message: string){
+    this.toastr.warning(message, "Security Warning")
+  }
 }

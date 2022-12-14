@@ -1,3 +1,4 @@
+<app-loader *ngIf="isCanceling"></app-loader>
 <ng-template #customTemplate let-event="event" let-view="view">
   <span
     class="event__title"
@@ -29,7 +30,7 @@
     <button class="button-group__button-app">SCHEDULE</button>
     <button
       [disabled]="!canClick"
-      (click)="handleCancel($event)"
+      (click)="openDialog($event)"
       class="button-group__button-app"
     >
       CANCEL

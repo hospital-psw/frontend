@@ -4,7 +4,7 @@ import { LoginDTO } from "../interface/LoginDTO";
 import { environment } from "src/environments/environment";
 import { LoginResponseDTO } from "../interface/LoginResponseDTO";
 import { ToastrService } from "ngx-toastr";
-import { BehaviorSubject, catchError, ReplaySubject, tap, throwError } from "rxjs";
+import { BehaviorSubject, catchError, Observable, tap, throwError } from "rxjs";
 import { User } from "../model/user.module";
 import { Router } from "@angular/router";
 import { JWTService } from "./jwt.service";
@@ -32,10 +32,19 @@ export class AuthService{
         return !!this.user
     }
 
-    public login(data: LoginDTO){
+    public login(data: LoginDTO): Observable<any>{
         return this.http.post<LoginResponseDTO>(this.api, data).pipe(tap(response=>{
-            this.handleLogin(response)
+            this.checkUser(response)
         })).pipe(catchError(this.handleError))
+    }
+
+    public checkUser(response: LoginResponseDTO){
+        const tokenData: any = this.decoder.decode(response.token)
+        if(tokenData.role === 'Patient'){
+            this.handleLogin(response)       
+        }else{
+            response.id = -1;
+        }
     }
 
     private handleLogin(dto: LoginResponseDTO){
@@ -76,14 +85,12 @@ export class AuthService{
         this.tokenExpirationTimer = null;
     }
 
-
     //expireIn is in minutes
     public autoLogout(expireIn: number){
         this.tokenExpirationTimer = setTimeout(() =>{
             this.logout()
         }, expireIn);
     }
-
 
     private handleError(errorResp: HttpErrorResponse){
         let errorMessage = "An unknown error occurred!"

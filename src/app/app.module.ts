@@ -13,7 +13,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BloodbankPasswordModule } from './pages/bloodbank-password/bloodbank-password.module';
 import { LoaderModule } from './shared/modules/loader/loader.module';
 import { LoginModule } from './pages/login/login.module';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { RegistrationModule } from './pages/registration/registration.module';
 import { PatientProfileModule } from './pages/patient-profile/patient-profile.module';
@@ -21,9 +21,12 @@ import { JWTService } from './shared/Auth/services/jwt.service';
 import { MatMenuModule } from '@angular/material/menu';
 import { HomeModule } from './pages/home/home.module';
 import { ErrorPagesModule } from './shared/error-pages/error-pages.module';
+import { MainAppModule } from './main-app/main-app.module';
+import { ModalDialogComponent } from './shared/modal-dialog/modal-dialog/modal-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent],
+  declarations: [AppComponent, ModalDialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -44,7 +47,9 @@ import { ErrorPagesModule } from './shared/error-pages/error-pages.module';
     PatientProfileModule,
     RegistrationModule,
     HomeModule,
-    ErrorPagesModule
+    ErrorPagesModule,
+    MainAppModule,
+    MatDialogModule,
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true}, JWTService],
   bootstrap: [AppComponent],

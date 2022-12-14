@@ -1,0 +1,48 @@
+h1 {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.description {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  width: 40%;
+  height: 3rem;
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  border: 2px solid var(--blue);
+  border-radius: 10px;
+}
+
+.no-button {
+  background-color: var(--blue);
+  color: var(--submit-button-white);
+}
+
+.yes-button {
+  background-color: var(--submit-button-white);
+  color: var(--blue);
+}
+
+.no-button:hover {
+  border: 2px solid var(--submit-button-white);
+}
+
+.yes-button:hover {
+  border: 2px solid var(--submit-button-white);
+}
+
+button:hover {
+  background-color: var(--blue);
+  color: var(--submit-button-white);
+}

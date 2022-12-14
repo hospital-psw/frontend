@@ -1,7 +1,13 @@
-<div>
+<div class="container">
   <div class="lock"></div>
   <div class="message">
     <h1>Access to this page is restricted</h1>
-    <p>Please check with the site admin if you believe this is a mistake.</p>
+    <p>
+      Please
+      <a class="back-link" (click)="navigateToLogin()">
+        log in with a different user
+      </a>
+      to access the requested page.
+    </p>
   </div>
 </div>

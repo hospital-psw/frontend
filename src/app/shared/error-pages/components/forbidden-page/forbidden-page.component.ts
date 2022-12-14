@@ -8,9 +8,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ForbiddenPageComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,private router: Router) { }
+  private returnUrl: string;
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
-  ngOnInit(): void {
+   ngOnInit(): void {
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
   
+   public navigateToLogin = () => {
+    this.router.navigate(['/login'], { queryParams: { returnUrl: this.returnUrl }});
+  }
+
 }

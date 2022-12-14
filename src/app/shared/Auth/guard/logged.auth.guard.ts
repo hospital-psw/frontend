@@ -23,8 +23,8 @@ export class LoggedAuthGuard implements CanActivate {
         map(user =>{
           const isAuth = !!user;
             if(isAuth){
-              this.toastr.warning("Unauthorized!");
-              return this.router.createUrlTree(['/home']);
+              this.toastr.warning("You must be logged out to access this path!");
+              return this.router.createUrlTree(['/app/home']);
             }
             
             return true;

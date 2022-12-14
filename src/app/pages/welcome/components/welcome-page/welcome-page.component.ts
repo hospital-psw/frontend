@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NewsService } from '../../services/news.service';
 import { WelcomePageFeedbackService } from '../../services/welcome-page-feedback.service';
 
@@ -13,7 +13,10 @@ export class WelcomePageComponent implements OnInit {
   feedback:any = []
   allNews:any = []
 
-  constructor(private feedbackService:WelcomePageFeedbackService, private newsService: NewsService,private router: Router) { }
+  constructor(private feedbackService:WelcomePageFeedbackService, 
+              private newsService: NewsService,
+              private active: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.feedbackService.getData().subscribe((data) => {
@@ -25,7 +28,6 @@ export class WelcomePageComponent implements OnInit {
   }
 
   onClick(path: string){
-    console.log(path)
     this.router.navigate([`/${path}`])
   }
 

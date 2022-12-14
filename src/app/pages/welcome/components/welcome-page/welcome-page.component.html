@@ -4,7 +4,7 @@
       <a (click)="onClick('login')">
         <button mat-button class="shrink">Login</button>
       </a>
-      <a (click)="onClick('registration')">
+      <a (click)="onClick('register')">
         <button mat-button class="shrink">Register</button>
       </a>
     </div>
@@ -20,6 +20,9 @@
 
   <h2>Blood bank news:</h2>
   <div class="feedback-container">
-    <app-news-carousel class="carrousel" [allNews]="allNews"></app-news-carousel>
+    <app-news-carousel
+      class="carrousel"
+      [allNews]="allNews"
+    ></app-news-carousel>
   </div>
 </div>

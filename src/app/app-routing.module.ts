@@ -1,24 +1,22 @@
 import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ChangePasswordComponent } from './pages/bloodbank-password/components/change-password/change-password.component';
-import { FeedbackPageComponent } from './pages/feedback/components/feedback-page/feedback-page.component';
 import { RegistrationFormComponent } from './pages/registration/components/registration-form/registration-form/registration-form.component';
 import { LoginPageComponent } from './pages/login/components/login-page/login-page.component';
 import { WelcomePageComponent } from './pages/welcome/components/welcome-page/welcome-page.component';
 import { AuthGuard } from './shared/Auth/guard/auth.guard';
-import { ProfilePageComponent } from './pages/patient-profile/components/profile-page/profile-page.component';
-import { HomePageComponent } from './pages/home/components/home-page/home-page.component';
 import { LoggedAuthGuard } from './shared/Auth/guard/logged.auth.guard';
 import { ErrorPageComponent } from './shared/error-pages/error-page.component';
+import { MainAppComponent } from './main-app/main-app.component';
 
 const routes: Routes = [
   { path: '', component: WelcomePageComponent, canActivate:[LoggedAuthGuard]},
-  { path: 'home', component: HomePageComponent, canActivate:[AuthGuard]},
-  { path: 'feedback', component: FeedbackPageComponent, canActivate:[AuthGuard]},
-  { path: 'changePassword', component: ChangePasswordComponent },
-  { path: 'registration', component: RegistrationFormComponent},
-  { path: 'login', component: LoginPageComponent },
-  { path: 'profile', component: ProfilePageComponent },
+  { path: 'login', component: LoginPageComponent, canActivate:[LoggedAuthGuard]},
+  { path: 'register', component: RegistrationFormComponent, canActivate:[LoggedAuthGuard]},
+  {
+    path: 'app',
+    component: MainAppComponent,
+    loadChildren:() =>import('./main-app/main-app.module').then(x=>x.MainAppModule)
+  },
   {
     path:'error',
     component: ErrorPageComponent,

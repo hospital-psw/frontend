@@ -17,14 +17,14 @@ body {
 }
 
 .page {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   display: flex;
 }
 
 .page .left {
-  width: 50%;
-  height: 100%;
+  width: calc(55vw);
+  height: calc(100vh);
   display: grid;
   place-items: center;
   padding-bottom: 5rem;
