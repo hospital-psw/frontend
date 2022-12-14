@@ -20,9 +20,17 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { RegistrationModule } from './pages/registration/registration.module';
 import { PatientProfileModule } from './pages/patient-profile/patient-profile.module';
 import { TendersModule } from './pages/tenders/tenders.module';
+import { AppointmentReservationComponent } from './pages/appointment-reservation-stepper/components/appointment-reservation/appointment-reservation.component';
+import { MedicalBranchCardComponent } from './pages/appointment-reservation-stepper/components/medical-branch-card/medical-branch-card.component';
+import { DoctorCardComponent } from './pages/appointment-reservation-stepper/components/doctor-card/doctor-card.component';
+import { FormsModule } from '@angular/forms';
+import { AppointmentCardComponent } from './pages/appointment-reservation-stepper/components/appointment-card/appointment-card.component';
+import { SelectionInfoComponent } from './pages/appointment-reservation-stepper/components/selection-info/selection-info.component';
+import { JWTService } from './shared/Auth/services/jwt.service';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent],
+  declarations: [AppComponent, NavbarComponent, AppointmentReservationComponent, MedicalBranchCardComponent, DoctorCardComponent, AppointmentCardComponent, SelectionInfoComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -33,16 +41,20 @@ import { TendersModule } from './pages/tenders/tenders.module';
     HospitalModule,
     FeedbackModule,
     WelcomeModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right',
+    }),
     BloodbankPasswordModule,
     LoaderModule,
     LoginModule,
     MatInputModule,
+    MatMenuModule,
     PatientProfileModule,
     RegistrationModule,
-    TendersModule
+    TendersModule,
+    FormsModule
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true}],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true}, JWTService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

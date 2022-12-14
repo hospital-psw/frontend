@@ -1,25 +1,25 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { LoginDTO } from '../interface/LoginDTO';
-import { environment } from 'src/environments/environment';
-import { LoginResponseDTO } from '../interface/LoginResponseDTO';
-import { ToastrService } from 'ngx-toastr';
-import { BehaviorSubject, ReplaySubject, tap } from 'rxjs';
-import { User } from '../model/user.module';
-import { Router } from '@angular/router';
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { LoginDTO } from "../interface/LoginDTO";
+import { environment } from "src/environments/environment";
+import { LoginResponseDTO } from "../interface/LoginResponseDTO";
+import { ToastrService } from "ngx-toastr";
+import { BehaviorSubject, catchError, ReplaySubject, tap, throwError } from "rxjs";
+import { User } from "../model/user.module";
+import { Router } from "@angular/router";
+import { JWTService } from "./jwt.service";
 
-@Injectable({ providedIn: 'root' })
-export class AuthService {
-  private tokenExpirationTimer: any;
-  user = new BehaviorSubject<User>(null as any);
-  api = environment.apiAuthUrl;
-  bloodBankApi = environment.apiBloodBankUrl;
-
-  constructor(
-    private http: HttpClient,
-    private toastr: ToastrService,
-    private router: Router
-  ) {}
+@Injectable({providedIn: "root"})
+export class AuthService{
+    private tokenExpirationTimer: any
+    user = new BehaviorSubject<User>(null as any);
+    api=environment.apiAuthUrl
+    bloodBankApi = 'http://localhost:45488/api/BloodBank'
+    
+    constructor(private http: HttpClient, 
+                private toastr: ToastrService, 
+                private router: Router,
+                private decoder: JWTService){}
 
   public showSuccess() {
     this.toastr.success(

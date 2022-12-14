@@ -25,7 +25,6 @@ export class WelcomePageComponent implements OnInit {
   }
 
   onClick(path: string){
-    console.log(path)
     this.router.navigate([`/${path}`])
   }
 

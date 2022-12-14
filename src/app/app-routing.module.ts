@@ -10,6 +10,7 @@ import { AuthGuard } from './shared/Auth/guard/auth.guard';
 import { ProfilePageComponent } from './pages/patient-profile/components/profile-page/profile-page.component';
 import { ActiveTendersComponent } from './pages/tenders/components/active-tenders/active-tenders.component';
 import { TenderDetailsComponent } from './pages/tenders/components/tender-details/tender-details.component';
+import { AppointmentReservationComponent } from './pages/appointment-reservation-stepper/components/appointment-reservation/appointment-reservation.component';
 
 const routes: Routes = [
   { path: '', component: WelcomePageComponent },
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   { path: 'profile', component: ProfilePageComponent },
   { path: 'tenders', component: ActiveTendersComponent},
-  { path: 'tender/:id', component: TenderDetailsComponent}
+  { path: 'tender/:id', component: TenderDetailsComponent},
+  { path: 'reservation', component: AppointmentReservationComponent },
 ];
 
 @NgModule({

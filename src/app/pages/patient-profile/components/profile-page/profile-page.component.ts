@@ -3,6 +3,7 @@ import { LoggedUser } from '../../interface/logged-user';
 import { PatientProfileService } from '../../services/patient-profile.service';
 import { AuthService } from 'src/app/shared/Auth/services/auth.service'; 
 import { Subscription } from 'rxjs';
+import { ProfileInfo } from '../../interface/profile-info';
 
 @Component({
   selector: 'app-profile-page',
@@ -29,31 +30,32 @@ export class ProfilePageComponent implements OnInit {
 
   public getUser(patientId: number): void{
     this.patientService.getPatient(patientId).subscribe(
-      (response: LoggedUser) => {
+      (response: ProfileInfo) => {
         this.loggedPatient = response;
+        console.log(this.loggedPatient);
         if(response.gender == 0){
           this.userGender = 'Male';
         }
         else this.userGender='Female';
-        if(response.bloodType == 0){
+        if(response.applicationPatient.bloodType == 0){
           this.userBloodType = 'A+'
         }
-        else if(response.bloodType == 1){
+        else if(response.applicationPatient.bloodType == 1){
           this.userBloodType = 'A-'
         }
-        else if(response.bloodType == 2){
+        else if(response.applicationPatient.bloodType == 2){
           this.userBloodType = 'B+'
         }
-        else if(response.bloodType == 3){
+        else if(response.applicationPatient.bloodType == 3){
           this.userBloodType = 'B-'
         }
-        else if(response.bloodType == 4){
+        else if(response.applicationPatient.bloodType == 4){
           this.userBloodType = 'AB+'
         }
-        else if(response.bloodType == 5){
+        else if(response.applicationPatient.bloodType == 5){
           this.userBloodType = 'AB-'
         }
-        else if(response.bloodType == 6){
+        else if(response.applicationPatient.bloodType == 6){
           this.userBloodType = 'O+'
         }
         else{
