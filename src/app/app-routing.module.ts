@@ -22,6 +22,7 @@ const routes: Routes = [
     component: ErrorPageComponent,
     loadChildren:() =>import('./shared/error-pages/error-pages.module').then(x=>x.ErrorPagesModule)
   },
+   {path: '**', redirectTo: '/error/notfound'}
 ];
 
 @NgModule({
