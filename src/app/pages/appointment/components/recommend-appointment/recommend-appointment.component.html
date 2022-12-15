@@ -34,16 +34,19 @@
         </div>
     </form>
 
+    
     <div class="appointment-right">
-        <mat-card *ngFor="let i of appointments" >
-            <mat-card-header >dr.{{i.firstName}} {{i.lastName}}</mat-card-header>
-            <mat-card-content>
-                Date: 22.04.2022.<br> 
-                Time: 11:30
-            </mat-card-content>
-            <mat-card-footer> 
-                <button mat-button>schedule</button>
-            </mat-card-footer>
-        </mat-card>
+
+            <mat-card *ngFor="let i of appointments0" >
+                    <mat-card-header >dr.{{i.applicationDoctorName}} {{i.applicationDoctorSurname}}</mat-card-header>
+                    <mat-card-content>
+                        Date: {{i.recommendedAppointmentDto.date | date:'mediumDate'}}<br> 
+                        Time: {{i.recommendedAppointmentDto.date | date: 'mediumTime'}}
+                    </mat-card-content>
+                    <mat-card-footer> 
+                        <button mat-button (click)="schedule(i.recommendedAppointmentDto.date, i.applicationDoctorId)">schedule</button>
+                    </mat-card-footer>
+            </mat-card>
+        
     </div>
 </div>

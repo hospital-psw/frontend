@@ -1,5 +1,6 @@
 export interface AppointmentDoctor {
-    doctorId :number;
+    doctorId :number[];
+    patientId :number;
     fromDate : Date;
     toDate : Date;
     
