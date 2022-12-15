@@ -56,7 +56,7 @@ import { MatMenuModule } from '@angular/material/menu';
     PatientProfileModule,
     RegistrationModule,
 
-    AppointmentModule
+    AppointmentModule,
 
     TendersModule,
     FormsModule

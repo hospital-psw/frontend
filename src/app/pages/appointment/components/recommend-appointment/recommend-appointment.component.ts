@@ -37,7 +37,7 @@ export class RecommendAppointmentComponent implements OnInit {
   }
   onSubmit(n:any) {
     //idealan slucaj
-    /*
+    
     let appointmentDoctor: AppointmentDoctor = {
       doctorId :[n.doctor.id],
       patientId :-1,
@@ -49,7 +49,7 @@ export class RecommendAppointmentComponent implements OnInit {
       console.log("result ako je idealan slucaj",result)
     })
 
-    if(this.appointments0.length==0) {*/
+    if(this.appointments0.length==0) {
         if(n.priority==1){
           this.appoitnemntService.getDoctorBySpec(n.doctor.specialization).subscribe((result)=>{
             for (let i = 0; i < result.length; i++) {
@@ -92,7 +92,7 @@ export class RecommendAppointmentComponent implements OnInit {
             })
             
           }
-     // }
+      }
   }
     schedule(d:any , id:any){
     let newAppointment: NewAppointment={
