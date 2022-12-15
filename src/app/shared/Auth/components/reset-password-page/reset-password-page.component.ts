@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EmailService } from '../../services/email.service';
 import { ResetPasswordDTO } from '../../interface/ResetPasswordDTO';
 import { ToastrService } from 'ngx-toastr';
@@ -14,9 +14,10 @@ export class ResetPasswordPageComponent{
   password: string;
   confirm: string;
 
-  constructor(private emailService: EmailService, 
+  constructor(private emailService: EmailService,
               private route: ActivatedRoute,
-              private toastr: ToastrService) { }
+              private toastr: ToastrService,
+              private router: Router) { }
 
   token = this.route.snapshot.queryParams['token'];
   email = this.route.snapshot.queryParams['email'];
@@ -28,10 +29,11 @@ export class ResetPasswordPageComponent{
       token: this.token,
       email: this.email
     }
-  
+
     this.emailService.resetPassword(dto).subscribe(
       (response: any) =>{
         this.toastr.success("Your password has been successfully changed")
+        this.router.navigate(['/login'])
       },
       (error:HttpErrorResponse) => {
        this.toastr.error(error.message)
