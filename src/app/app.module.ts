@@ -24,9 +24,12 @@ import { ErrorPagesModule } from './shared/error-pages/error-pages.module';
 import { MainAppModule } from './main-app/main-app.module';
 import { ModalDialogComponent } from './shared/modal-dialog/modal-dialog/modal-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ForgotPasswordPageComponent } from './shared/Auth/components/forgot-password-page/forgot-password-page.component';
+import { FormsModule } from '@angular/forms';
+import { ResetPasswordPageComponent } from './shared/Auth/components/reset-password-page/reset-password-page.component'; 
 
 @NgModule({
-  declarations: [AppComponent, ModalDialogComponent],
+  declarations: [AppComponent, ModalDialogComponent, ForgotPasswordPageComponent, ResetPasswordPageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -50,6 +53,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     ErrorPagesModule,
     MainAppModule,
     MatDialogModule,
+    FormsModule,
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true}, JWTService],
   bootstrap: [AppComponent],

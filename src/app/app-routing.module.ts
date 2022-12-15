@@ -7,11 +7,15 @@ import { AuthGuard } from './shared/Auth/guard/auth.guard';
 import { LoggedAuthGuard } from './shared/Auth/guard/logged.auth.guard';
 import { ErrorPageComponent } from './shared/error-pages/error-page.component';
 import { MainAppComponent } from './main-app/main-app.component';
+import { ForgotPasswordPageComponent } from './shared/Auth/components/forgot-password-page/forgot-password-page.component';
+import { ResetPasswordPageComponent } from './shared/Auth/components/reset-password-page/reset-password-page.component';
 
 const routes: Routes = [
   { path: '', component: WelcomePageComponent, canActivate:[LoggedAuthGuard]},
   { path: 'login', component: LoginPageComponent, canActivate:[LoggedAuthGuard]},
   { path: 'register', component: RegistrationFormComponent, canActivate:[LoggedAuthGuard]},
+  { path: 'forgot-password', component: ForgotPasswordPageComponent, canActivate:[LoggedAuthGuard]},
+  { path: 'reset-password', component: ResetPasswordPageComponent, canActivate:[LoggedAuthGuard]},
   {
     path: 'app',
     component: MainAppComponent,
