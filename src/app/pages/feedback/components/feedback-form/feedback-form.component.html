@@ -48,15 +48,15 @@
             >
           </mat-radio-group>
         </div>
+        <button
+          type="submit"
+          [disabled]="!form.valid"
+          mat-stroked-button
+          class="submit-button"
+        >
+          Submit
+        </button>
       </div>
-      <button
-        type="submit"
-        [disabled]="!form.valid"
-        mat-stroked-button
-        class="submit-button"
-      >
-        Submit
-      </button>
     </div>
   </form>
 </div>

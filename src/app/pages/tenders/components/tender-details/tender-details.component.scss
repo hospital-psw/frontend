@@ -1,0 +1,44 @@
+.tender-container mat-form-field + mat-form-field {
+    margin-left: 8px;
+  }
+  
+  .example-right-align {
+    text-align: right;
+  }
+  
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+
+.tender-container {
+    width: 85%;
+    padding: 6%;
+    h2 {
+        font-size: 2rem;
+        line-height:1.2;
+    }
+    .text-container{
+        padding-top: 1rem; 
+        padding-left: 1rem;
+        
+        .blood-type-input {
+            mat-form-field {
+                padding-right: 10px;
+            }
+        }
+
+        h1{
+            font-size: 3rem;
+            line-height:1.2;
+        }
+        
+        p{
+            line-height: 2rem;
+            padding-top: 1rem;
+            font-size: 1.5rem;
+            font-weight: 300;
+        }  
+        
+    }
+}

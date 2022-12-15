@@ -12,7 +12,11 @@ export class RegistrationServiceService {
 
   constructor(private http: HttpClient) { }
 
+
  api =environment.apiUrl
+
+
+
 
   findAllAllergies() {
     return this.http.get<Allergies[]>(`${this.api}/Allergies/all`);
@@ -24,7 +28,11 @@ export class RegistrationServiceService {
     return this.http.get<Doctor[]>(`${this.api}/ApplicationDoctor/all`);
   }
   register(user : Patient) {
+
     console.log("ovde", user);
     return this.http.post<Patient>(`${this.api}/Auth/register/patient`,user);
+
+    
+
   }
 }

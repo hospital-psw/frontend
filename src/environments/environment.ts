@@ -8,7 +8,10 @@ export const environment = {
   apiAuthUrl : "http://localhost:16177/api/Auth/login",
   apiFeedbackUrl : "http://localhost:16177/api/Feedback",
   apiNewsUrl : "http://localhost:45488/api/News",
-  apiPatientUrl : "http://localhost:16177/api/ApplicationPatient"
+  apiBloodBankUrl: "http://localhost:45488/api/BloodBank",
+  apiPatientUrl : "http://localhost:16177/api/ApplicationPatient",
+  apiApplicationDoctor : "http://localhost:16177/api/ApplicationDoctor",
+  apiAppointment: "http://localhost:16177/api/Appointment"
 };
 
 /*
