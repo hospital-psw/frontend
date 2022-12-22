@@ -12,6 +12,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { ExaminationType } from '../../interface/ExaminationType';
 import { ModalDialogService } from 'src/app/shared/modal-dialog/modal-dialog.service';
 import { ModalDialogData } from 'src/app/shared/modal-dialog/interface/ModalDialogData';
+import { CancellationInfo } from '../../interface/CancellationInfo';
+import { CancellationRequest } from '../../interface/CancellationRequest';
 
 const colors: Record<string, EventColor> = {
   red: {
@@ -163,12 +165,29 @@ export class CalendarComponent implements OnInit {
 
   handleCancel(id: number) {
     this.isCanceling = true;
-    this.appointmentService.cancelAppointment(id)
+    this.appointmentService.cancelAppointment(this.createCancellationRequest(id))
       .subscribe((response) => {
         this.isCanceling = false;
         this.toastr.success('Your appointment has been successfully canceled!')
         window.location.reload();
       })
+  }
+
+  private createCancellationRequest(id: number) {
+    var request: CancellationRequest  = {
+      cancellationInfo: this.createCancellationInfo(),
+      appointmentId: id
+    }
+
+    return request;
+  }
+
+  private createCancellationInfo() {
+    var info : CancellationInfo={
+      date: new Date(),
+      canceledBy: 13
+    }
+    return info;
   }
 
 }

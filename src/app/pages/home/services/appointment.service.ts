@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Appointment } from '../interface/Appointment';
+import { CancellationRequest } from '../interface/CancellationRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +18,8 @@ export class AppointmentService {
     return this.http.get<Appointment[]>(`${this.api}/patient/${id}`)
   }
 
-  public cancelAppointment(id: number) : Observable<void>{
-    return this.http.delete<void>(`${this.api}/cancel/${id}`)
+  public cancelAppointment(info: CancellationRequest) : Observable<void>{
+    return this.http.put<void>(`${this.api}/cancel`, info)
   }
 
 }
