@@ -7,7 +7,7 @@ import { AuthService } from '../services/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class LoggedAuthGuard implements CanActivate {
 
   constructor(private authService: AuthService, private router: Router, private toastr : ToastrService){}
 
@@ -23,10 +23,11 @@ export class AuthGuard implements CanActivate {
         map(user =>{
           const isAuth = !!user;
             if(isAuth){
-              return true;
+              this.toastr.warning("Unauthorized!");
+              return this.router.createUrlTree(['/home']);
             }
-            this.toastr.warning("You must be logged in to access this path!");
-            return this.router.createUrlTree(['/login']);
+            
+            return true;
         })
 
        )

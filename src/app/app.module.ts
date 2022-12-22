@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
 import { HospitalModule } from './modules/hospital/hospital.module';
-import { PagesModule } from './modules/pages/pages.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FeedbackModule } from './pages/feedback/feedback.module';
@@ -15,7 +14,6 @@ import { BloodbankPasswordModule } from './pages/bloodbank-password/bloodbank-pa
 import { LoaderModule } from './shared/modules/loader/loader.module';
 import { LoginModule } from './pages/login/login.module';
 import {MatInputModule} from '@angular/material/input';
-import { AuthService } from './shared/Auth/services/auth.service';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { RegistrationModule } from './pages/registration/registration.module';
 import { PatientProfileModule } from './pages/patient-profile/patient-profile.module';
@@ -28,6 +26,7 @@ import { AppointmentCardComponent } from './pages/appointment-reservation-steppe
 import { SelectionInfoComponent } from './pages/appointment-reservation-stepper/components/selection-info/selection-info.component';
 import { JWTService } from './shared/Auth/services/jwt.service';
 import { MatMenuModule } from '@angular/material/menu';
+import { HomeModule } from './pages/home/home.module';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent, AppointmentReservationComponent, MedicalBranchCardComponent, DoctorCardComponent, AppointmentCardComponent, SelectionInfoComponent],
@@ -37,7 +36,6 @@ import { MatMenuModule } from '@angular/material/menu';
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
-    PagesModule,
     HospitalModule,
     FeedbackModule,
     WelcomeModule,
@@ -51,8 +49,12 @@ import { MatMenuModule } from '@angular/material/menu';
     MatMenuModule,
     PatientProfileModule,
     RegistrationModule,
+
     TendersModule,
-    FormsModule
+    FormsModule,
+
+    HomeModule
+
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true}, JWTService],
   bootstrap: [AppComponent],
