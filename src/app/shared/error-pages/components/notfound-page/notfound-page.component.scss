@@ -40,7 +40,7 @@ h1 {
 
   &>span {
     animation: spooky 2s alternate infinite linear;
-    color: var(--red);
+    color: var(--not-found);
     margin-top: 2rem;
     display: inline-block;
   }
@@ -51,13 +51,15 @@ h1 {
 }
 
 h2 {
-  color: var(--red);
+  color: var(--not-found);
   margin-bottom: .40em;
+  font-size: 2rem;
 }
 
 p {
-  color: var(--red);
-  margin-top: 0;
+  color: var(--not-found);
+  margin-top: 1rem;
+  font-size: 1.5rem;
 }
 
 @keyframes spooky {
