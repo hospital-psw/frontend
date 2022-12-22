@@ -1,6 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Exo+2&display=swap");
 @import "../../../../../colors.scss";
 
+.title-wrapper {
+  width: 100%;
+}
+
+// .left .right {
+//   width: 50%;
+// }
+
+.feedback-wrapper {
+  margin-top: 15rem;
+}
+
 .feedback-container {
   width: 80%;
   display: grid;
@@ -8,6 +20,7 @@
   margin: 0 auto;
   height: auto;
   padding-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 .feedback-card {
@@ -30,15 +43,11 @@
   margin-bottom: 5%;
 }
 
-.background {
-  background-color: var(--light-blue);
-  height: 100%;
-}
-
 .svg-background {
+  height: 100vh;
   aspect-ratio: 900/450;
   width: 100%;
-  background-image: url("../../../../../../public/wave.svg");
+  background-image: url("../../../../../../public/shiny-overlay.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -55,7 +64,7 @@ h1 {
 }
 
 h2 {
-  color: var(--dark-blue);
+  color: var(--blue);
   margin: 0 auto;
   text-align: center;
   font-size: 50px;

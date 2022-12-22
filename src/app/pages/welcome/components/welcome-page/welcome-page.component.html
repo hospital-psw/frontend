@@ -1,4 +1,4 @@
-<div class="background">
+<section id="hero">
   <div class="svg-background">
     <div class="not-logged-buttons">
       <a (click)="onClick('login')">
@@ -8,16 +8,26 @@
         <button mat-button class="shrink">Register</button>
       </a>
     </div>
-    <h1><i>Welcome to PSW Hospital</i></h1>
-    <a routerLink="/home">
-      <button class="homeButton" mat-raised-button>See more..</button>
-    </a>
+    <div class="title-wrapper">
+      <div class="left">
+        <h1><i>Welcome to PSW Hospital</i></h1>
+        <a routerLink="/home">
+          <button class="homeButton" mat-raised-button>See more..</button>
+        </a>
+      </div>
+      <div class="right"></div>
+    </div>
   </div>
-  <h2>What others think about us:</h2>
-  <div class="feedback-container">
-    <app-carrousel class="carrousel" [feedbacks]="feedback"></app-carrousel>
+</section>
+<section id="feedback">
+  <div class="feedback-wrapper">
+    <h2>What others think about us:</h2>
+    <div class="feedback-container">
+      <app-carrousel class="carrousel" [feedbacks]="feedback"></app-carrousel>
+    </div>
   </div>
-
+</section>
+<section id="news">
   <h2>Blood bank news:</h2>
   <div class="feedback-container">
     <app-news-carousel
@@ -25,4 +35,4 @@
       [allNews]="allNews"
     ></app-news-carousel>
   </div>
-</div>
+</section>
