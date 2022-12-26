@@ -10,6 +10,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import {MatListModule} from '@angular/material/list';
 
 @NgModule({
@@ -27,6 +30,9 @@ import {MatListModule} from '@angular/material/list';
     MatFormFieldModule,
     MatDividerModule,
     MatRadioModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatListModule
   ],
   exports: [
@@ -42,6 +48,8 @@ import {MatListModule} from '@angular/material/list';
     MatFormFieldModule,
     MatDividerModule,
     MatRadioModule,
+    MatStepperModule,
+    MatDatepickerModule
   ]
 })
 export class MaterialModule {}

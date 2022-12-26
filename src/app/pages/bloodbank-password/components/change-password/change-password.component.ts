@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginDTO } from 'src/app/shared/Auth/interface/LoginDTO';
+import { AuthService } from 'src/app/shared/Auth/services/auth.service';
 import { BloodBankManagerLoginDTO } from '../../dto/BloodBankManagerLoginDTO';
 import { ChangePasswordDTO } from '../../dto/ChangePasswordDTO';
 import { ChangePasswordService } from '../../services/change-password.service';
@@ -18,16 +20,17 @@ export class ChangePasswordComponent implements OnInit {
   showError = false;
   showWrongUsernameOrPass = false;
   isDummyPassword = false;
-  checkCredentialsDTO: BloodBankManagerLoginDTO;
+  loginCredentials: LoginDTO;
   changePasswordDTO: ChangePasswordDTO;
   hideOld = true;
   hideNew = true;
   hideNewRepeat = true;
 
-  constructor(private service: ChangePasswordService, private router: Router) {
-    this.checkCredentialsDTO = {
-      Email: '',
-      Password: '',
+  constructor(private service: ChangePasswordService, private authService: AuthService, private router: Router) {
+    this.loginCredentials = {
+      email: '',
+      password: '',
+      rememberMe: false
     };
     this.changePasswordDTO = {
       Email: '',
@@ -38,11 +41,11 @@ export class ChangePasswordComponent implements OnInit {
   ngOnInit(): void {}
 
   checkCredentials(): void {
-    this.checkCredentialsDTO.Email = this.email;
-    this.checkCredentialsDTO.Password = this.oldPassword;
-    this.service.checkCredentials(this.checkCredentialsDTO).subscribe(
+    this.loginCredentials.email = this.email;
+    this.loginCredentials.password = this.oldPassword;
+    this.authService.loginBloodBank(this.loginCredentials).subscribe(
       (res) => {
-        if (!res) {
+        if (res) {
           this.service.showSuccess('You already changed dummy password.');
           this.router.navigate(['']);
         } else {

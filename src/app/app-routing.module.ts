@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RegistrationFormComponent } from './pages/registration/components/registration-form/registration-form/registration-form.component';
 import { LoginPageComponent } from './pages/login/components/login-page/login-page.component';
@@ -9,6 +9,10 @@ import { ErrorPageComponent } from './shared/error-pages/error-page.component';
 import { MainAppComponent } from './main-app/main-app.component';
 import { ForgotPasswordPageComponent } from './shared/Auth/components/forgot-password-page/forgot-password-page.component';
 import { ResetPasswordPageComponent } from './shared/Auth/components/reset-password-page/reset-password-page.component';
+import { ActiveTendersComponent } from './pages/tenders/components/active-tenders/active-tenders.component';
+import { TenderDetailsComponent } from './pages/tenders/components/tender-details/tender-details.component';
+import { AppointmentReservationComponent } from './pages/appointment-reservation-stepper/components/appointment-reservation/appointment-reservation.component';
+
 
 const routes: Routes = [
   { path: '', component: WelcomePageComponent, canActivate:[LoggedAuthGuard]},
@@ -16,6 +20,9 @@ const routes: Routes = [
   { path: 'register', component: RegistrationFormComponent, canActivate:[LoggedAuthGuard]},
   { path: 'forgot-password', component: ForgotPasswordPageComponent, canActivate:[LoggedAuthGuard]},
   { path: 'reset-password', component: ResetPasswordPageComponent, canActivate:[LoggedAuthGuard]},
+  { path: 'tenders', component: ActiveTendersComponent, canActivate:[AuthGuard]},
+  { path: 'tender/:id', component: TenderDetailsComponent, canActivate:[AuthGuard]},
+  { path: 'reservation', component: AppointmentReservationComponent, canActivate:[AuthGuard]},
   {
     path: 'app',
     component: MainAppComponent,
@@ -27,8 +34,9 @@ const routes: Routes = [
     loadChildren:() =>import('./shared/error-pages/error-pages.module').then(x=>x.ErrorPagesModule)
   },
   {path: '**', redirectTo: '/error/notfound'},
+  
 ];
-
+ 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],

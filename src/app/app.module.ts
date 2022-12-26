@@ -17,6 +17,12 @@ import { MatInputModule } from '@angular/material/input';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { RegistrationModule } from './pages/registration/registration.module';
 import { PatientProfileModule } from './pages/patient-profile/patient-profile.module';
+import { TendersModule } from './pages/tenders/tenders.module';
+import { AppointmentReservationComponent } from './pages/appointment-reservation-stepper/components/appointment-reservation/appointment-reservation.component';
+import { MedicalBranchCardComponent } from './pages/appointment-reservation-stepper/components/medical-branch-card/medical-branch-card.component';
+import { DoctorCardComponent } from './pages/appointment-reservation-stepper/components/doctor-card/doctor-card.component';
+import { AppointmentCardComponent } from './pages/appointment-reservation-stepper/components/appointment-card/appointment-card.component';
+import { SelectionInfoComponent } from './pages/appointment-reservation-stepper/components/selection-info/selection-info.component';
 import { JWTService } from './shared/Auth/services/jwt.service';
 import { MatMenuModule } from '@angular/material/menu';
 import { HomeModule } from './pages/home/home.module';
@@ -29,7 +35,9 @@ import { FormsModule } from '@angular/forms';
 import { ResetPasswordPageComponent } from './shared/Auth/components/reset-password-page/reset-password-page.component'; 
 
 @NgModule({
-  declarations: [AppComponent, ModalDialogComponent, ForgotPasswordPageComponent, ResetPasswordPageComponent],
+  declarations: [AppComponent, NavbarComponent, AppointmentReservationComponent, ModalDialogComponent, 
+                MedicalBranchCardComponent, DoctorCardComponent, AppointmentCardComponent, SelectionInfoComponent, 
+                ForgotPasswordPageComponent, ResetPasswordPageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -54,6 +62,8 @@ import { ResetPasswordPageComponent } from './shared/Auth/components/reset-passw
     MainAppModule,
     MatDialogModule,
     FormsModule,
+    TendersModule,
+    FormsModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true}, JWTService],
   bootstrap: [AppComponent],

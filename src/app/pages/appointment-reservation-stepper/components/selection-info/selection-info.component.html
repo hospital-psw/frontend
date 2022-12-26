@@ -1,0 +1,23 @@
+<div class="wrapper">
+    <div class="header">
+        Options you have already selected:
+    </div>
+    <div class="background">
+        <div class="segment">
+            <p>Selected date: </p>
+            <p>{{selectedDate ? (selectedDate | date : 'dd.MM.yyyy') : "Not selected yet"}}</p>
+        </div>
+        <div class="segment">
+            <p>Selected branch: </p>
+            <p>{{selectedBranch ? selectedBranch : "Not selected yet"}}</p>
+        </div>
+        <div class="segment">
+            <p>Selected doctor: </p>
+            <p>{{selectedDoctor ? selectedDoctor : "Not selected yet"}}</p>
+        </div>
+        <div class="segment" id="last">
+            <p>Selected time:</p>
+            <p> {{selectedTime ? (selectedTime | date : 'HH:mm') : "Not selected yet"}}</p>
+        </div>
+    </div>
+</div>

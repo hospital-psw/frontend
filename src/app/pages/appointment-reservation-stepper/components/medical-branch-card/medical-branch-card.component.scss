@@ -1,0 +1,31 @@
+.background {
+  background-color: #0066FF;
+  width: 80%;
+  margin: 0 auto;
+  padding: 1rem 0rem;
+  border-radius: 10px;
+  transition: all ease 300ms;
+  color: #fefefe;
+}
+.background:hover {
+  transform: scale(110%);
+  background-color: #3785fb !important;
+  cursor: pointer;
+}
+.selected {
+  width: 60%;
+  margin: 0 auto;
+  padding: 1rem 0rem;
+  border-radius: 10px;
+  background-color: #0147af;
+  color: #fefefe;
+  border: black 4px solid;
+  transition: all ease 300ms;
+}
+.selected > h3 {
+  font-weight: 500;
+}
+h3 {
+  margin: 0;
+  padding: 0;
+}
