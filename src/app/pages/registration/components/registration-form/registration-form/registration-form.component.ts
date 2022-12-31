@@ -22,11 +22,10 @@ export class RegistrationFormComponent implements OnInit {
   ngOnInit(): void
 {
     this.registrationService.findAllAllergies().subscribe((res)=>{
-    this.allergies = res;
+      this.allergies = res;
     })
     this.registrationService.findAllDoctors().subscribe((result)=>{
       this.doctors = result;
-      console.log(this.doctors)
     })
   }
   date (d:any): any 

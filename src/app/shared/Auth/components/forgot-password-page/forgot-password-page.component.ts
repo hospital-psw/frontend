@@ -22,21 +22,25 @@ export class ForgotPasswordPageComponent implements OnInit {
   message: string;
   showSuccess: boolean = false;
   showError: boolean = false;
+  isLoading: boolean = false;
 
   ngOnInit(): void {
   }
 
   onSubmit(){
+    this.isLoading = true
     const dto: ForgotPasswordDTO = {
       email: this.email,
       clientURI: this.api,
     }
     this.emailService.sendForgotPasswordEmail(dto).subscribe(
       (response: any) =>{
+        this.isLoading = false;
         this.toastr.success(response)
       },
       (error:HttpErrorResponse) => {
-       this.toastr.error(error.message)
+        this.isLoading = false;
+        this.toastr.error(error.message)
       })
   }
 

@@ -35,7 +35,7 @@ import { FormsModule } from '@angular/forms';
 import { ResetPasswordPageComponent } from './shared/Auth/components/reset-password-page/reset-password-page.component'; 
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, AppointmentReservationComponent, ModalDialogComponent, 
+  declarations: [AppComponent, AppointmentReservationComponent, ModalDialogComponent, 
                 MedicalBranchCardComponent, DoctorCardComponent, AppointmentCardComponent, SelectionInfoComponent, 
                 ForgotPasswordPageComponent, ResetPasswordPageComponent],
   imports: [

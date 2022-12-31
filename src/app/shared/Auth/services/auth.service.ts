@@ -28,7 +28,6 @@ export class AuthService{
     );
   }
 
-<<<<<<< HEAD
     public login(data: LoginDTO): Observable<any>{
         return this.http.post<LoginResponseDTO>(this.api, data).pipe(tap(response=>{
             this.checkUser(response)
@@ -51,22 +50,12 @@ export class AuthService{
         this.autoLogout(dto.expiresIn*60000)
         localStorage.setItem('userData', JSON.stringify(user));
     }
-=======
   public showError(message: string) {
     this.toastr.error(message, 'Error!');
   }
 
   public isLogged() {
     return !!this.user;
-  }
->>>>>>> f86f246d400427146de6084810efaf76e70db0b6
-
-  public login(data: LoginDTO) {
-    return this.http.post<LoginResponseDTO>(this.api, data).pipe(
-      tap((response) => {
-        this.handleLogin(response);
-      })
-    );
   }
 
   public loginBloodBank(data: LoginDTO) {
@@ -79,16 +68,6 @@ export class AuthService{
       );
   }
 
-  private handleLogin(dto: LoginResponseDTO) {
-    const expirationDate = new Date(
-      new Date().getTime() + dto.expiresIn * 60000
-    );
-    const user = new User(dto.email, dto.id, dto.token, expirationDate);
-    this.user.next(user);
-    this.autoLogout(dto.expiresIn * 60000);
-    localStorage.setItem('userData', JSON.stringify(user));
-  }
-
   public autoLogin() {
     const userData: {
       id: number;
@@ -99,14 +78,7 @@ export class AuthService{
     if (!userData) {
       return;
     }
-
-<<<<<<< HEAD
-    //expireIn is in minutes
-    public autoLogout(expireIn: number){
-        this.tokenExpirationTimer = setTimeout(() =>{
-            this.logout()
-        }, expireIn);
-=======
+    
     const loadedUser = new User(
       userData.email,
       userData.id,
@@ -119,18 +91,17 @@ export class AuthService{
       this.autoLogout(
         new Date(userData._tokenExpirationDate).getTime() - new Date().getTime()
       );
->>>>>>> f86f246d400427146de6084810efaf76e70db0b6
     }
   }
 
-<<<<<<< HEAD
-    public handleError(errorResp: HttpErrorResponse){
+  public handleError(errorResp: HttpErrorResponse){
         let errorMessage = "An unknown error occurred!"
         if(!errorResp.error || errorResp.error.type){
             return throwError(errorMessage);
         }
         return throwError(errorResp.error);
-=======
+    }
+
   public logout() {
     this.user.next(null as any);
     this.router.navigate(['']);
@@ -138,7 +109,6 @@ export class AuthService{
     localStorage.removeItem('userData');
     if (this.tokenExpirationTimer) {
       clearTimeout(this.tokenExpirationTimer);
->>>>>>> f86f246d400427146de6084810efaf76e70db0b6
     }
     this.tokenExpirationTimer = null;
   }
