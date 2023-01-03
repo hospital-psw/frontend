@@ -15,20 +15,10 @@ import { TenderDetailsComponent } from './pages/tenders/components/tender-detail
 import { AppointmentReservationComponent } from './pages/appointment-reservation-stepper/components/appointment-reservation/appointment-reservation.component';
 import { HomePageComponent } from './pages/home/components/home-page/home-page.component';
 import { ViewAppointmentComponent } from './pages/home/components/view-appointment/view-appointment.component';
+import { ChangePasswordComponent } from './pages/bloodbank-password/components/change-password/change-password.component';
+import { FeedbackPageComponent } from './pages/feedback/components/feedback-page/feedback-page.component';
 
 
-const routes: Routes = [
-  { path: '', component: WelcomePageComponent, canActivate:[LoggedAuthGuard]},
-  { path: 'home', component: HomePageComponent, canActivate:[AuthGuard]},
-  { path: 'feedback', component: FeedbackPageComponent, canActivate:[AuthGuard]},
-  { path: 'changePassword', component: ChangePasswordComponent },
-  { path: 'registration', component: RegistrationFormComponent},
-  { path: 'login', component: LoginPageComponent },
-  { path: 'profile', component: ProfilePageComponent },
-  { path: 'tenders', component: ActiveTendersComponent},
-  { path: 'tender/:id', component: TenderDetailsComponent},
-  { path: 'reservation', component: AppointmentReservationComponent },
-  { path: 'appointmentView', component: ViewAppointmentComponent },
 
 
 const routes: Routes = [
@@ -40,6 +30,7 @@ const routes: Routes = [
   { path: 'tenders', component: ActiveTendersComponent, canActivate:[AuthGuard]},
   { path: 'tender/:id', component: TenderDetailsComponent, canActivate:[AuthGuard]},
   { path: 'reservation', component: AppointmentReservationComponent, canActivate:[AuthGuard]},
+  { path: 'appointmentView', component: ViewAppointmentComponent },
   {
     path: 'app',
     component: MainAppComponent,
