@@ -22,7 +22,6 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordPageComponent, canActivate:[LoggedAuthGuard]},
   { path: 'reset-password', component: ResetPasswordPageComponent, canActivate:[LoggedAuthGuard]},
   { path: 'confirm-email', component: ConfirmMailPageComponent, canActivate:[LoggedAuthGuard]},
-
   { path: 'tenders', component: ActiveTendersComponent, canActivate:[AuthGuard]},
   { path: 'tender/:id', component: TenderDetailsComponent, canActivate:[AuthGuard]},
   { path: 'reservation', component: AppointmentReservationComponent, canActivate:[AuthGuard]},

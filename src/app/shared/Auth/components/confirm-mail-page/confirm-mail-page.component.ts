@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-confirm-mail-page',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class ConfirmMailPageComponent {
 
+  constructor(@Inject(DOCUMENT) private document: Document){}
+  
+  handleClick(){
+   this.document.location.href = 'https://gmail.com';
+  }
 }

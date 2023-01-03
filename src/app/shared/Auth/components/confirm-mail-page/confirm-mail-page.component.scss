@@ -9,6 +9,14 @@
 
 .heading {
   align-items: center;
+  font-size: 5rem;
+  font-family: 'Rockwell';
+}
+
+.paragraf {
+  font-size: 2rem;
+  font-family: 'Rockwell';
+  margin-top: 2rem;
 }
 
 .google-button {
@@ -24,17 +32,18 @@
 }
 
 .btn-container {
+  margin-top: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
   background: var(--bg);
 
-  &:nth-child(1) {
+  &:nth-child(2) {
     --btn-bg: var(--blue);
     --bg: var(--blue);
   }
 
-  &:nth-child(2) {
+  &:nth-child(3) {
     --btn-bg: var(--blue);
     --bg: var(--submit-button-white);
   }
@@ -48,10 +57,9 @@ button {
   min-width: var(--width);
   min-height: var(--height);
   border-radius: var(--height);
-  color: #fff;
+  color: var(--submit-button-white);
   font-family: "Montserrat";
-  font-weight: bold;
-  background: rgba(0, 0, 0, 0.3);
+  background: var(--submit-button-white);
   cursor: pointer;
   overflow: hidden;
   display: flex;
@@ -64,6 +72,7 @@ button {
     position: relative;
     z-index: 2;
     font-size: 23px;
+    font-family: 'Rockwell';
   }
 
   .icon-container {
@@ -104,15 +113,15 @@ button {
     background: var(--btn-bg);
     border-radius: var(--height);
     z-index: 1;
-    transition: transform 500ms ease;
+    transition: transform 500ms ease-in-out;
   }
 
   &:hover {
-    color: var(--blue);
+    color: var(--black);
     background-color: var(--submit-button-white);
 
     &::after {
-      transform: translateX(76%);
+      transform: translateX(78%);
     }
 
     .icon-container {

@@ -57,7 +57,7 @@ export class RegistrationFormComponent implements OnInit {
     this.registrationService.register(patient).subscribe(
       (data) => {
         this.toastr.success("Success")
-        this.router.navigate(["/account-confirmation"])
+        this.router.navigate(["/confirm-email"])
       },
       (error: HttpErrorResponse) => {
         this.toastr.error(error.message)
