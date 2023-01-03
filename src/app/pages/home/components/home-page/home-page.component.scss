@@ -19,18 +19,15 @@
 
 .left {
   grid-area: left;
-  background-color: black;
 }
 
 .right {
   grid-area: right;
-  height: 300px;
-  background-color: red;
 }
 
 .middle {
   grid-area: middle;
-  height: auto;
+  height: 500px;
 }
 
 .left,

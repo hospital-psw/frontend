@@ -10,6 +10,10 @@ import { map, Subscription } from 'rxjs';
 import { AuthService } from 'src/app/shared/Auth/services/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ExaminationType } from '../../interface/ExaminationType';
+import { ModalDialogService } from 'src/app/shared/modal-dialog/modal-dialog.service';
+import { ModalDialogData } from 'src/app/shared/modal-dialog/interface/ModalDialogData';
+import { CancellationInfo } from '../../interface/CancellationInfo';
+import { CancellationRequest } from '../../interface/CancellationRequest';
 
 const colors: Record<string, EventColor> = {
   red: {
@@ -26,6 +30,11 @@ const colors: Record<string, EventColor> = {
   },
 };
 
+const dialogData: ModalDialogData = {
+  title: "Cancel appointment",
+  description: "Would you like to cancel this appointment?"
+}
+
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
@@ -35,12 +44,14 @@ export class CalendarComponent implements OnInit {
 
   private userSub: Subscription;
   private patientId: number;
+  private dialogAnswer: boolean;
+  isCanceling: boolean = false;
 
   view: CalendarView = CalendarView.Week;
   viewDate: Date;
   viewDateEnd: Date;
-  dayStartHour = 8;
-  dayEndHour = 12;
+  dayStartHour = 6;
+  dayEndHour = 24;
   hourSegmentHeight = 80;
   daysInWeek = 7;
 
@@ -56,10 +67,11 @@ export class CalendarComponent implements OnInit {
     meta: null as any,
   };
 
-  constructor(private appointmentService: AppointmentService, 
-              private router: Router,
-              private toastr: ToastrService,
-              private authService: AuthService) { }
+  constructor(private appointmentService: AppointmentService,
+    private router: Router,
+    private toastr: ToastrService,
+    private authService: AuthService,
+    private dialogService: ModalDialogService) { }
 
 
 
@@ -68,10 +80,11 @@ export class CalendarComponent implements OnInit {
     this.viewDate = new Date();
     this.viewDateEnd = addDays(this.viewDate, 6);
     this.examinationTypes = Object.values(ExaminationType);
-    this.userSub = this.authService.user.subscribe(user =>{
-      this.patientId = user.id    
+    this.userSub = this.authService.user.subscribe(user => {
+      this.patientId = user.id
     });
     this.getAllAppointments();
+
   }
 
   getAllAppointments(): void {
@@ -94,7 +107,6 @@ export class CalendarComponent implements OnInit {
       )
       .subscribe(
         (response: CalendarEvent<{ appointment: Appointment }>[]) => {
-          console.log(response)
           this.appointments = response;
         },
         (error: HttpErrorResponse) => {
@@ -105,13 +117,12 @@ export class CalendarComponent implements OnInit {
 
 
   createTitle(appointment: Appointment): string {
-    console.log(appointment)
     return (
       this.examinationTypes[appointment.examType] +
       '\n' +
-      appointment.patient.firstName +
+      appointment.doctor.firstName +
       ' ' +
-      appointment.patient.lastName +
+      appointment.doctor.lastName +
       '\n' +
       appointment.room.floor.building.name +
       ', Floor: ' +
@@ -142,6 +153,7 @@ export class CalendarComponent implements OnInit {
     this.selectedEvent = event.event;
     this.selectedEvent.color = colors['green'];
   }
+
   generatePdf(): void {
     this.appointmentService
       .getPdf(1)
@@ -152,4 +164,42 @@ export class CalendarComponent implements OnInit {
         window.open(url);
       });
   }
+
+  openDialog(event: any): void {
+    this.dialogService.openYesNoDialog(dialogData)
+      .afterClosed().subscribe(response => {
+        if (response) {
+          this.handleCancel(this.selectedEvent.meta?.appointment.id as number)
+        }
+      })
+  }
+
+  handleCancel(id: number) {
+    this.isCanceling = true;
+    this.appointmentService.cancelAppointment(this.createCancellationRequest(id))
+      .subscribe((response) => {
+        this.isCanceling = false;
+        this.toastr.success('Your appointment has been successfully canceled!')
+        window.location.reload();
+      })
+  }
+
+  private createCancellationRequest(id: number) {
+    var request: CancellationRequest  = {
+      cancellationInfo: this.createCancellationInfo(),
+      appointmentId: id
+    }
+
+    return request;
+  }
+
+  private createCancellationInfo() {
+    var info : CancellationInfo={
+      date: new Date(),
+      canceledBy: 13
+    }
+    return info;
+  }
+
+
 }

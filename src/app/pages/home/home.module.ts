@@ -7,6 +7,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { AppointmentService } from './services/appointment.service';
 import { MaterialModule } from 'src/app/material/material.module';
 import { ViewAppointmentComponent } from './components/view-appointment/view-appointment.component';
+import { LoaderModule } from 'src/app/shared/modules/loader/loader.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ViewAppointmentComponent } from './components/view-appointment/view-app
       provide: DateAdapter,
       useFactory: adapterFactory,
     }),
+    LoaderModule
   ],
   providers: [AppointmentService]
 })

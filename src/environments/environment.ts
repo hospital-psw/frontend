@@ -6,16 +6,20 @@ export const environment = {
   production: false,
   apiUrl: "http://localhost:16177/api",
   apiAuthUrl : "http://localhost:16177/api/Auth/login",
+  apiAuthBaseUrl : "http://localhost:16177/api/Auth",
   apiFeedbackUrl : "http://localhost:16177/api/Feedback",
   apiNewsUrl : "http://localhost:45488/api/News",
 
-  apiBloodBankUrl: "http://localhost:45488/api/BloodBank",
   apiPatientUrl : "http://localhost:16177/api/ApplicationPatient",
+  apiAppointmentUrl: "http://localhost:16177/api/Appointment",
+  forgotPasswordUrl: "http://localhost:4200/reset-password",
+
+  apiBloodBankUrl: "http://localhost:45488/api/BloodBank",
   apiApplicationDoctor : "http://localhost:16177/api/ApplicationDoctor",
+
   apiAppointment: "http://localhost:16177/api/Appointment",
 
 
-  apiAppointmentUrl: "http://localhost:16177/api/Appointment"
 
 };
 

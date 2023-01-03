@@ -1,7 +1,7 @@
 .calendar-wrapper {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   overflow-y: scroll;
-  height: inherit;
+  height: calc(60vh);
   caret-color: transparent;
 }
 
@@ -17,7 +17,7 @@
 
 .date-range {
   margin-left: 1.5rem;
-  font-size: 3rem;
+  font-size: 2rem;
   color: var(--black);
 }
 
@@ -41,14 +41,14 @@
       background-color: white;
       border: 1px solid var(--blue);
       font-weight: 600;
-      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      box-shadow: rgba(0, 0, 0, 0.20) 0px 1px 4px;
       border-radius: .5rem;
       color: var(--blue);
       transition: .2s;
     }
 
     &__button-app {
-      width: 11rem;
+      width: 10rem;
     }
 
     &__button:hover,

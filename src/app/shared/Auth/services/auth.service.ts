@@ -4,7 +4,7 @@ import { LoginDTO } from "../interface/LoginDTO";
 import { environment } from "src/environments/environment";
 import { LoginResponseDTO } from "../interface/LoginResponseDTO";
 import { ToastrService } from "ngx-toastr";
-import { BehaviorSubject, catchError, ReplaySubject, tap, throwError } from "rxjs";
+import { BehaviorSubject, catchError, Observable, tap, throwError } from "rxjs";
 import { User } from "../model/user.module";
 import { Router } from "@angular/router";
 import { JWTService } from "./jwt.service";
@@ -28,20 +28,34 @@ export class AuthService{
     );
   }
 
+    public login(data: LoginDTO): Observable<any>{
+        return this.http.post<LoginResponseDTO>(this.api, data).pipe(tap(response=>{
+            this.checkUser(response)
+        })).pipe(catchError(this.handleError))
+    }
+
+    public checkUser(response: LoginResponseDTO){
+        const tokenData: any = this.decoder.decode(response.token)
+        if(tokenData.role === 'Patient'){
+            this.handleLogin(response)       
+        }else{
+            response.id = -1;
+        }
+    }
+
+    private handleLogin(dto: LoginResponseDTO){
+        const expirationDate = new Date(new Date().getTime() + dto.expiresIn*60000);
+        const user = new User(dto.email, dto.id, dto.token, expirationDate);
+        this.user.next(user);
+        this.autoLogout(dto.expiresIn*60000)
+        localStorage.setItem('userData', JSON.stringify(user));
+    }
   public showError(message: string) {
     this.toastr.error(message, 'Error!');
   }
 
   public isLogged() {
     return !!this.user;
-  }
-
-  public login(data: LoginDTO) {
-    return this.http.post<LoginResponseDTO>(this.api, data).pipe(
-      tap((response) => {
-        this.handleLogin(response);
-      })
-    );
   }
 
   public loginBloodBank(data: LoginDTO) {
@@ -54,16 +68,6 @@ export class AuthService{
       );
   }
 
-  private handleLogin(dto: LoginResponseDTO) {
-    const expirationDate = new Date(
-      new Date().getTime() + dto.expiresIn * 60000
-    );
-    const user = new User(dto.email, dto.id, dto.token, expirationDate);
-    this.user.next(user);
-    this.autoLogout(dto.expiresIn * 60000);
-    localStorage.setItem('userData', JSON.stringify(user));
-  }
-
   public autoLogin() {
     const userData: {
       id: number;
@@ -74,7 +78,7 @@ export class AuthService{
     if (!userData) {
       return;
     }
-
+    
     const loadedUser = new User(
       userData.email,
       userData.id,
@@ -89,6 +93,14 @@ export class AuthService{
       );
     }
   }
+
+  public handleError(errorResp: HttpErrorResponse){
+        let errorMessage = "An unknown error occurred!"
+        if(!errorResp.error || errorResp.error.type){
+            return throwError(errorMessage);
+        }
+        return throwError(errorResp.error);
+    }
 
   public logout() {
     this.user.next(null as any);
