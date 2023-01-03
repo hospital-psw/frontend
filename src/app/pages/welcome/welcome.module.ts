@@ -8,8 +8,7 @@ import { CarrouselComponent } from './components/carrousel/carrousel.component';
 import { MatIconModule } from '@angular/material/icon';
 import { NewsCardComponent } from './components/news-card/news-card.component';
 import { NewsCarouselComponent } from './components/news-carousel/news-carousel.component';
-
-
+import { PrimeNgCarouselComponent } from './components/prime-ng-carousel/prime-ng-carousel.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +16,14 @@ import { NewsCarouselComponent } from './components/news-carousel/news-carousel.
     FeedbackCardComponent,
     CarrouselComponent,
     NewsCardComponent,
-    NewsCarouselComponent
+    NewsCarouselComponent,
+    PrimeNgCarouselComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
     HttpClientModule,
-    MatIconModule
+    MatIconModule,
   ]
 })
 export class WelcomeModule { }

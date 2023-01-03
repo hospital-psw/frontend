@@ -1,5 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Allergies } from '../../../interface/Allergies';
 import { applicationUserDTO } from '../../../interface/ApplicationUser';
 import { Doctor } from '../../../interface/Doctor';
@@ -17,7 +19,9 @@ export class RegistrationFormComponent implements OnInit {
   public allergies: Allergies[] = [];
   public  doctors: Doctor[] = [];
  
-  constructor(private registrationService: RegistrationServiceService) {}
+  constructor(private registrationService: RegistrationServiceService, 
+              private toastr: ToastrService,
+              private router: Router) {}
   
   ngOnInit(): void
 {
@@ -52,10 +56,11 @@ export class RegistrationFormComponent implements OnInit {
     }
     this.registrationService.register(patient).subscribe(
       (data) => {
-        alert("Success!");
+        this.toastr.success("Success")
+        this.router.navigate(["/account-confirmation"])
       },
       (error: HttpErrorResponse) => {
-        alert(error.message);
+        this.toastr.error(error.message)
       }
     );
   }
