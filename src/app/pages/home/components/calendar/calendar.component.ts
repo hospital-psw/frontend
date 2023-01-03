@@ -142,5 +142,14 @@ export class CalendarComponent implements OnInit {
     this.selectedEvent = event.event;
     this.selectedEvent.color = colors['green'];
   }
-
+  generatePdf(): void {
+    this.appointmentService
+      .getPdf(1)
+      .subscribe((response: any) => {
+        let fileName = 'treatment.pdf';
+        let blob: Blob = response.body as Blob;
+        let url = window.URL.createObjectURL(blob);
+        window.open(url);
+      });
+  }
 }

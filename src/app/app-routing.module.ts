@@ -14,6 +14,7 @@ import { AppointmentReservationComponent } from './pages/appointment-reservation
 
 import { HomePageComponent } from './pages/home/components/home-page/home-page.component';
 import { LoggedAuthGuard } from './shared/Auth/guard/logged.auth.guard';
+import { ViewAppointmentComponent } from './pages/home/components/view-appointment/view-appointment.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'tenders', component: ActiveTendersComponent},
   { path: 'tender/:id', component: TenderDetailsComponent},
   { path: 'reservation', component: AppointmentReservationComponent },
+  { path: 'appointmentView', component: ViewAppointmentComponent },
 ];
 
 @NgModule({

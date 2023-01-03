@@ -5,14 +5,18 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { AppointmentService } from './services/appointment.service';
+import { MaterialModule } from 'src/app/material/material.module';
+import { ViewAppointmentComponent } from './components/view-appointment/view-appointment.component';
 
 @NgModule({
   declarations: [
     HomePageComponent,
-    CalendarComponent
+    CalendarComponent,
+    ViewAppointmentComponent
   ],
   imports: [
     CommonModule,
+    MaterialModule,
      CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,

@@ -14,7 +14,7 @@ export const environment = {
   apiApplicationDoctor : "http://localhost:16177/api/ApplicationDoctor",
   apiAppointment: "http://localhost:16177/api/Appointment",
 
-  apiPatientUrl : "http://localhost:16177/api/ApplicationPatient",
+
   apiAppointmentUrl: "http://localhost:16177/api/Appointment"
 
 };
