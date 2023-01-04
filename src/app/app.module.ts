@@ -64,7 +64,7 @@ import { ConfirmMailPageComponent } from './shared/Auth/components/confirm-mail-
     MatDialogModule,
     FormsModule,
     TendersModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true}, JWTService],
   bootstrap: [AppComponent],

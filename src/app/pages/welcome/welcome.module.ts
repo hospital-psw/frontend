@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { NewsCardComponent } from './components/news-card/news-card.component';
 import { NewsCarouselComponent } from './components/news-carousel/news-carousel.component';
 import { PrimeNgCarouselComponent } from './components/prime-ng-carousel/prime-ng-carousel.component';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { PrimeNgCarouselComponent } from './components/prime-ng-carousel/prime-n
     MaterialModule,
     HttpClientModule,
     MatIconModule,
+    SwiperModule
   ]
 })
 export class WelcomeModule { }

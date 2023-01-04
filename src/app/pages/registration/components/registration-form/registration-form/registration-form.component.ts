@@ -18,7 +18,9 @@ import { RegistrationServiceService } from '../../../service/registration-servic
 export class RegistrationFormComponent implements OnInit {
   public allergies: Allergies[] = [];
   public  doctors: Doctor[] = [];
- 
+  public hide: boolean = true;
+  public hideConf: boolean = true;
+
   constructor(private registrationService: RegistrationServiceService, 
               private toastr: ToastrService,
               private router: Router) {}
@@ -63,6 +65,10 @@ export class RegistrationFormComponent implements OnInit {
         this.toastr.error(error.message)
       }
     );
+  }
+
+  onHome(){
+    this.router.navigate(['/'])
   }
   
 }

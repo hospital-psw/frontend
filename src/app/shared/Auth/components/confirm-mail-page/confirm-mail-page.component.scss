@@ -51,11 +51,12 @@
 
 button {
   --width: 270px;
-  --height: 60px;
+  --height: 64px;
   border: 0;
   position: relative;
   min-width: var(--width);
   min-height: var(--height);
+  border: 1px solid var(--blue);
   border-radius: var(--height);
   color: var(--submit-button-white);
   font-family: "Montserrat";
@@ -121,11 +122,11 @@ button {
     background-color: var(--submit-button-white);
 
     &::after {
-      transform: translateX(78%);
+      transform: translateX(75%);
     }
 
     .icon-container {
-      transform: translateX(125%);
+      transform: translateX(104%);
 
       .icon {
         &--left {

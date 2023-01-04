@@ -1,13 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Exo+2&display=swap");
 @import "../../../../../colors.scss";
 
+.welcome-page {
+  height: auto;
+  background: #EFEFEF;
+}
+
 .title-wrapper {
   width: 100%;
 }
-
-// .left .right {
-//   width: 50%;
-// }
 
 .feedback-wrapper {
   margin-top: 15rem;

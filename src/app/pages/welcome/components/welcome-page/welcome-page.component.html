@@ -1,38 +1,38 @@
-<section id="hero">
-  <div class="svg-background">
-    <div class="not-logged-buttons">
-      <a (click)="onClick('login')">
-        <button mat-button class="shrink">Login</button>
-      </a>
-      <a (click)="onClick('register')">
-        <button mat-button class="shrink">Register</button>
-      </a>
-    </div>
-    <div class="title-wrapper">
-      <div class="left">
-        <h1><i>Welcome to PSW Hospital</i></h1>
-        <a routerLink="/home">
-          <button class="homeButton" mat-raised-button>See more..</button>
+<div class="welcome-page">
+  <section id="hero">
+    <div class="svg-background">
+      <div class="not-logged-buttons">
+        <a (click)="onClick('login')">
+          <button mat-button class="shrink">Login</button>
+        </a>
+        <a (click)="onClick('register')">
+          <button mat-button class="shrink">Register</button>
         </a>
       </div>
-      <div class="right"></div>
+      <div class="title-wrapper">
+        <div class="left">
+          <h1><i>Welcome to PSW Hospital</i></h1>
+          <a routerLink="/home">
+            <button class="homeButton" mat-raised-button>See more..</button>
+          </a>
+        </div>
+        <div class="right"></div>
+      </div>
     </div>
-  </div>
-</section>
-<section id="feedback">
-  <div class="feedback-wrapper">
-    <h2>What others think about us:</h2>
+  </section>
+  <section id="feedback">
+    <div class="feedback-wrapper">
+      <h2>What others think about us:</h2>
+      <app-prime-ng-carousel [feedbacks]="feedback"></app-prime-ng-carousel>
+    </div>
+  </section>
+  <section id="news">
+    <h2>Blood bank news:</h2>
     <div class="feedback-container">
-      <app-carrousel class="carrousel" [feedbacks]="feedback"></app-carrousel>
+      <app-news-carousel
+        class="carrousel"
+        [allNews]="allNews"
+      ></app-news-carousel>
     </div>
-  </div>
-</section>
-<section id="news">
-  <h2>Blood bank news:</h2>
-  <div class="feedback-container">
-    <app-news-carousel
-      class="carrousel"
-      [allNews]="allNews"
-    ></app-news-carousel>
-  </div>
-</section>
+  </section>
+</div>
