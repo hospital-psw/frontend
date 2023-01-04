@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { AnamnesesPDF } from '../interface/AnamnesesPDF';
 import { Appointment } from '../interface/Appointment';
 import { CancellationRequest } from '../interface/CancellationRequest';
 
@@ -24,6 +25,12 @@ export class AppointmentService {
  
   public getPdf(treatmentId: number): any {
     return this.http.get(`${this.apiUrl}/MedicalTreatment/pdf/` + treatmentId, {
+      observe: 'response',
+      responseType: 'blob',
+    });
+  }
+  public generateAnamnesisPdf(dto: AnamnesesPDF): any {
+    return this.http.post(`${this.apiUrl}/Anamnesis/pdf`, dto, {
       observe: 'response',
       responseType: 'blob',
     });

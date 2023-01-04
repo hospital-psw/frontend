@@ -14,6 +14,7 @@ import { ModalDialogService } from 'src/app/shared/modal-dialog/modal-dialog.ser
 import { ModalDialogData } from 'src/app/shared/modal-dialog/interface/ModalDialogData';
 import { CancellationInfo } from '../../interface/CancellationInfo';
 import { CancellationRequest } from '../../interface/CancellationRequest';
+import { AnamnesesPDF } from '../../interface/AnamnesesPDF';
 
 const colors: Record<string, EventColor> = {
   red: {
@@ -41,7 +42,8 @@ const dialogData: ModalDialogData = {
   styleUrls: ['./calendar.component.scss']
 })
 export class CalendarComponent implements OnInit {
-
+  anamnesesPDF: AnamnesesPDF;
+  
   private userSub: Subscription;
   private patientId: number;
   private dialogAnswer: boolean;
@@ -154,16 +156,7 @@ export class CalendarComponent implements OnInit {
     this.selectedEvent.color = colors['green'];
   }
 
-  generatePdf(): void {
-    this.appointmentService
-      .getPdf(1)
-      .subscribe((response: any) => {
-        let fileName = 'treatment.pdf';
-        let blob: Blob = response.body as Blob;
-        let url = window.URL.createObjectURL(blob);
-        window.open(url);
-      });
-  }
+ 
 
   openDialog(event: any): void {
     this.dialogService.openYesNoDialog(dialogData)
@@ -201,5 +194,35 @@ export class CalendarComponent implements OnInit {
     return info;
   }
 
+ /* generatePdf(event: any): void {
+    this.appointmentService
+      .getPdf(this.selectedEvent.meta?.appointment.id as number)
+      .subscribe((response: any) => {
+        let fileName = 'treatment.pdf';
+        let blob: Blob = response.body as Blob;
+        let url = window.URL.createObjectURL(blob);
+        window.open(url);
+      });
+  }*/
+  generatePdf(event: any) {
+    //this.anamnesesPdfDto.appointmentId = this.selectedEvent.meta?.appointment.id as number;
+    this.anamnesesPDF = {
+      appointmentId: 33,
+      areRecepiesSelected: true,
+      areSymptomsSelected: true,
+      isDescriptionSelected: true,
+    };
+  
+    console.log(this.anamnesesPDF.appointmentId,"ovo je pdf");
 
+    this.appointmentService
+      .generateAnamnesisPdf(this.anamnesesPDF)
+      .subscribe((response: any) => {
+        let fileName = 'anamnesis.pdf';
+        let blob: Blob = response.body as Blob;
+        let url = window.URL.createObjectURL(blob);
+        window.open(url);
+      });
+    //this.router.navigate(['app/appointments'])
+  }
 }
