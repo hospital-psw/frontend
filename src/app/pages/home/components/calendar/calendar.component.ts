@@ -194,26 +194,18 @@ export class CalendarComponent implements OnInit {
     return info;
   }
 
- /* generatePdf(event: any): void {
-    this.appointmentService
-      .getPdf(this.selectedEvent.meta?.appointment.id as number)
-      .subscribe((response: any) => {
-        let fileName = 'treatment.pdf';
-        let blob: Blob = response.body as Blob;
-        let url = window.URL.createObjectURL(blob);
-        window.open(url);
-      });
-  }*/
+
   generatePdf(event: any) {
-    //this.anamnesesPdfDto.appointmentId = this.selectedEvent.meta?.appointment.id as number;
+   
     this.anamnesesPDF = {
       appointmentId: 33,
+      //appointmentId : this.selectedEvent.meta?.appointment.id as number,
       areRecepiesSelected: true,
       areSymptomsSelected: true,
       isDescriptionSelected: true,
     };
   
-    console.log(this.anamnesesPDF.appointmentId,"ovo je pdf");
+    console.log(this.anamnesesPDF.appointmentId,"ovo je id appointmenta");
 
     this.appointmentService
       .generateAnamnesisPdf(this.anamnesesPDF)
@@ -223,6 +215,6 @@ export class CalendarComponent implements OnInit {
         let url = window.URL.createObjectURL(blob);
         window.open(url);
       });
-    //this.router.navigate(['app/appointments'])
+   
   }
 }
