@@ -3,20 +3,21 @@
 @import "swiper/css/navigation";
 
 .swiper {
-  width: 80%;
+  width: 90%;
   height: 100%;
 }
 
 .slide-content {
   overflow: hidden;
   border-radius: 25px;
-  margin: 0px 40px;
-  margin-bottom: 4rem;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-bottom: 3rem;
 }
 
 
 .swiper-slide {
-  background: var(--main-background);
+  background: var(--welcome-background);
   width: 90%;
   height: 100%;
   margin: auto;

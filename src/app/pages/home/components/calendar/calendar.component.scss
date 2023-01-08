@@ -9,9 +9,10 @@
   white-space: pre-wrap;
   font-size: 1rem;
   word-wrap: break-word;
+  color: var(--calendar-text);
 
   &:hover {
-    color: var(--blue);
+    color: var(--calendar-text-hover);
   }
 }
 

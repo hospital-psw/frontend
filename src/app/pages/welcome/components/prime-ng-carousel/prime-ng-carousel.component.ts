@@ -13,29 +13,7 @@ export class PrimeNgCarouselComponent implements OnInit {
 
   @Input() feedbacks: Feedback[] = [];
   
-  private i: number = 0
   constructor() { }
   ngOnInit(): void {
   }
-
-   config: SwiperOptions = {
-    slidesPerView: 3,
-    spaceBetween: 0,
-    navigation: true,
-    pagination: { clickable: true },
-    scrollbar: { draggable: true },
-  };
-  
-  onSwiper(swiper:any) {
-    console.log(swiper);
-  }
-  onSlideChange() {
-    console.log('slide change');
-  }
-
-  handlePicture(){
-    this.i += 1
-    return `../../../../../assets/people/profile${this.i}.jpg`
-  }
-
 }

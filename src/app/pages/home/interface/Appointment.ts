@@ -12,4 +12,5 @@ export interface Appointment {
   room: IRoom;
   patient: AppointmentPatient;
   doctor: AppointmentDoctor;
+  deleted: boolean;
 }

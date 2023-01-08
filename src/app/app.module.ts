@@ -33,12 +33,13 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ForgotPasswordPageComponent } from './shared/Auth/components/forgot-password-page/forgot-password-page.component';
 import { FormsModule } from '@angular/forms';
 import { ResetPasswordPageComponent } from './shared/Auth/components/reset-password-page/reset-password-page.component';
-import { ConfirmMailPageComponent } from './shared/Auth/components/confirm-mail-page/confirm-mail-page.component'; 
+import { ConfirmMailPageComponent } from './shared/Auth/components/confirm-mail-page/confirm-mail-page.component';
+import { LegendDialogComponent } from './shared/modal-dialog/legend-dialog/legend-dialog.component'; 
 
 @NgModule({
   declarations: [AppComponent, AppointmentReservationComponent, ModalDialogComponent, 
                 MedicalBranchCardComponent, DoctorCardComponent, AppointmentCardComponent, SelectionInfoComponent, 
-                ForgotPasswordPageComponent, ResetPasswordPageComponent, ConfirmMailPageComponent],
+                ForgotPasswordPageComponent, ResetPasswordPageComponent, ConfirmMailPageComponent, LegendDialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
