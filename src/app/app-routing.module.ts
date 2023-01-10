@@ -11,7 +11,6 @@ import { ForgotPasswordPageComponent } from './shared/Auth/components/forgot-pas
 import { ResetPasswordPageComponent } from './shared/Auth/components/reset-password-page/reset-password-page.component';
 import { ActiveTendersComponent } from './pages/tenders/components/active-tenders/active-tenders.component';
 import { TenderDetailsComponent } from './pages/tenders/components/tender-details/tender-details.component';
-import { AppointmentReservationComponent } from './pages/appointment-reservation-stepper/components/appointment-reservation/appointment-reservation.component';
 import { ConfirmMailPageComponent } from './shared/Auth/components/confirm-mail-page/confirm-mail-page.component';
 
 
@@ -24,7 +23,6 @@ const routes: Routes = [
   { path: 'confirm-email', component: ConfirmMailPageComponent, canActivate:[LoggedAuthGuard]},
   { path: 'tenders', component: ActiveTendersComponent, canActivate:[AuthGuard]},
   { path: 'tender/:id', component: TenderDetailsComponent, canActivate:[AuthGuard]},
-  { path: 'reservation', component: AppointmentReservationComponent, canActivate:[AuthGuard]},
   {
     path: 'app',
     component: MainAppComponent,

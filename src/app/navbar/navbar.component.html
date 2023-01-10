@@ -2,11 +2,46 @@
   <nav>
     <img (click)="onHome()" src="assets/navbar/logo.webp" class="logo shrink" />
     <ul>
-      <li class="shrink"><a href="/app/home">Home</a></li>
-      <li class="shrink"><a href="/app/feedback">Feedback</a></li>
-      <li class="shrink"><a href="/app/home">About</a></li>
-      <li class="shrink"><a href="/reservation">Reservations</a></li>
-      <li class="shrink"><a href="/tenders">Active tenders</a></li>
+      <li class="shrink">
+        <a
+          routerLink="/app/home"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Home</a
+        >
+      </li>
+      <li class="shrink">
+        <a
+          routerLink="/app/feedback"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Feedback</a
+        >
+      </li>
+      <li class="shrink">
+        <a
+          routerLink=""
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >About</a
+        >
+      </li>
+      <li class="shrink">
+        <a
+          routerLink="/app/reservation"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Reservations</a
+        >
+      </li>
+      <li class="shrink">
+        <a
+          routerLink="/tenders"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Active tenders</a
+        >
+      </li>
     </ul>
     <img (click)="onToggle()" src="assets/navbar/user.png" class="user-pic" />
 
@@ -17,17 +52,17 @@
           <h2>{{ name }}</h2>
         </div>
         <hr />
-        <a href="/app/profile" class="sub-menu-link">
+        <a routerLink="/app/profile" class="sub-menu-link">
           <img src="assets/navbar/profile.png" />
           <p>My Profile</p>
           <span>></span>
         </a>
-        <a href="/app/home" class="sub-menu-link">
+        <a routerLink="/app/home" class="sub-menu-link">
           <img src="assets/navbar/setting.png" />
           <p>Settings</p>
           <span>></span>
         </a>
-        <a href="/app/home" class="sub-menu-link">
+        <a routerLink="/app/home" class="sub-menu-link">
           <img src="assets/navbar/help.png" />
           <p>Help</p>
           <span>></span>

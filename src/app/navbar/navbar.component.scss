@@ -34,6 +34,10 @@ nav ul li a {
   text-decoration: none;
 }
 
+.active {
+  text-decoration: underline !important;
+}
+
 .logo {
   width: 130px;
   margin-right: auto;

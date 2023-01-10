@@ -6,11 +6,14 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { AppointmentService } from './services/appointment.service';
 import { LoaderModule } from 'src/app/shared/modules/loader/loader.module';
+import { NewsSwiperComponent } from './components/news-swiper/news-swiper.component';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   declarations: [
     HomePageComponent,
-    CalendarComponent
+    CalendarComponent,
+    NewsSwiperComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +21,8 @@ import { LoaderModule } from 'src/app/shared/modules/loader/loader.module';
       provide: DateAdapter,
       useFactory: adapterFactory,
     }),
-    LoaderModule
+    LoaderModule,
+    SwiperModule
   ],
   providers: [AppointmentService]
 })

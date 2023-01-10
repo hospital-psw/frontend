@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { AppointmentReservationComponent } from '../pages/appointment-reservation-stepper/components/appointment-reservation/appointment-reservation.component';
 import { ChangePasswordComponent } from '../pages/bloodbank-password/components/change-password/change-password.component';
 import { FeedbackPageComponent } from '../pages/feedback/components/feedback-page/feedback-page.component';
 import { HomePageComponent } from '../pages/home/components/home-page/home-page.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'feedback', component: FeedbackPageComponent, canActivate:[AuthGuard]},
   { path: 'changePassword', component: ChangePasswordComponent},
   { path: 'profile', component: ProfilePageComponent, canActivate:[AuthGuard]},
+  { path: 'reservation', component: AppointmentReservationComponent, canActivate:[AuthGuard]},
 ];
 
 @NgModule({

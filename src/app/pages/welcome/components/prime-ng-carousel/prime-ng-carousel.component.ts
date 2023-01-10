@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
-import SwiperCore, { Pagination, Navigation, SwiperOptions} from "swiper";
+import SwiperCore, { Pagination, Navigation} from "swiper";
 import { Feedback } from '../../interfaces/feedback';
 SwiperCore.use([Pagination, Navigation]);
 
