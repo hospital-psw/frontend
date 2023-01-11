@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoggedUser } from '../../interface/logged-user';
 import { PatientProfileService } from '../../services/patient-profile.service';
-import { AuthService } from 'src/app/shared/Auth/services/auth.service'; 
+import { AuthService } from 'src/app/shared/Auth/services/auth.service';
 import { Subscription } from 'rxjs';
 import { ProfileInfo } from '../../interface/profile-info';
 
@@ -32,7 +32,6 @@ export class ProfilePageComponent implements OnInit {
     this.patientService.getPatient(patientId).subscribe(
       (response: ProfileInfo) => {
         this.loggedPatient = response;
-        console.log(this.loggedPatient);
         if(response.gender == 0){
           this.userGender = 'Male';
         }
@@ -61,7 +60,7 @@ export class ProfilePageComponent implements OnInit {
         else{
           this.userBloodType = 'O-'
         }
-        
+
       }
     )
   }
