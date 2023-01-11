@@ -123,17 +123,14 @@ export class CalendarComponent implements OnInit {
       .subscribe(
         (response: CalendarEvent<{ appointment: Appointment }>[]) => {
           this.appointments = response;
-          console.log(this.appointments)
         },
         (error: HttpErrorResponse) => {
-          console.log(error.message);
         }
       );
   }
 
 
   private handleColor(isDone: boolean, deleted: boolean){
-    console.log(deleted)
     if(!deleted && !isDone)
       return "scheduled";
     if(isDone)
@@ -176,7 +173,6 @@ export class CalendarComponent implements OnInit {
   }
 
   onEventClick(event: any): void {
-    console.log(event)
     this.canClick = this.handleCanCancel(event.event.deleted,event.event.isDone)
     this.selectedEvent.color = colors['selected'];
     this.selectedEvent = event.event;

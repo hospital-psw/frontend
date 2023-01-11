@@ -9,9 +9,14 @@ import { News } from '../interfaces/news';
 export class NewsService {
 
   api = environment.apiNewsUrl
+  bloodBankApi = environment.apiBloodBankUrl
   constructor(private http:HttpClient) { }
 
   getData() {
     return this.http.get<News>(`${this.api}/published`)
+  }
+
+  getBloodBankName(id: number){
+    return this.http.get<any>(`${this.bloodBankApi}/${id}`)
   }
 }

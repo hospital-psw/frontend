@@ -11,19 +11,35 @@
       </div>
     </div>
   </section>
+  <section id="aboutUs">
+    <div class="aboutUs-wrapper">
+      <div class="aboutUs-content"></div>
+    </div>
+  </section>
+  <section id="services">
+    <div class="services-wrapper">
+      <p class="little-title">Our Services</p>
+      <h2>Comprehensive and quality healthcare services for all.</h2>
+      <div class="services-content">
+        <app-our-services></app-our-services>
+      </div>
+    </div>
+  </section>
   <section id="feedback">
     <div class="feedback-wrapper">
-      <h2>What others think about us:</h2>
+      <p class="little-title">Feedback</p>
+      <h2>See what others think about our services.</h2>
       <app-prime-ng-carousel [feedbacks]="feedback"></app-prime-ng-carousel>
     </div>
   </section>
-  <section id="news">
-    <h2>Blood bank news:</h2>
-    <div class="feedback-container">
-      <app-news-carousel
-        class="carrousel"
-        [allNews]="allNews"
-      ></app-news-carousel>
+  <section id="team">
+    <div class="team-wrapper">
+      <p class="little-title">Our Team</p>
+      <h2>
+        Meet the skilled and compassionate medical team at our facility,
+        dedicated to providing exceptional care to our patients.
+      </h2>
+      <app-our-team></app-our-team>
     </div>
   </section>
 </div>

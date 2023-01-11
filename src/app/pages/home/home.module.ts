@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
@@ -22,7 +22,7 @@ import { SwiperModule } from 'swiper/angular';
       useFactory: adapterFactory,
     }),
     LoaderModule,
-    SwiperModule
+    SwiperModule,
   ],
   providers: [AppointmentService]
 })

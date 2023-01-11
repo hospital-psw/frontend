@@ -27,7 +27,7 @@
 //taken from https://frontendresource.com/css-button-templates/
 $bg: var(--submit-button-white);
 $white: var(--white);
-$black: var(--home-page-button);
+$black: var(--blue);
 
 @mixin transition($property: all, $duration: 0.45s, $ease: cubic-bezier(0.65, 0, .076, 1)) {
   transition: $property $duration $ease;

@@ -13,17 +13,12 @@ export class WelcomePageComponent implements OnInit {
   feedback:any = []
   allNews:any = []
 
-  constructor(private feedbackService:WelcomePageFeedbackService, 
-              private newsService: NewsService,
-              private active: ActivatedRoute,
+  constructor(private feedbackService: WelcomePageFeedbackService, 
               private router: Router) { }
 
   ngOnInit(): void {
     this.feedbackService.getData().subscribe((data) => {
       this.feedback = data
-    });
-    this.newsService.getData().subscribe((data) => {
-      this.allNews = data
     });
   }
 

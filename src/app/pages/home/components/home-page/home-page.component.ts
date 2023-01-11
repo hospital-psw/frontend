@@ -9,6 +9,7 @@ import { NewsService } from 'src/app/pages/welcome/services/news.service';
 export class HomePageComponent implements OnInit {
 
   news:any = []
+  bloodBank:string = ''
   constructor(private newsService: NewsService) { }
 
   ngOnInit(): void {

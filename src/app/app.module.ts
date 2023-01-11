@@ -35,6 +35,7 @@ import { FormsModule } from '@angular/forms';
 import { ResetPasswordPageComponent } from './shared/Auth/components/reset-password-page/reset-password-page.component';
 import { ConfirmMailPageComponent } from './shared/Auth/components/confirm-mail-page/confirm-mail-page.component';
 import { LegendDialogComponent } from './shared/modal-dialog/legend-dialog/legend-dialog.component'; 
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent, AppointmentReservationComponent, ModalDialogComponent, 
@@ -67,7 +68,7 @@ import { LegendDialogComponent } from './shared/modal-dialog/legend-dialog/legen
     TendersModule,
     FormsModule,
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true}, JWTService],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true}, JWTService, DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

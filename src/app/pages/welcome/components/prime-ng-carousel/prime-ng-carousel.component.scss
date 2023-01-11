@@ -1,5 +1,5 @@
-@import "swiper/css";
-@import "swiper/css/pagination";
+@import "swiper/scss";
+@import "swiper/scss/pagination";
 @import "swiper/css/navigation";
 
 .swiper {
@@ -12,12 +12,12 @@
   border-radius: 25px;
   margin-left: 20px;
   margin-right: 20px;
-  padding-bottom: 3rem;
+  padding-bottom: 2rem !important;
 }
 
 
 .swiper-slide {
-  background: var(--welcome-background);
+  background: var(--white);
   width: 90%;
   height: 100%;
   margin: auto;
@@ -67,7 +67,7 @@
   top: 0;
   height: 100%;
   width: 100%;
-  background-color: #4070F4;
+  background-color: var(--welcome-card-blue);
   border-radius: 25px 25px 0 25px;
 }
 
@@ -79,7 +79,7 @@
   bottom: -40px;
   height: 40px;
   width: 40px;
-  background-color: #4070F4;
+  background-color: var(--welcome-card-blue);
 }
 
 .overlay::after {
@@ -119,7 +119,7 @@
   font-size: 16px;
   color: #FFF;
   padding: 8px 16px;
-  background-color: #4070F4;
+  background-color: var(--welcome-card-blue);
   border-radius: 6px;
   margin: 14px;
   cursor: pointer;
@@ -158,7 +158,7 @@
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #4070F4;
+  background-color: var(--welcome-card-blue);
 }
 
 @media screen and (max-width: 768px) {

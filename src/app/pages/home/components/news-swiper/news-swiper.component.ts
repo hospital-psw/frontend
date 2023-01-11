@@ -1,7 +1,8 @@
-import { Component, ViewEncapsulation, Input } from '@angular/core';
+import { Component, ViewEncapsulation, Input, OnInit } from '@angular/core';
 import { News } from 'src/app/pages/welcome/interfaces/news';
-import SwiperCore, { EffectFlip, Pagination, Navigation } from "swiper";
-SwiperCore.use([EffectFlip, Pagination, Navigation]);
+import { DatePipe } from '@angular/common';
+import SwiperCore, { EffectFlip, Pagination, Navigation, Autoplay } from "swiper";
+SwiperCore.use([EffectFlip, Pagination, Navigation, Autoplay]);
 
 @Component({
   selector: 'app-news-swiper',
@@ -9,8 +10,17 @@ SwiperCore.use([EffectFlip, Pagination, Navigation]);
   styleUrls: ['./news-swiper.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class NewsSwiperComponent {
+export class NewsSwiperComponent implements OnInit {
 
+  reload:boolean = true
   @Input() news: News[] = [];
-  constructor(){ }
+  constructor(public datepipe: DatePipe ){ }
+
+  ngOnInit(): void {
+  }
+  
+  getDate(date: any){
+    return this.datepipe.transform(date, 'dd.MM.yyyy.') 
+  }
+
 }
