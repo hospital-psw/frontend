@@ -16,9 +16,9 @@ import { RegistrationServiceService } from '../../../service/registration-servic
 export class RegistrationFormComponent implements OnInit {
   public allergies: Allergies[] = [];
   public  doctors: Doctor[] = [];
- 
+
   constructor(private registrationService: RegistrationServiceService) {}
-  
+
   ngOnInit(): void
 {
     this.registrationService.findAllAllergies().subscribe((res)=>{
@@ -26,18 +26,17 @@ export class RegistrationFormComponent implements OnInit {
     })
     this.registrationService.findAllDoctors().subscribe((result)=>{
       this.doctors = result;
-      console.log(this.doctors)
     })
   }
-  date (d:any): any 
+  date (d:any): any
   {
     return d+"T12:45:55.747Z";
-    
+
   }
   onSubmit(n: any){
     let registerUser: applicationUserDTO = {
       firstName: n.name,
-      lastName:n.surname, 
+      lastName:n.surname,
       email : n.email,
       dateOfBirth :this.date(n.date),
       male : n.gender,
@@ -60,5 +59,5 @@ export class RegistrationFormComponent implements OnInit {
       }
     );
   }
-  
+
 }

@@ -8,14 +8,14 @@
           <div>
             <mat-form-field class="example-full-width field" appearance="fill">
               <mat-label>Choose a date</mat-label>
-              <input [min]="minDate" readonly="true" matInput [(ngModel)]="selectedDate" [matDatepicker]="picker">
+              <input [min]="minDate" readonly="true" (dateChange)="DateChanged()" matInput [(ngModel)]="selectedDate" [matDatepicker]="picker">
               <mat-hint>MM/DD/YYYY</mat-hint>
               <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
           </div>
           <div class="buttons">
-            <button mat-button matStepperNext>Next</button>
+            <button mat-button matStepperNext (click)="NextClicked(0)" [disabled]="!aggregateId">Next</button>
           </div>
         </div>
       </mat-step>
@@ -28,8 +28,8 @@
           </app-medical-branch-card>
         </div>
         <div class="buttons">
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext [disabled]="selectedBranchId === -1" (click)="getDoctors()">Next</button>
+          <button mat-button matStepperPrevious (click)="BackClicked(1)">Back</button>
+          <button mat-button matStepperNext [disabled]="selectedBranchId === -1" (click)="getDoctors(); NextClicked(1)">Next</button>
         </div>
       </mat-step>
 
@@ -40,9 +40,9 @@
             (click)="selectDoctor(doctor.id)"></app-doctor-card>
         </div>
         <div class="buttons">
-          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperPrevious (click)="BackClicked(2)">Back</button>
           <button mat-button matStepperNext [disabled]="selectedDoctorId === -1"
-            (click)="getAppointments()">Next</button>
+            (click)="getAppointments(); ; NextClicked(2)">Next</button>
         </div>
       </mat-step>
 
@@ -64,7 +64,7 @@
           </div>
         </div>
         <div class="buttons" *ngIf="appointments && !noneFound">
-          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperPrevious (click)="BackClicked(3)">Back</button>
           <button mat-button (click)="Schedule()">Schedule</button>
         </div>
       </mat-step>
