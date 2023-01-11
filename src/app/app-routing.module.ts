@@ -14,7 +14,6 @@ import { ActiveTendersComponent } from './pages/tenders/components/active-tender
 import { TenderDetailsComponent } from './pages/tenders/components/tender-details/tender-details.component';
 import { AppointmentReservationComponent } from './pages/appointment-reservation-stepper/components/appointment-reservation/appointment-reservation.component';
 import { HomePageComponent } from './pages/home/components/home-page/home-page.component';
-import { ViewAppointmentComponent } from './pages/home/components/view-appointment/view-appointment.component';
 import { ChangePasswordComponent } from './pages/bloodbank-password/components/change-password/change-password.component';
 import { FeedbackPageComponent } from './pages/feedback/components/feedback-page/feedback-page.component';
 
@@ -30,7 +29,6 @@ const routes: Routes = [
   { path: 'tenders', component: ActiveTendersComponent, canActivate:[AuthGuard]},
   { path: 'tender/:id', component: TenderDetailsComponent, canActivate:[AuthGuard]},
   { path: 'reservation', component: AppointmentReservationComponent, canActivate:[AuthGuard]},
-  { path: 'appointmentView', component: ViewAppointmentComponent },
   {
     path: 'app',
     component: MainAppComponent,
