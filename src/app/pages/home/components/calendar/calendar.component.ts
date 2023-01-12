@@ -15,6 +15,7 @@ import { ModalDialogData } from 'src/app/shared/modal-dialog/interface/ModalDial
 import { CancellationInfo } from '../../interface/CancellationInfo';
 import { CancellationRequest } from '../../interface/CancellationRequest';
 import { LegendDialogData } from 'src/app/shared/modal-dialog/interface/LegendDialogData';
+import { AnamnesesPDF } from '../../interface/AnamnesesPDF';
 
 const colors: Record<string, EventColor> = {
   default: {
@@ -54,7 +55,8 @@ const legendData: LegendDialogData = {
   styleUrls: ['./calendar.component.scss']
 })
 export class CalendarComponent implements OnInit {
-
+  anamnesesPDF: AnamnesesPDF;
+  
   private userSub: Subscription;
   private patientId: number;
   private dialogAnswer: boolean;
@@ -186,6 +188,8 @@ export class CalendarComponent implements OnInit {
     return false;
   }
 
+ 
+
   openDialog(event: any): void {
     this.dialogService.openYesNoDialog(dialogData)
       .afterClosed().subscribe(response => {
@@ -227,4 +231,23 @@ export class CalendarComponent implements OnInit {
     return info;
   }
 
+
+  generatePdf(event: any) {
+   
+    this.anamnesesPDF = {
+      appointmentId : this.selectedEvent.meta?.appointment.id as number,
+      areRecepiesSelected: true,
+      areSymptomsSelected: true,
+      isDescriptionSelected: true,
+    };
+
+    this.appointmentService
+      .generateAnamnesisPdf(this.anamnesesPDF)
+      .subscribe((response: any) => {
+        let fileName = 'anamnesis.pdf';
+        let blob: Blob = response.body as Blob;
+        let url = window.URL.createObjectURL(blob);
+        window.open(url);
+      });
+  }
 }
