@@ -17,7 +17,8 @@ export const environment = {
   apiBloodBankUrl: "http://localhost:45488/api/BloodBank",
   apiApplicationDoctor : "http://localhost:16177/api/ApplicationDoctor",
   apiAppointment: "http://localhost:16177/api/Appointment",
-  apiEventSourcing: "http://localhost:16177/api/AppointmentSchedulingControler"
+  apiEventSourcing: "http://localhost:16177/api/AppointmentSchedulingControler",
+  apiStatistics: "http://localhost:16177/api/Statistical/examination/symptom-count"
 };
 
 /*
