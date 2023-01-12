@@ -185,9 +185,6 @@ export class AppointmentReservationComponent implements OnInit {
       doctorID: this.selectedDoctorId,
       examType: 1
     }
-<<<<<<< HEAD
-    console.log(this.newAppointmentDTO)
-=======
 
     let temp = new Date()
     temp.setDate(temp.getHours() + 1)
@@ -200,7 +197,6 @@ export class AppointmentReservationComponent implements OnInit {
     }
     this.event_service.scheduleAppointment(this.scheduleAppointmentDto).subscribe((data:any) => {
     })
->>>>>>> 22da67645994c514ccf79bd489889d398771b3b9
     this.service.CreateReservation(this.newAppointmentDTO).subscribe((response) => {
       this.router.navigate(['/app/home'])
       this.toaster.success('Your appointment has successfully been scheduled! 😀')
