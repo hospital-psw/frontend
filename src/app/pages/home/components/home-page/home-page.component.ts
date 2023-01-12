@@ -17,5 +17,5 @@ export class HomePageComponent implements OnInit {
       this.news = data
     });
   }
-
+  
 }

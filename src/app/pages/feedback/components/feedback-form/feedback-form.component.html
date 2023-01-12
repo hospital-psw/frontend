@@ -9,9 +9,10 @@
   </div>
   <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
     <div class="form-fields">
-      <mat-form-field class="form-field" appearance="legacy">
+      <mat-form-field  class="form-field" appearance="legacy">
         <mat-label>Leave a comment</mat-label>
         <textarea
+          id="feedbackText"
           matInput
           placeholder="Be honest, tell us how to improve"
           rows="4"
@@ -21,7 +22,7 @@
           required
         ></textarea>
       </mat-form-field>
-      <span *ngIf="!message.valid && message.touched" class="error-message"
+      <span *ngIf="!message.valid && message.touched" class="error-message" id="FeedbackNotCreated"
         >Oops, you can't send us an empty message. Write something before
         submitting.</span
       >
@@ -29,7 +30,7 @@
         <div class="privacy">
           <label>Do you want your feedback to be public: </label>
           <mat-radio-group [ngModel]="defaultPublic" name="public">
-            <mat-radio-button color="accent" [value]="true"
+            <mat-radio-button id="publicFeedback" color="accent" [value]="true"
               >Yes</mat-radio-button
             >
             <mat-radio-button color="accent" [value]="false"
@@ -40,7 +41,7 @@
         <div class="anonymous">
           <label>Do you want your feedback to be anonymous: </label>
           <mat-radio-group [ngModel]="defaultAnonymous" name="anonymous">
-            <mat-radio-button color="accent" [value]="true"
+            <mat-radio-button id="anonymousFeedback" color="accent" [value]="true"
               >Yes</mat-radio-button
             >
             <mat-radio-button color="accent" [value]="false"
@@ -48,7 +49,7 @@
             >
           </mat-radio-group>
         </div>
-        <button
+        <button id="submitButton"
           type="submit"
           [disabled]="!form.valid"
           mat-stroked-button

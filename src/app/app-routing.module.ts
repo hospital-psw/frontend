@@ -35,6 +35,7 @@ const routes: Routes = [
   },
   {path: '**', redirectTo: '/error/notfound'},
   
+
 ];
  
 @NgModule({
