@@ -14,7 +14,8 @@ export const environment = {
   forgotPasswordUrl: "http://localhost:4200/reset-password",
   apiBloodBankUrl: "http://localhost:45488/api/BloodBank",
   apiApplicationDoctor : "http://localhost:16177/api/ApplicationDoctor",
-  apiAppointment: "http://localhost:16177/api/Appointment"
+  apiAppointment: "http://localhost:16177/api/Appointment",
+  apiEventSourcing: "http://localhost:16177/api/AppointmentSchedulingControler"
 };
 
 /*

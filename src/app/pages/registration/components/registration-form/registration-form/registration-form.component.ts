@@ -34,15 +34,15 @@ export class RegistrationFormComponent implements OnInit {
       this.doctors = result;
     })
   }
-  date (d:any): any 
+  date (d:any): any
   {
     return d+"T12:45:55.747Z";
-    
+
   }
   onSubmit(n: any){
     let registerUser: applicationUserDTO = {
       firstName: n.name,
-      lastName:n.surname, 
+      lastName:n.surname,
       email : n.email,
       dateOfBirth :this.date(n.date),
       male : n.gender,

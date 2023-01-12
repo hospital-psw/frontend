@@ -38,7 +38,7 @@ export class TenderDetailsComponent implements OnInit {
       .subscribe(params => {
         this.tenderService.getTender(params['id']).subscribe(
           (res) => {
-           this.tender = res; 
+           this.tender = res;
            this.tenderId = params['id'];
            this.fillFormArray();
           }
@@ -55,18 +55,17 @@ export class TenderDetailsComponent implements OnInit {
       bloodType: [type, [Validators.required]],
       quantity: [quantity, [Validators.required, Validators.min(1), Validators.max(1000)]],
       money: this.fb.group({
-        amount: [1, [Validators.required, Validators.min(1), Validators.max(1000)]] 
+        amount: [1, [Validators.required, Validators.min(1), Validators.max(1000)]]
       })
     })
     this.bloodTypeForms.push(bloodType);
   }
 
-  
+
   sendTenderOffer() {
     if(this.form.valid) {
       this.tenderService.makeAnOffer(this.form.value, this.tenderId).subscribe(
         (res) => {
-          console.log(this.form.value);
           this.toastrService.success("You've successfully made an offer! We'll get back to you by emai!")
         }
       )
