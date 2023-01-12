@@ -61,7 +61,7 @@ body {
 .menu__link {
   font-size: 1.2rem;
   color: #fff;
-  margin: 0 20px;
+  margin: 0 15px;
   display: inline-block;
   transition: 0.5s;
   text-decoration: none;
@@ -116,6 +116,14 @@ body {
   opacity: 0.7;
   bottom: 20px;
   animation: animate 3s linear infinite;
+}
+
+.p-pointer {
+  cursor: default;
+}
+
+.email {
+  cursor: default;
 }
 
 @keyframes animateWaves {

@@ -26,21 +26,25 @@ h2 {
   font-weight: bolder;
   font-size: 40px;
 }
+
 .mat-card {
   height: 100%;
   width: 100%;
   padding: 0;
-  overflow-y:overlay;
+  overflow-y: overlay;
 }
+
 .mat-divider {
   background-color: white;
 }
+
 .mat-card-content {
   padding-top: 50px;
   width: 60%;
   margin: 0 auto;
   font-size: 20px;
 }
+
 .card-title {
   padding: 1rem;
 }
@@ -48,20 +52,21 @@ h2 {
 //from https://codepen.io/stephenpaton-tech/full/JjRvGmY
 /* ===== Scrollbar CSS ===== */
 
-  *::-webkit-scrollbar {
-    width: 14px;
-  }
+*::-webkit-scrollbar {
+  width: 14px;
+}
 
-  *::-webkit-scrollbar-track {
-    background: #ffffff;
-    border-radius: 20px;
-  }
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-radius: 20px;
+}
 
-  *::-webkit-scrollbar-thumb {
-    background-color: #0066ff;
-    border-radius: 8px;
-    border: 3px solid #ffffff;
-  }
-  .person-icon {
-    transform: scale(1.7);
-  }
+*::-webkit-scrollbar-thumb {
+  background-color: #0066ff;
+  border-radius: 8px;
+  border: 3px solid #ffffff;
+}
+
+.person-icon {
+  transform: scale(1.7);
+}
