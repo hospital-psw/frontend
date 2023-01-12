@@ -238,6 +238,7 @@ export class CalendarComponent implements OnInit {
 
   generatePdf(event: any) {
    
+    this.isCanceling = true;
     this.anamnesesPDF = {
       appointmentId : this.selectedEvent.meta?.appointment.id as number,
       areRecepiesSelected: true,
@@ -248,6 +249,7 @@ export class CalendarComponent implements OnInit {
     this.appointmentService
       .generateAnamnesisPdf(this.anamnesesPDF)
       .subscribe((response: any) => {
+        this.isCanceling = false;
         let fileName = 'anamnesis.pdf';
         let blob: Blob = response.body as Blob;
         let url = window.URL.createObjectURL(blob);
