@@ -10,6 +10,7 @@ import { PrimeNgCarouselComponent } from './components/prime-ng-carousel/prime-n
 import { SwiperModule } from 'swiper/angular';
 import { OurServicesComponent } from './components/our-services/our-services.component';
 import { OurTeamComponent } from './components/our-team/our-team.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { OurTeamComponent } from './components/our-team/our-team.component';
     CarrouselComponent,
     PrimeNgCarouselComponent,
     OurServicesComponent,
-    OurTeamComponent
+    OurTeamComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,

@@ -1,5 +1,5 @@
 .calendar-wrapper {
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
   overflow-y: scroll;
   height: calc(60vh);
   caret-color: transparent;
@@ -69,4 +69,14 @@
       color: var(--blue);
     }
   }
+}
+
+
+* {
+  scrollbar-width: auto;
+  scrollbar-color: var(--welcome-card-blue) #ffffff !important;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--welcome-card-blue) !important;
 }
