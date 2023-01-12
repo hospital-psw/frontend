@@ -1,5 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Allergies } from '../../../interface/Allergies';
 import { applicationUserDTO } from '../../../interface/ApplicationUser';
 import { Doctor } from '../../../interface/Doctor';
@@ -16,13 +18,17 @@ import { RegistrationServiceService } from '../../../service/registration-servic
 export class RegistrationFormComponent implements OnInit {
   public allergies: Allergies[] = [];
   public  doctors: Doctor[] = [];
+  public hide: boolean = true;
+  public hideConf: boolean = true;
 
-  constructor(private registrationService: RegistrationServiceService) {}
-
+  constructor(private registrationService: RegistrationServiceService, 
+              private toastr: ToastrService,
+              private router: Router) {}
+  
   ngOnInit(): void
 {
     this.registrationService.findAllAllergies().subscribe((res)=>{
-    this.allergies = res;
+      this.allergies = res;
     })
     this.registrationService.findAllDoctors().subscribe((result)=>{
       this.doctors = result;
@@ -52,12 +58,17 @@ export class RegistrationFormComponent implements OnInit {
     }
     this.registrationService.register(patient).subscribe(
       (data) => {
-        alert("Success!");
+        this.toastr.success("Success")
+        this.router.navigate(["/confirm-email"])
       },
       (error: HttpErrorResponse) => {
-        alert(error.message);
+        this.toastr.error(error.message)
       }
     );
   }
 
+  onHome(){
+    this.router.navigate(['/'])
+  }
+  
 }

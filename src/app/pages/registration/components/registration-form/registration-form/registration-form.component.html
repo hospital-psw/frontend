@@ -1,97 +1,139 @@
 <div class="register-form-container">
-    <div class="text-container">
-        <h1>We are glad to have you as a patient!</h1>
-        <p>
-            Please fill out the registration form
-        </p>
+  <div class="text-container">
+    <h1>We are glad to have you as a patient!</h1>
+    <p>Please fill out the registration form</p>
+  </div>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+    <div class="left">
+      <mat-form-field appearance="legacy">
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          ngModel
+          name="name"
+          #name="ngModel"
+          placeholder="Name"
+          required
+        />
+        <mat-hint></mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Surname</mat-label>
+        <input
+          matInput
+          ngModel
+          name="surname"
+          #surname="ngModel"
+          placeholder="Surname"
+          required
+        />
+        <mat-hint></mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          ngModel
+          name="email"
+          #email="ngModel"
+          placeholder="emailadress@gmail.com"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Date of birth</mat-label>
+        <input
+          matInput
+          ngModel
+          name="date"
+          #date="ngModel"
+          placeholder="xx/yy/zzzz"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-select ngModel name="gender" #gender="ngModel">
+          <mat-option [value]="true">Male</mat-option>
+          <mat-option [value]="false">Female</mat-option>
+        </mat-select>
+        <mat-label>Gender</mat-label>
+        <mat-hint></mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          ngModel
+          [type]="hide ? 'password' : 'text'"
+          name="password"
+          #password="ngModel"
+          type="password"
+        />
+        <mat-icon class="hide" matSuffix (click)="hide = !hide">{{
+          hide ? "visibility_off" : "visibility"
+        }}</mat-icon>
+        <mat-hint></mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Confirm password</mat-label>
+        <input
+          matInput
+          ngModel
+          [type]="hideConf ? 'password' : 'text'"
+          name="cpassword"
+          #cpassword="ngModel"
+          type="password"
+        />
+        <mat-icon class="hide" matSuffix (click)="hideConf = !hideConf">{{
+          hideConf ? "visibility_off" : "visibility"
+        }}</mat-icon>
+        <mat-hint></mat-hint>
+      </mat-form-field>
+
+      <button type="submit" mat-stroked-button class="submit-button">
+        Submit
+      </button>
     </div>
-    <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
-            <div class="left">
-                <mat-form-field  appearance="legacy">
-                    <mat-label>Name</mat-label>
-                    <input matInput ngModel name="name" #name="ngModel" placeholder="Name" required >
-                    <mat-hint></mat-hint>
-                </mat-form-field>
-        
-                <mat-form-field appearance="legacy">
-                    <mat-label>Surname</mat-label>
-                    <input matInput ngModel name="surname" #surname="ngModel" placeholder="Surname" required>
-                    <mat-hint></mat-hint>
-                </mat-form-field>
-            
-            
-                <mat-form-field appearance="legacy">
-                    <mat-label>Email</mat-label>
-                    <input matInput ngModel name="email" #email="ngModel" placeholder="emailadress@gmail.com">
-                </mat-form-field>
 
-               
-                <mat-form-field appearance="legacy">
-                    <mat-label>Date of birth</mat-label>
-                    <input matInput ngModel name="date" #date="ngModel" placeholder="xx/yy/zzzz">
-                </mat-form-field>
-                
-                    
-                <mat-form-field appearance="legacy">
-                    <mat-select ngModel name="gender" #gender="ngModel">
-                        <mat-option [value]='true' >Male</mat-option>
-                        <mat-option  [value]='false' >Female</mat-option>
-                    </mat-select>
-                    <mat-label>Gender</mat-label>
-                    <mat-hint></mat-hint>
-                </mat-form-field>
+    <div class="right">
+      <mat-form-field appearance="legacy">
+        <mat-select ngModel name="bloodtype" #bloodtype="ngModel">
+          <mat-option [value]="0">A+</mat-option>
+          <mat-option [value]="1">A-</mat-option>
+          <mat-option [value]="2">B+</mat-option>
+          <mat-option [value]="3">B-</mat-option>
+          <mat-option [value]="4">AB+</mat-option>
+          <mat-option [value]="5">AB-</mat-option>
+          <mat-option [value]="6">0+</mat-option>
+          <mat-option [value]="7">0-</mat-option>
+        </mat-select>
+        <mat-label>Blood type</mat-label>
+        <mat-hint>Select blood type</mat-hint>
+      </mat-form-field>
 
-                <mat-form-field appearance="legacy">
-                    <mat-label>Password</mat-label>
-                    <input matInput ngModel name="password" #password="ngModel" type="password" >
-                    <mat-hint></mat-hint>
-                </mat-form-field>
+      <mat-form-field appearance="legacy">
+        <mat-label>Doctor</mat-label>
+        <mat-select ngModel name="doctor" #doctor="ngModel">
+          <mat-option *ngFor="let i of doctors" [value]="i.id"
+            >dr.{{ i.firstName }} {{ i.lastName }}</mat-option
+          >
+        </mat-select>
+        <mat-hint>Choose your doctor</mat-hint>
+      </mat-form-field>
 
-                <mat-form-field appearance="legacy">
-                    <mat-label>Confirm password</mat-label>
-                    <input matInput ngModel name="cpassword" #cpassword="ngModel" type="password" >
-                    <mat-hint></mat-hint>
-                </mat-form-field>
-
-                
-                <button type="submit" mat-stroked-button class="submit-button">
-                    Submit
-                </button>
-            </div>
-
-            <div class="right">
-              <mat-form-field appearance="legacy">
-                    <mat-select  ngModel name="bloodtype" #bloodtype="ngModel">
-                        <mat-option [value]='0'>A+</mat-option>
-                        <mat-option [value]='1'>A-</mat-option>
-                        <mat-option [value]='2'>B+</mat-option>
-                        <mat-option [value]='3'>B-</mat-option>
-                        <mat-option [value]='4'>AB+</mat-option>
-                        <mat-option [value]='5'>AB-</mat-option>
-                        <mat-option [value]='6'>0+</mat-option>
-                        <mat-option [value]='7'>0-</mat-option>
-                    </mat-select>
-                    <mat-label>Blood type</mat-label>
-                    <mat-hint>Select blood type</mat-hint>
-                </mat-form-field>
-                
-                <mat-form-field appearance="legacy">
-                    <mat-label>Doctor</mat-label>
-                    <mat-select  ngModel name="doctor" #doctor="ngModel">
-                      <mat-option *ngFor="let i of doctors" [value]="i.id">dr.{{i.firstName}} {{i.lastName}}</mat-option>
-                    </mat-select>
-                    <mat-hint>Choose your doctor</mat-hint>
-                </mat-form-field>
-                
-                <mat-form-field appearance="legacy">
-                    <mat-label>Allergies</mat-label>
-                    <mat-select  multiple ngModel name="allergie" #allergie="ngModel" >
-                      <mat-option *ngFor="let i of allergies" [value]="i.name">{{i.name}}</mat-option>
-                    </mat-select>
-                    <mat-hint>Select allergies if you have any</mat-hint>
-                </mat-form-field>
-             </div>
-             
-          
-    </form>
+      <mat-form-field appearance="legacy">
+        <mat-label>Allergies</mat-label>
+        <mat-select multiple ngModel name="allergie" #allergie="ngModel">
+          <mat-option *ngFor="let i of allergies" [value]="i.name">{{
+            i.name
+          }}</mat-option>
+        </mat-select>
+        <mat-hint>Select allergies if you have any</mat-hint>
+      </mat-form-field>
+    </div>
+  </form>
 </div>

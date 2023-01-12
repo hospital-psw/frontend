@@ -198,7 +198,7 @@ export class AppointmentReservationComponent implements OnInit {
     this.event_service.scheduleAppointment(this.scheduleAppointmentDto).subscribe((data:any) => {
     })
     this.service.CreateReservation(this.newAppointmentDTO).subscribe((response) => {
-      this.router.navigate(['/home'])
+      this.router.navigate(['/app/home'])
       this.toaster.success('Your appointment has successfully been scheduled! 😀')
     });
   }

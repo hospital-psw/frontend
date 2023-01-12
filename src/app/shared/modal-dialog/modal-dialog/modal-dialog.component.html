@@ -1,0 +1,16 @@
+<h1>{{ data.title }}</h1>
+<div class="description">{{ data.description }}</div>
+<div class="actions">
+  <button id="no" class="no-button" mat-dialog-close [mat-dialog-close]="false">
+    No
+  </button>
+  <button
+    id="yes"
+    class="yes-button"
+    mat-dialog-close
+    cdkFocusInitial
+    [mat-dialog-close]="true"
+  >
+    Yes
+  </button>
+</div>

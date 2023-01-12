@@ -1,0 +1,34 @@
+<div class="swiper-wrapper">
+  <swiper
+    [slidesPerView]="3"
+    [spaceBetween]="0"
+    [slidesPerGroup]="3"
+    [loop]="true"
+    [loopFillGroupWithBlank]="false"
+    [pagination]="{
+      clickable: true
+    }"
+    [navigation]="true"
+    class="mySwiper"
+  >
+    <ng-template swiperSlide *ngFor="let feedback of feedbacks; let i = index"
+      ><div class="slide-content">
+        <div class="swiper-wrapper">
+          <div class="card swiper-slide">
+            <div class="image-content">
+              <span class="overlay"></span>
+
+              <div class="card-image">
+                <img [src]="setImage(feedback.creator)" class="card-img" />
+              </div>
+            </div>
+            <div class="card-content">
+              <h2 class="name">{{ feedback.creator }}</h2>
+              <p class="description">{{ feedback.message }}</p>
+            </div>
+          </div>
+        </div>
+      </div></ng-template
+    >
+  </swiper>
+</div>

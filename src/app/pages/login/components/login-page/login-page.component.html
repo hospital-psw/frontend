@@ -1,17 +1,14 @@
+<div id="container">
+  <button (click)="onHome()" class="learn-more">
+    <span class="circle" aria-hidden="true">
+      <span class="icon arrow"></span>
+    </span>
+    <span class="button-text">Home Page</span>
+  </button>
+</div>
 <div class="page">
   <div class="left">
     <app-login-form class="form"></app-login-form>
   </div>
-  <div class="right">
-    <div class="example-button-container">
-      <button
-        (click)="onHome()"
-        mat-fab
-        color="primary"
-        aria-label="Example icon button with a home icon"
-      >
-        <mat-icon>home</mat-icon>
-      </button>
-    </div>
-  </div>
+  <div class="right"></div>
 </div>

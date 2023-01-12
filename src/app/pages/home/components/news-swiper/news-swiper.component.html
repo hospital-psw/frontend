@@ -1,0 +1,29 @@
+<div class="swiper-wrapper">
+  <swiper
+    [effect]="'flip'"
+    [grabCursor]="true"
+    [pagination]="true"
+    [autoplay]="{
+      delay: 7500,
+      disableOnInteraction: false
+    }"
+    class="mySwiper"
+  >
+    <ng-template swiperSlide *ngFor="let it of news; let i = index"
+      ><div class="blog-card">
+        <div class="meta">
+          <div class="photo"></div>
+          <ul class="details">
+            <li class="date">Published {{ getDate(it.dateCreated) }}</li>
+          </ul>
+        </div>
+        <div class="description">
+          <h1>{{ it.title }}</h1>
+          <p>
+            {{ it.text }}
+          </p>
+        </div>
+      </div></ng-template
+    >
+  </swiper>
+</div>

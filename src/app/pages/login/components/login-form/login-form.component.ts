@@ -28,9 +28,12 @@ export class LoginFormComponent{
     }
     this.authService.login(form.value).subscribe(
       (response: LoginResponseDTO) =>{
-        this.authService.showSuccess();
-        this.router.navigate(['/home'])
-        this.isLogging=false
+        if(response.id === -1){
+          this.router.navigate(['/error/forbidden'])
+        }else{
+          this.authService.showSuccess();
+          this.router.navigate(['/app/home'])
+        }        
       },
       message =>{
         this.showError = true

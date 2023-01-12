@@ -30,7 +30,7 @@ export class NavbarComponent implements OnInit, OnDestroy{
   }
   
   onHome(){
-    this.router.navigate(['/home'])
+    this.router.navigate(['/app/home'])
   }
 
   onLogout(){

@@ -25,7 +25,7 @@ export class AuthGuard implements CanActivate {
             if(isAuth){
               return true;
             }
-            this.toastr.warning("You must be logged in to access this path!")
+            this.toastr.warning("You must be logged in to access this path!");
             return this.router.createUrlTree(['/login']);
         })
 

@@ -14,6 +14,6 @@ export class LoginPageComponent implements OnInit {
   }
 
   onHome(){
-    this.router.navigate(['/'])
+    this.router.navigate([''])
   }
 }

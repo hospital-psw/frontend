@@ -8,7 +8,7 @@
 
 
 nav {
-  background-color: var(--blue);
+  background-color: var(--welcome-card-blue);
   width: 100%;
   padding: 10px 10%;
   display: flex;
@@ -34,8 +34,12 @@ nav ul li a {
   text-decoration: none;
 }
 
+.active {
+  text-decoration: underline !important;
+}
+
 .logo {
-  width: 120px;
+  width: 130px;
   margin-right: auto;
 }
 
@@ -64,6 +68,7 @@ nav ul li a {
   max-height: 400px;
   overflow: hidden;
   transition: max-height 0.5s;
+  z-index: 99;
 }
 
 .sub-menu {
