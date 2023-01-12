@@ -15,6 +15,7 @@ import { ModalDialogData } from 'src/app/shared/modal-dialog/interface/ModalDial
 import { CancellationInfo } from '../../interface/CancellationInfo';
 import { CancellationRequest } from '../../interface/CancellationRequest';
 import { LegendDialogData } from 'src/app/shared/modal-dialog/interface/LegendDialogData';
+import { AnamnesesPDF } from '../../interface/AnamnesesPDF';
 
 const colors: Record<string, EventColor> = {
   default: {
@@ -54,7 +55,8 @@ const legendData: LegendDialogData = {
   styleUrls: ['./calendar.component.scss']
 })
 export class CalendarComponent implements OnInit {
-
+  anamnesesPDF: AnamnesesPDF;
+  
   private userSub: Subscription;
   private patientId: number;
   private dialogAnswer: boolean;
@@ -72,6 +74,7 @@ export class CalendarComponent implements OnInit {
   examinationTypes: ExaminationType[];
 
   canClick: boolean = false;
+  canPDF: boolean = false;
   selectedEvent: CalendarEvent<{ appointment: Appointment }> = {
     title: null as any,
     start: null as any,
@@ -174,6 +177,7 @@ export class CalendarComponent implements OnInit {
 
   onEventClick(event: any): void {
     this.canClick = this.handleCanCancel(event.event.deleted,event.event.isDone)
+    this.canPDF = this.handleCanPDF(event.event.isDone)
     this.selectedEvent.color = colors['selected'];
     this.selectedEvent = event.event;
     this.selectedEvent.color = colors['selected'];
@@ -186,6 +190,10 @@ export class CalendarComponent implements OnInit {
     return false;
   }
 
+  private handleCanPDF(isDone: boolean){
+    return !!isDone;
+  }
+ 
   openDialog(event: any): void {
     this.dialogService.openYesNoDialog(dialogData)
       .afterClosed().subscribe(response => {
@@ -227,4 +235,25 @@ export class CalendarComponent implements OnInit {
     return info;
   }
 
+
+  generatePdf(event: any) {
+   
+    this.isCanceling = true;
+    this.anamnesesPDF = {
+      appointmentId : this.selectedEvent.meta?.appointment.id as number,
+      areRecepiesSelected: true,
+      areSymptomsSelected: true,
+      isDescriptionSelected: true,
+    };
+
+    this.appointmentService
+      .generateAnamnesisPdf(this.anamnesesPDF)
+      .subscribe((response: any) => {
+        this.isCanceling = false;
+        let fileName = 'anamnesis.pdf';
+        let blob: Blob = response.body as Blob;
+        let url = window.URL.createObjectURL(blob);
+        window.open(url);
+      });
+  }
 }

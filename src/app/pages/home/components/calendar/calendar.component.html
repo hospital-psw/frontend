@@ -34,7 +34,7 @@
     >
       LEGEND
     </button>
-    <button class="button-group__button-app">SCHEDULE</button>
+    <!-- <button class="button-group__button-app">SCHEDULE</button> -->
     <button
       id="cancel"
       [disabled]="!canClick"
@@ -42,6 +42,13 @@
       class="button-group__button-app"
     >
       CANCEL
+    </button>
+    <button
+      class="button-group__button-app"
+      (click)="generatePdf($event)"
+      [disabled]="!canPDF"
+    >
+      PDF
     </button>
   </div>
 </div>
