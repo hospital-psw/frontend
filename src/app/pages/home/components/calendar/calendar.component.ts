@@ -74,6 +74,7 @@ export class CalendarComponent implements OnInit {
   examinationTypes: ExaminationType[];
 
   canClick: boolean = false;
+  canPDF: boolean = false;
   selectedEvent: CalendarEvent<{ appointment: Appointment }> = {
     title: null as any,
     start: null as any,
@@ -176,6 +177,7 @@ export class CalendarComponent implements OnInit {
 
   onEventClick(event: any): void {
     this.canClick = this.handleCanCancel(event.event.deleted,event.event.isDone)
+    this.canPDF = this.handleCanPDF(event.event.isDone)
     this.selectedEvent.color = colors['selected'];
     this.selectedEvent = event.event;
     this.selectedEvent.color = colors['selected'];
@@ -188,8 +190,10 @@ export class CalendarComponent implements OnInit {
     return false;
   }
 
+  private handleCanPDF(isDone: boolean){
+    return !!isDone;
+  }
  
-
   openDialog(event: any): void {
     this.dialogService.openYesNoDialog(dialogData)
       .afterClosed().subscribe(response => {
