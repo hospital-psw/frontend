@@ -2,28 +2,30 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NewsService } from '../../services/news.service';
 import { WelcomePageFeedbackService } from '../../services/welcome-page-feedback.service';
+import { init } from 'aos';
 
 @Component({
   selector: 'app-welcome-page',
   templateUrl: './welcome-page.component.html',
-  styleUrls: ['./welcome-page.component.scss']
+  styleUrls: ['./welcome-page.component.scss'],
 })
 export class WelcomePageComponent implements OnInit {
+  feedback: any = [];
+  allNews: any = [];
 
-  feedback:any = []
-  allNews:any = []
-
-  constructor(private feedbackService: WelcomePageFeedbackService, 
-              private router: Router) { }
+  constructor(
+    private feedbackService: WelcomePageFeedbackService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
+    init();
     this.feedbackService.getData().subscribe((data) => {
-      this.feedback = data
+      this.feedback = data;
     });
   }
 
-  onClick(path: string){
-    this.router.navigate([`/${path}`])
+  onClick(path: string) {
+    this.router.navigate([`/${path}`]);
   }
-
 }

@@ -36,11 +36,13 @@ import { ResetPasswordPageComponent } from './shared/Auth/components/reset-passw
 import { ConfirmMailPageComponent } from './shared/Auth/components/confirm-mail-page/confirm-mail-page.component';
 import { LegendDialogComponent } from './shared/modal-dialog/legend-dialog/legend-dialog.component'; 
 import { DatePipe } from '@angular/common';
+import { CovidGuardComponent } from './pages/covid-guard/covid-guard.component';
+import { CardComponent } from './pages/covid-guard/card/card.component';
 
 @NgModule({
   declarations: [AppComponent, AppointmentReservationComponent, ModalDialogComponent, 
                 MedicalBranchCardComponent, DoctorCardComponent, AppointmentCardComponent, SelectionInfoComponent, 
-                ForgotPasswordPageComponent, ResetPasswordPageComponent, ConfirmMailPageComponent, LegendDialogComponent],
+                ForgotPasswordPageComponent, ResetPasswordPageComponent, ConfirmMailPageComponent, LegendDialogComponent, CovidGuardComponent, CardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

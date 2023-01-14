@@ -1,5 +1,5 @@
 <div class="welcome-page">
-  <section id="hero">
+  <section id="hero" data-aos="fade-down" data-aos-duration="2000">
     <div class="svg-background">
       <div class="not-logged-buttons">
         <a (click)="onClick('login')">
@@ -16,33 +16,42 @@
       <div class="aboutUs-content"></div>
     </div>
   </section>
-  <section id="services">
+  <section id="services" data-aos="fade-down" data-aos-duration="2200">
     <div class="services-wrapper">
-      <p class="little-title">Our Services</p>
-      <h2>Comprehensive and quality healthcare services for all.</h2>
+      <div class="services-header">
+        <p class="little-title">Our Services</p>
+        <h2>Comprehensive and quality healthcare services for all.</h2>
+      </div>
       <div class="services-content">
         <app-our-services></app-our-services>
       </div>
     </div>
   </section>
   <section id="feedback">
-    <div class="feedback-wrapper">
-      <p class="little-title">Feedback</p>
-      <h2>See what others think about our services.</h2>
-      <app-prime-ng-carousel [feedbacks]="feedback"></app-prime-ng-carousel>
+    <div class="feedback-wrapper" data-aos="fade-down" data-aos-duration="2200">
+      <div class="carousel-header">
+        <p class="little-title">Feedback</p>
+        <h2>See what others think about our services.</h2>
+      </div>
+      <app-prime-ng-carousel
+        [feedbacks]="feedback"
+        class="fb-carousel"
+      ></app-prime-ng-carousel>
     </div>
   </section>
   <section id="team">
-    <div class="team-wrapper">
-      <p class="little-title">Our Team</p>
-      <h2>
-        Meet the skilled and compassionate medical team at our facility,
-        dedicated to providing exceptional care to our patients.
-      </h2>
+    <div class="team-wrapper" data-aos="fade-down" data-aos-duration="2200">
+      <div class="carousel-header">
+        <p class="little-title">Our Team</p>
+        <h2>
+          Meet the skilled and compassionate medical team at our facility,
+          dedicated to providing exceptional care to our patients.
+        </h2>
+      </div>
       <app-our-team></app-our-team>
     </div>
   </section>
-  <section id="footer">
+  <section id="footer" data-aos="fade-down" data-aos-duration="2000">
     <app-footer></app-footer>
   </section>
 </div>

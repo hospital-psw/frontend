@@ -12,32 +12,80 @@ import { ResetPasswordPageComponent } from './shared/Auth/components/reset-passw
 import { ActiveTendersComponent } from './pages/tenders/components/active-tenders/active-tenders.component';
 import { TenderDetailsComponent } from './pages/tenders/components/tender-details/tender-details.component';
 import { ConfirmMailPageComponent } from './shared/Auth/components/confirm-mail-page/confirm-mail-page.component';
-
+import { CovidGuardComponent } from './pages/covid-guard/covid-guard.component';
 
 const routes: Routes = [
-  { path: '', component: WelcomePageComponent, canActivate:[LoggedAuthGuard]},
-  { path: 'login', component: LoginPageComponent, canActivate:[LoggedAuthGuard]},
-  { path: 'register', component: RegistrationFormComponent, canActivate:[LoggedAuthGuard]},
-  { path: 'forgot-password', component: ForgotPasswordPageComponent, canActivate:[LoggedAuthGuard]},
-  { path: 'reset-password', component: ResetPasswordPageComponent, canActivate:[LoggedAuthGuard]},
-  { path: 'confirm-email', component: ConfirmMailPageComponent, canActivate:[LoggedAuthGuard]},
-  { path: 'tenders', component: ActiveTendersComponent, canActivate:[AuthGuard]},
-  { path: 'tender/:id', component: TenderDetailsComponent, canActivate:[AuthGuard]},
+  { path: '', component: WelcomePageComponent, canActivate: [LoggedAuthGuard] },
+  {
+    path: 'login',
+    component: LoginPageComponent,
+    canActivate: [LoggedAuthGuard],
+    title: 'Welcome | Care Connect',
+  },
+  {
+    path: 'register',
+    component: RegistrationFormComponent,
+    canActivate: [LoggedAuthGuard],
+    title: 'Join us | Care Connect',
+  },
+  {
+    path: 'forgot-password',
+    component: ForgotPasswordPageComponent,
+    canActivate: [LoggedAuthGuard],
+    title: 'Forgot password | Care Connect',
+  },
+  {
+    path: 'reset-password',
+    component: ResetPasswordPageComponent,
+    canActivate: [LoggedAuthGuard],
+    title: 'Reset password | Care Connect',
+  },
+  {
+    path: 'confirm-email',
+    component: ConfirmMailPageComponent,
+    canActivate: [LoggedAuthGuard],
+    title: 'Confirm email | Care Connect',
+  },
+  {
+    path: 'tenders',
+    component: ActiveTendersComponent,
+    canActivate: [AuthGuard],
+    title: 'Tenders | Care Connect',
+  },
+  {
+    path: 'tender/:id',
+    component: TenderDetailsComponent,
+    canActivate: [AuthGuard],
+    title: 'Tender Details | CareConnect',
+  },
   {
     path: 'app',
     component: MainAppComponent,
-    loadChildren:() =>import('./main-app/main-app.module').then(x=>x.MainAppModule)
+    loadChildren: () =>
+      import('./main-app/main-app.module').then((x) => x.MainAppModule),
+    title: 'Care Connect',
   },
   {
-    path:'error',
+    path: 'error',
     component: ErrorPageComponent,
-    loadChildren:() =>import('./shared/error-pages/error-pages.module').then(x=>x.ErrorPagesModule)
+    loadChildren: () =>
+      import('./shared/error-pages/error-pages.module').then(
+        (x) => x.ErrorPagesModule
+      ),
+    title: 'Error | Care Connect',
   },
-  {path: '**', redirectTo: '/error/notfound'},
-  
-
+  {
+    path: 'covid-guard',
+    component: CovidGuardComponent,
+    title: 'Covid Guard | Care Connect',
+  },
+  {
+    path: '**',
+    redirectTo: '/error/notfound',
+    title: 'Not Found | Care Connect',
+  },
 ];
- 
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],

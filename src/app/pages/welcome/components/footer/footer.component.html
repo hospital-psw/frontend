@@ -33,14 +33,22 @@
       </li>
     </ul>
     <ul class="menu">
-      <li class="menu__item"><a class="menu__link" href="#hero">Home</a></li>
       <li class="menu__item">
-        <a class="menu__link" href="#services">Services</a>
+        <a class="menu__link" (click)="scrollToElement('#hero')">Home</a>
       </li>
       <li class="menu__item">
-        <a class="menu__link" href="#feedback">Feedback</a>
+        <a class="menu__link" (click)="scrollToElement('#services')"
+          >Services</a
+        >
       </li>
-      <li class="menu__item"><a class="menu__link" href="#team">Team</a></li>
+      <li class="menu__item">
+        <a class="menu__link" (click)="scrollToElement('#feedback')"
+          >Feedback</a
+        >
+      </li>
+      <li class="menu__item">
+        <a class="menu__link" (click)="scrollToElement('#team')">Team</a>
+      </li>
     </ul>
     <p class="p-pointer">
       &copy;2022 Care Connect |

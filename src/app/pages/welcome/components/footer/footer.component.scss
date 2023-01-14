@@ -39,6 +39,10 @@ body {
 .social-icon__item,
 .menu__item {
   list-style: none;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .social-icon__link {
@@ -47,6 +51,7 @@ body {
   margin: 0 10px;
   display: inline-block;
   transition: 0.5s;
+
 }
 
 .social_icon_img {
