@@ -1,0 +1,448 @@
+<div class="main">
+  <section id="hero" class="section header">
+    <div class="header__image">
+      <div class="header__text-box">
+        <h1 class="heading-primary">
+          <span class="heading-primary--main">COVID GUARD</span>
+          <span class="heading-primary--sub"
+            >- The Ultimate COVID-19 Detection Solution -</span
+          >
+        </h1>
+
+        <a
+          (click)="scrollToElement('#description')"
+          class="btn-container btn btn--white btn--animated"
+          >Begin</a
+        >
+      </div>
+    </div>
+  </section>
+  <section id="description">
+    <div class="section">
+      <div class="description padding">
+        <div class="description__header" id="hd">
+          Rapid COVID-19 Detection: Accurate Results in Real-Time
+        </div>
+        <div class="description__paragraph">
+          {{ getFirstParagraph() }}
+        </div>
+        <div class="description__paragraph">
+          {{ getSecondParagraph() }}
+        </div>
+        <div class="description__paragraph">
+          {{ getThirdParagraph() }}
+        </div>
+        <div class="description__footer">
+          <span class="desc-text">Are you ready to begin?</span>
+          <a
+            (click)="scrollToElement('#symptoms')"
+            class="btn-container btn btn--white btn--animated btn-d-dim pad"
+            >Proceed ↓</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="symp-container">
+    <section id="symptoms" class="section">
+      <div class="symptoms-wrapper">
+        <div class="symptoms">
+          <div class="symptoms__header-div">
+            <div class="symptoms__header">Common symptoms</div>
+            <a
+              (click)="scrollToElement('#description')"
+              class="btn-container btn btn--white btn--animated btn-s-dim pad-s"
+              >Back<span style="margin-left: 0.3rem">↑</span>
+            </a>
+          </div>
+          <div class="symptoms__paragraph">
+            <span class="span-s" id="hs">
+              Fever, Dry Cough, Shortness of breath, Fatigue, Loss of taste or
+              smell... <br />
+            </span>
+            <span>
+              {{ getSymptomParagraph() }} <br />
+              {{ getSymptomParagraph2() }}
+            </span>
+          </div>
+          <div class="symptoms__main">
+            <div class="symptoms__main-header">
+              Please select the symptoms you are experiencing:
+            </div>
+            <div class="symptoms__form">
+              <div class="symptoms__form-row">
+                <div class="card" id="Fever" (click)="selectSymptom('Fever')">
+                  <div class="card-main">
+                    <div class="card--icon img-1"></div>
+                    <div class="card--header">Fever</div>
+                  </div>
+                </div>
+                <div class="card" id="Cough" (click)="selectSymptom('Cough')">
+                  <div class="card-main">
+                    <div class="card--icon img-2"></div>
+                    <div class="card--header">Cough</div>
+                  </div>
+                </div>
+                <div
+                  class="card"
+                  id="Headache"
+                  (click)="selectSymptom('Headache')"
+                >
+                  <div class="card-main">
+                    <div class="card--icon img-3"></div>
+                    <div class="card--header">Headache</div>
+                  </div>
+                </div>
+                <div
+                  class="card"
+                  id="Trouble breathing"
+                  (click)="selectSymptom('Trouble breathing')"
+                >
+                  <div class="card-main">
+                    <div class="card--icon img-4"></div>
+                    <div class="card--header">Breathing</div>
+                  </div>
+                </div>
+              </div>
+              <div class="symptoms__form-row">
+                <div
+                  class="card"
+                  id="Sore throat"
+                  (click)="selectSymptom('Sore throat')"
+                >
+                  <div class="card-main">
+                    <div class="card--icon img-5"></div>
+                    <div class="card--header">Sore throat</div>
+                  </div>
+                </div>
+                <div
+                  id="Stomachache"
+                  class="card"
+                  (click)="selectSymptom('Stomachache')"
+                >
+                  <div class="card-main">
+                    <div class="card--icon img-6"></div>
+                    <div class="card--header">Stomachache</div>
+                  </div>
+                </div>
+                <div
+                  class="card"
+                  id="Smell loss"
+                  (click)="selectSymptom('Smell loss')"
+                >
+                  <div class="card-main">
+                    <div class="card--icon img-7"></div>
+                    <div class="card--header">Smell loss</div>
+                  </div>
+                </div>
+                <div
+                  class="card"
+                  (click)="selectSymptom('Fatigue')"
+                  id="Fatigue"
+                >
+                  <div class="card-main">
+                    <div class="card--icon img-8"></div>
+                    <div class="card--header">Fatigue</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="buttons">
+            <a
+              (click)="scrollToElement('#conditions')"
+              class="btn-container btn btn--white btn--animated btn-s-dim pad-s"
+              >Next →</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="conditions" class="section">
+      <div class="contidions-wrapper">
+        <div class="conditions">
+          <div class="conditions__header">Chronic conditions</div>
+          <div class="conditions__paragraph">
+            There is evidence that individuals with certain chronic health
+            conditions may be at a higher risk of developing severe illness if
+            they contract COVID-19. The system is able to identify patients who
+            may be at a higher risk of developing severe illness from COVID-19
+            based on their chronic health conditions. These include conditions
+            such as cardiovascular disease, diabetes, lung disease, cancer,
+            kidney disease, obesity, and immunocompromised state...
+          </div>
+          <div class="conditions__form">
+            <div class="conditions__form-header">
+              If you suffer from any chronic diseases below, please indicate:
+            </div>
+            <div class="conditions__form-content">
+              <div class="conditions__form-content--row">
+                <div
+                  class="card"
+                  id="Hypertension"
+                  (click)="selectCondition('Hypertension')"
+                >
+                  <div class="card-main">
+                    <div class="card--icon img-c1"></div>
+                    <div class="card--header">Hypertension</div>
+                  </div>
+                </div>
+                <div
+                  class="card"
+                  id="Asthma"
+                  (click)="selectCondition('Asthma')"
+                >
+                  <div class="card-main">
+                    <div class="card--icon img-c2"></div>
+                    <div class="card--header">Asthma</div>
+                  </div>
+                </div>
+                <div
+                  class="card"
+                  id="Kidney disease"
+                  (click)="selectCondition('Kidney disease')"
+                >
+                  <div class="card-main">
+                    <div class="card--icon img-c3"></div>
+                    <div class="card--header">Kidney disease</div>
+                  </div>
+                </div>
+                <div
+                  class="card"
+                  id="Diabetes"
+                  (click)="selectCondition('Diabetes')"
+                >
+                  <div class="card-main">
+                    <div class="card--icon img-c4"></div>
+                    <div class="card--header">Diabetes</div>
+                  </div>
+                </div>
+              </div>
+              <div class="conditions__form-content--row">
+                <div
+                  class="card"
+                  id="Lung disease"
+                  (click)="selectCondition('Lung disease')"
+                >
+                  <div class="card-main">
+                    <div class="card--icon img-c5"></div>
+                    <div class="card--header">Lung disease</div>
+                  </div>
+                </div>
+                <div
+                  id="Obesity"
+                  class="card"
+                  (click)="selectCondition('Obesity')"
+                >
+                  <div class="card-main">
+                    <div class="card--icon img-c6"></div>
+                    <div class="card--header">Obesity</div>
+                  </div>
+                </div>
+                <div
+                  class="card"
+                  id="Compromised immune system"
+                  (click)="selectCondition('Compromised immune system')"
+                >
+                  <div class="card-main">
+                    <div class="card--icon img-c7"></div>
+                    <div class="card--header">Compomised immune system</div>
+                  </div>
+                </div>
+                <div
+                  class="card"
+                  (click)="selectCondition('Cancer')"
+                  id="Cancer"
+                >
+                  <div class="card-main">
+                    <div class="card--icon img-c8"></div>
+                    <div class="card--header">Cancer</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="conditions__buttons">
+            <a
+              (click)="scrollToElement('#symptoms')"
+              class="btn-container btn btn--white btn--animated btn-s-dim pad-s"
+            >
+              Back ←
+            </a>
+            <a
+              (click)="scrollToElement('#contact')"
+              class="btn-container btn btn--white btn--animated btn-s-dim pad-s"
+            >
+              Next →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="section">
+      <div class="contact-wrapper">
+        <div class="contact">
+          <div class="contact__header">Contact with carriers</div>
+          <div class="contact__paragraph">
+            Traveling, attending large gatherings, and coming into close contact
+            with infected individuals are all activities that increase the risk
+            of contracting COVID-19. <br />
+            <br />
+            Traveling, especially by plane, train, or bus, increases the risk of
+            exposure to the virus as these modes of transportation are often
+            crowded and have poor ventilation. <br />
+            <br />Because the COVID-19 virus spreads easily through respiratory
+            droplets, close contact with infected individuals increases the
+            likelihood of exposure to these droplets and thereby risk of getting
+            infected.
+          </div>
+          <div class="contact__form">
+            <div class="contact__form-header">
+              If you participated in any of these activities below in the past
+              two weeks, please indicate:
+            </div>
+            <div class="contact__form-content">
+              <div class="contact__form-content--row">
+                <div
+                  class="card"
+                  id="Travel abroad"
+                  (click)="selectActivity('Travel abroad')"
+                >
+                  <div class="card-main">
+                    <div class="card--icon img-t1"></div>
+                    <div class="card--header">Travel abroad</div>
+                  </div>
+                </div>
+                <div
+                  id="Public transport"
+                  class="card"
+                  (click)="selectActivity('Public transport')"
+                >
+                  <div class="card-main">
+                    <div class="card--icon img-t2"></div>
+                    <div class="card--header">Public transport</div>
+                  </div>
+                </div>
+                <div
+                  class="card"
+                  id="Large gatherings"
+                  (click)="selectActivity('Large gatherings')"
+                >
+                  <div class="card-main">
+                    <div class="card--icon img-t3"></div>
+                    <div class="card--header">Large gatherings</div>
+                  </div>
+                </div>
+                <div
+                  class="card"
+                  (click)="selectActivity('Contact with infected')"
+                  id="Contact with infected"
+                >
+                  <div class="card-main">
+                    <div class="card--icon img-t4"></div>
+                    <div class="card--header">Contact with infected</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contact__buttons">
+            <a
+              (click)="scrollToElement('#conditions')"
+              class="btn-container btn btn--white btn--animated btn-s-dim pad-s"
+            >
+              Back ←
+            </a>
+            <a
+              (click)="scrollToElement('#finishing-steps')"
+              class="btn-container btn btn--white btn--animated btn-s-dim pad-s"
+            >
+              Next →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="finishing-steps-container">
+    <section id="finishing-steps" class="section">
+      <div class="finishing-wrapper">
+        <div class="finishing">
+          <div class="finishing__header">Almost done</div>
+          <div class="finishing__paragraph">
+            Here is the overview of selected symptoms, chronic conditions, and
+            activities you have selected. <br />
+            Please check once more if everything is in order. <br />
+            Feel free to go back to any part of the form you like. <br />
+            By pressing finish, you are activating The Covid Guard© and the
+            results will be shown to you in the shortest time
+          </div>
+          <div class="finishing__form">
+            <div class="final-card">
+              <div class="final-card--header">Symptoms</div>
+              <div class="final-card--content">
+                <span
+                  class="final-card--content__item"
+                  *ngFor="let name of symptoms"
+                  >- {{ name }} -</span
+                >
+              </div>
+              <div class="final-card--footer">
+                <a
+                  (click)="advScrollToElement('#symptoms')"
+                  class="btn-container btn btn--green btn--animated btn-s-dim pad-s"
+                >
+                  Reconsider
+                </a>
+              </div>
+            </div>
+            <div class="final-card">
+              <div class="final-card--header">Chronic conditions</div>
+              <div class="final-card--content">
+                <span
+                  class="final-card--content__item"
+                  *ngFor="let name of conditions"
+                  >- {{ name }} -</span
+                >
+              </div>
+              <div class="final-card--footer">
+                <a
+                  (click)="advScrollToElement('#conditions')"
+                  class="btn-container btn btn--green btn--animated btn-s-dim pad-s"
+                >
+                  Reconsider
+                </a>
+              </div>
+            </div>
+            <div class="final-card">
+              <div class="final-card--header">Activities</div>
+              <div class="final-card--content">
+                <span
+                  class="final-card--content__item"
+                  *ngFor="let name of activities"
+                  >- {{ name }} -</span
+                >
+              </div>
+              <div class="final-card--footer">
+                <a
+                  (click)="advScrollToElement('#contact')"
+                  class="btn-container btn btn--green btn--animated btn-s-dim pad-s"
+                >
+                  Reconsider
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="finishing__buttons">
+            <a
+              class="btn-container btn btn--white btn--animated btn-s-dim"
+              (click)="getResults('')"
+            >
+              Finish
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
