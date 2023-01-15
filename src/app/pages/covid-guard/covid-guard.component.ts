@@ -10,6 +10,8 @@ import {
 import { LoaderModule } from 'src/app/shared/modules/loader/loader.module';
 import { Subject } from 'rxjs';
 import { init } from 'aos';
+import { PredictionService } from './services/prediction.service';
+import { PredictionBody } from './interface/PredictionBody';
 
 @Component({
   selector: 'app-covid-guard',
@@ -25,12 +27,42 @@ export class CovidGuardComponent implements OnInit {
   activities: Array<string>;
   isLoading: boolean = false;
   reachedEnd: boolean = false;
+  data: PredictionBody;
+
+  constructor(private predictionService: PredictionService) {}
 
   ngOnInit(): void {
     init();
     this.symptoms = [];
     this.conditions = [];
     this.activities = [];
+    this.createData();
+    this.predictionService.train().subscribe((res) => {
+      console.log(res);
+    });
+  }
+
+  createData() {
+    this.data = {
+      fever: false,
+      abroad_travel: false,
+      asthma: false,
+      attended_large_gathering: false,
+      breathing_problems: false,
+      chronic_lung_disease: false,
+      contact_with_covid: false,
+      diabetes: false,
+      dry_cough: false,
+      family_working_in_public_exposed_places: false,
+      fatigue: false,
+      gastrointestinal: false,
+      headache: false,
+      heart_disease: false,
+      hyper_tension: false,
+      running_nose: false,
+      sore_throat: false,
+      visited_public_exposed_places: false,
+    };
   }
 
   ngAfterViewInit(): void {
@@ -154,10 +186,80 @@ export class CovidGuardComponent implements OnInit {
     element.forEach((el) => this._observer.observe(el.nativeElement));
   }
 
-  getResults(data: any) {
-    this.isLoading = true;
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 6000);
+  setUpData() {
+    this.symptoms.forEach((el) => {
+      switch (el) {
+        case 'Fever':
+          this.data.fever = true;
+          break;
+        case 'Cough':
+          this.data.dry_cough = true;
+          break;
+        case 'Headache':
+          this.data.headache = true;
+          break;
+        case 'Breathing problems':
+          this.data.breathing_problems = true;
+          break;
+        case 'Sore throat':
+          this.data.sore_throat = true;
+          break;
+        case 'Stomachache':
+          this.data.gastrointestinal = true;
+          break;
+        case 'Smell loss':
+          this.data.running_nose = true;
+          break;
+      }
+    });
+
+    this.conditions.forEach((el) => {
+      switch (el) {
+        case 'Hypertension':
+          this.data.hyper_tension = true;
+          break;
+        case 'Asthma':
+          this.data.asthma = true;
+          break;
+        case 'Kidney disease':
+          this.data.family_working_in_public_exposed_places = true;
+          break;
+        case 'Diabetes':
+          this.data.diabetes = true;
+          break;
+        case 'Lung disease':
+          this.data.chronic_lung_disease = true;
+          break;
+        case 'Obesity':
+          this.data.heart_disease = true;
+          break;
+      }
+    });
+
+    this.activities.forEach((el) => {
+      switch (el) {
+        case 'Travel abroad':
+          this.data.abroad_travel = true;
+          break;
+        case 'Public transport':
+          this.data.visited_public_exposed_places = true;
+          break;
+        case 'Large gatherings':
+          this.data.attended_large_gathering = true;
+          break;
+        case 'Contact with infected':
+          this.data.contact_with_covid = true;
+          break;
+      }
+    });
+
+    console.log(this.data);
+  }
+
+  getResults() {
+    this.setUpData();
+    this.predictionService.predict(this.data).subscribe((response) => {
+      console.log(response);
+    });
   }
 }
