@@ -152,7 +152,14 @@
             <a
               (click)="scrollToElement('#conditions')"
               class="btn-container btn btn--white btn--animated btn-s-dim pad-s"
+              *ngIf="!reachedEnd"
               >Next →</a
+            >
+            <a
+              (click)="summaryScroll()"
+              class="btn-container btn btn--white btn--animated btn-s-dim pad-s"
+              *ngIf="reachedEnd"
+              >To Summary</a
             >
           </div>
         </div>
@@ -357,7 +364,7 @@
               (click)="scrollToElement('#finishing-steps')"
               class="btn-container btn btn--white btn--animated btn-s-dim pad-s"
             >
-              Next →
+              To summary ↓
             </a>
           </div>
         </div>
