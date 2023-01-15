@@ -4,10 +4,43 @@
 .welcome-page {
   height: auto;
   background: var(--white);
+  display: flex;
+  flex-direction: column;
 }
 
 .aboutUs-wrapper {
   width: 100%;
+  background-color: #efefef;
+  height: 0;
+}
+
+#hero {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px,
+      rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px,
+      rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  z-index: 10;
+}
+
+#services, #feedback, #team {
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+#feedback {
+  background-color: #fff;
+}
+
+#services, #team {
+  background-color: #efefef;
+} 
+
+#footer {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .little-title {
@@ -25,24 +58,28 @@
 
 .services-wrapper {
   width: 100%;
-  height: 500px;
-  margin-top: 10rem;
+  height: 100%;
+  padding-top: 10rem;
 }
 
 .services-content {
-  height: inherit;
   width: 85%;
   margin: auto;
+  margin-top: 5rem;
 }
 
 .team-wrapper {
-  margin-top: 200px;
   padding-bottom: 200px;
+  margin-top: 5rem;
 }
 
 .feedback-wrapper {
-  height: 500px;
-  margin-top: 10rem;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+  padding-top: 10rem;
 }
 
 .feedback-container {
@@ -51,6 +88,15 @@
   place-items: center;
   height: auto;
   padding-bottom: 2rem;
+}
+
+.carousel-header {
+  margin-bottom: 5rem;
+  height: 10%;
+}
+
+.fb-carousel {
+  height: 90%;
 }
 
 .feedback-card {
@@ -75,6 +121,7 @@
     rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px,
     rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  z-index: 10;
 }
 
 h1 {
