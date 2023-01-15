@@ -37,7 +37,7 @@ export class AuthService{
     public checkUser(response: LoginResponseDTO){
         const tokenData: any = this.decoder.decode(response.token)
         if(tokenData.role === 'Patient'){
-            this.handleLogin(response)       
+            this.handleLogin(response)
         }else{
             response.id = -1;
         }
@@ -78,7 +78,7 @@ export class AuthService{
     if (!userData) {
       return;
     }
-    
+
     const loadedUser = new User(
       userData.email,
       userData.id,
@@ -104,7 +104,7 @@ export class AuthService{
 
   public logout() {
     this.user.next(null as any);
-    this.router.navigate(['']);
+    this.router.navigate(['/']);
     this.toastr.success('You have been successfully logged out.', 'Goodbye!');
     localStorage.removeItem('userData');
     if (this.tokenExpirationTimer) {

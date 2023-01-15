@@ -52,7 +52,8 @@ export class AppointmentReservationComponent implements OnInit {
   branches: Branch[] = [
     { id: 0, name: "General" },
     { id: 1, name: "Cardiology" },
-    { id: 2, name: "Neurology" }]
+    { id: 2, name: "Neurology" },
+    { id: 3, name: "Radiology" }]
 
   constructor(private event_service: EventSourcingService, private service: AppointmentReservationService, private router: Router, private toaster: ToastrService) { }
 
@@ -65,7 +66,8 @@ export class AppointmentReservationComponent implements OnInit {
 
 
     let temp = new Date()
-    temp.setDate(temp.getHours() + 1)
+    temp.setMinutes(temp.getMinutes() - temp.getTimezoneOffset());
+
 
     this.startDto = {
       aggregateId: -1,
@@ -78,7 +80,7 @@ export class AppointmentReservationComponent implements OnInit {
       this.aggregateId = data.id
 
       temp = new Date()
-      temp.setDate(temp.getHours() + 1)
+      temp.setMinutes(temp.getMinutes() - temp.getTimezoneOffset());
 
       this.selectDateDto = {
         aggregateId: this.aggregateId,
@@ -96,7 +98,7 @@ export class AppointmentReservationComponent implements OnInit {
     this.selectedBranch = this.branches.find((branch) => branch.id === id)?.name;
 
     let temp = new Date()
-    temp.setDate(temp.getHours() + 1)
+    temp.setMinutes(temp.getMinutes() - temp.getTimezoneOffset());
 
     this.selectSpecializationDto = {
       aggregateId: this.aggregateId,
@@ -114,7 +116,7 @@ export class AppointmentReservationComponent implements OnInit {
     this.selectedDoctor = `${doc.firstName} ${doc.lastName}`
 
     let temp = new Date()
-    temp.setDate(temp.getHours() + 1)
+    temp.setMinutes(temp.getMinutes() - temp.getTimezoneOffset());
 
     this.selectDoctorDto = {
       aggregateId: this.aggregateId,
@@ -130,7 +132,7 @@ export class AppointmentReservationComponent implements OnInit {
     this.selectedAppointment = date;
 
     let temp = new Date()
-    temp.setDate(temp.getHours() + 1)
+    temp.setMinutes(temp.getMinutes() - temp.getTimezoneOffset());
 
     this.selectAppointmentDto = {
       aggregateId: this.aggregateId,
@@ -180,14 +182,14 @@ export class AppointmentReservationComponent implements OnInit {
   }
   Schedule(): void {
     this.newAppointmentDTO = {
-      date: this.selectedDate,
+      date: this.selectedAppointment,
       patientId: this.userData.id,
       doctorID: this.selectedDoctorId,
       examType: 1
     }
 
     let temp = new Date()
-    temp.setDate(temp.getHours() + 1)
+    temp.setMinutes(temp.getMinutes() - temp.getTimezoneOffset());
 
     this.scheduleAppointmentDto = {
       aggregateId: this.aggregateId,
@@ -204,7 +206,7 @@ export class AppointmentReservationComponent implements OnInit {
   }
   NextClicked(step: number): void {
     let temp = new Date()
-    temp.setDate(temp.getHours() + 1)
+    temp.setMinutes(temp.getMinutes() - temp.getTimezoneOffset());
 
     this.nextDto = {
       aggregateId: this.aggregateId,
@@ -219,7 +221,7 @@ export class AppointmentReservationComponent implements OnInit {
   BackClicked(step: number): void {
 
     let temp = new Date()
-    temp.setDate(temp.getHours() + 1)
+    temp.setMinutes(temp.getMinutes() - temp.getTimezoneOffset());
 
     this.nextDto = {
       aggregateId: this.aggregateId,
@@ -234,7 +236,7 @@ export class AppointmentReservationComponent implements OnInit {
   DateChanged() {
 
     let temp = new Date()
-    temp.setDate(temp.getHours() + 1)
+    temp.setMinutes(temp.getMinutes() - temp.getTimezoneOffset());
 
     this.selectDateDto = {
       aggregateId: this.aggregateId,

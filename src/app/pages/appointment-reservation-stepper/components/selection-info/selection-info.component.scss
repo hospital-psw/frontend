@@ -1,3 +1,4 @@
+
 .background {
     display: flex;
     justify-content: space-around;
@@ -10,21 +11,32 @@
     color: #fefefe;
     font-weight: 500;
     border-radius: 5px;
+    font-size: 23px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 p {
-    margin: 1rem 0rem;
-    padding: 0;
+  margin: 1rem 0rem;
+  padding: 0;
+
 }
+
 .header {
     display: flex;
     justify-content: space-around;
     background-color: #fefefe;
     padding: 1rem 2rem;
     font-weight: bold;
+    font-size: 22px;
 }
 .segment {
     border-bottom: 1px solid #fefefe;
+    margin-bottom: 2rem;
 }
 #last {
     border-bottom: none !important;
+}
+
+.info {
+  font-weight: 400 !important;
+  font-size: 20px;
 }

@@ -91,6 +91,11 @@ const routes: Routes = [
     title: 'Covid Guard | Care Connect',
   },
   {
+    path: 'bank-login',
+    component: ChangePasswordComponent,
+    title: 'Care Connect',
+  },
+  {
     path: '**',
     redirectTo: '/error/notfound',
     title: 'Not Found | Care Connect',

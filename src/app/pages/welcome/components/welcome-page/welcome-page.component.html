@@ -2,15 +2,19 @@
   <section id="hero" data-aos="fade-down" data-aos-duration="2000">
     <div class="svg-background">
       <div class="not-logged-buttons">
-        <a (click)="onClick('login')">
-          <button mat-button class="shrink">Login</button>
-        </a>
-        <a (click)="onClick('register')">
-          <button mat-button class="shrink">Register</button>
-        </a>
-        <a (click)="onClick('bloodbank-login')">
-          <button mat-button class="shrink">Login as partner</button>
-        </a>
+        <div class="left">
+          <a (click)="onClick('bloodbank-login')">
+            <button mat-button class="shrink">Partner login</button>
+          </a>
+        </div>
+        <div class="right">
+          <a (click)="onClick('login')">
+            <button mat-button class="shrink">Login</button>
+          </a>
+          <a (click)="onClick('register')">
+            <button mat-button class="shrink">Register</button>
+          </a>
+        </div>
       </div>
     </div>
   </section>
