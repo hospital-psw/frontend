@@ -3,7 +3,10 @@
     <div class="header__image">
       <div class="header__text-box">
         <h1 class="heading-primary">
-          <span class="heading-primary--main">COVID GUARD</span>
+          <span class="heading-primary--upmain">Care Connect</span>
+          <span class="heading-primary--main"
+            ><span class="copyright">©</span>COVID GUARD</span
+          >
           <span class="heading-primary--sub"
             >- The Ultimate COVID-19 Detection Solution -</span
           >
@@ -95,12 +98,12 @@
                 </div>
                 <div
                   class="card"
-                  id="Trouble breathing"
-                  (click)="selectSymptom('Trouble breathing')"
+                  id="Breathing problems"
+                  (click)="selectSymptom('Breathing problems')"
                 >
                   <div class="card-main">
                     <div class="card--icon img-4"></div>
-                    <div class="card--header">Breathing</div>
+                    <div class="card--header">Breathing problems</div>
                   </div>
                 </div>
               </div>
@@ -443,7 +446,7 @@
           <div class="finishing__buttons">
             <a
               class="btn-container btn btn--white btn--animated btn-s-dim"
-              (click)="getResults('')"
+              (click)="getResults()"
             >
               Finish
             </a>

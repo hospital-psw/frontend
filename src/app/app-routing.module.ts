@@ -16,7 +16,12 @@ import { CovidGuardComponent } from './pages/covid-guard/covid-guard.component';
 import { ChangePasswordComponent } from './pages/bloodbank-password/components/change-password/change-password.component';
 
 const routes: Routes = [
-  { path: '', component: WelcomePageComponent, canActivate: [LoggedAuthGuard] },
+  {
+    path: '',
+    component: WelcomePageComponent,
+    canActivate: [LoggedAuthGuard],
+    title: 'Care Connect',
+  },
   {
     path: 'login',
     component: LoginPageComponent,
