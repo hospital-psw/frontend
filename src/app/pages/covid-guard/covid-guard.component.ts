@@ -24,6 +24,7 @@ export class CovidGuardComponent implements OnInit {
   conditions: Array<string>;
   activities: Array<string>;
   isLoading: boolean = false;
+  reachedEnd: boolean = false;
 
   ngOnInit(): void {
     init();
@@ -55,6 +56,13 @@ export class CovidGuardComponent implements OnInit {
     }
 
     this.scrollToElement($element);
+  }
+
+  summaryScroll(): void {
+    this.scrollToElement('#contact');
+    setTimeout(() => {
+      this.scrollToElement('#finishing-steps');
+    }, 800);
   }
 
   getFirstParagraph(): string {
@@ -118,10 +126,12 @@ export class CovidGuardComponent implements OnInit {
     if (this.activities.includes(name)) {
       console.log('USAO SAM OVDE');
       this.activities = this.activities.filter((e) => e != name);
+      if (this.activities.length === 0) this.reachedEnd = false;
       return;
     }
 
     this.activities.push(name);
+    this.reachedEnd = true;
   }
 
   createAndObserve(element: ElementRef[]) {
