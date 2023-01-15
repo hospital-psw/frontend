@@ -5,6 +5,7 @@
     height: auto;
     width: 100%;
     font-family: 'Anonymous Pro', monospace;
+    overflow: hidden !important;
 }
 
 .section {
@@ -63,6 +64,13 @@
         flex-direction: column;
         height: 50%;
 
+        .copyright {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            font-size: 1rem;
+        }
+
         &--icon {
             display: block;
             height: 64px;
@@ -70,8 +78,16 @@
             background-image: url("../../../assets/guard/covid-guard.png");
         }
 
+        &--upmain {
+            font-size: 1.8rem;
+            display: flex;
+            text-transform: capitalize;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
         &--main {
-            overflow: hidden;
             height: 40%;
             white-space: nowrap;
             font-size: 6rem;
@@ -213,7 +229,7 @@
 
     &__header {
         padding-top: .3rem;
-        font-size: 2.5rem;
+        font-size: 2.4rem;
         margin-bottom: 3%;
         width: 100%;
         min-height: 3%;
@@ -289,6 +305,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 4%;
 
             .btn-s-dim {
                 padding: .5rem 3rem !important;
@@ -309,14 +326,13 @@
             height: 100% !important;
             white-space: nowrap;
             display: block;
-            overflow: hidden;
         }
 
         &__paragraph {
             
             .span-s {
                 width: 100%;
-                font-size: 1.8rem;
+                font-size: 1.7rem;
                 font-weight: 700;
                 margin-bottom: 2rem;
                 padding-bottom: 1rem;
@@ -446,7 +462,7 @@
 
 .card {
     height: 5rem;
-    width: 15rem;
+    width: 20rem;
     background-color: #fff;
     border-radius: 1rem;
     display: flex;
@@ -695,7 +711,7 @@
             width: 90%;
             font-size: 1.3rem;
             line-height: 1.6rem;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
 
         }
 
@@ -727,7 +743,7 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    font-size: 1.6rem;
+                    font-size: 1.4rem;
                     text-transform: uppercase;
                     height: 20%;
                     margin-bottom: 1.5rem;
@@ -740,12 +756,14 @@
                     gap: 1.5rem;
                     height: 50%;
                     margin-bottom: 2rem;
+                    overflow: auto;
 
                     &__item {
                         display: flex;
                         justify-content: center;
                         align-items: center;
                         font-size: 1.2rem;
+                        font-weight: 500;
                         width: 100%;
                         height: 10%;
                     }

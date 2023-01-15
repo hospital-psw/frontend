@@ -15,7 +15,12 @@ import { ConfirmMailPageComponent } from './shared/Auth/components/confirm-mail-
 import { CovidGuardComponent } from './pages/covid-guard/covid-guard.component';
 
 const routes: Routes = [
-  { path: '', component: WelcomePageComponent, canActivate: [LoggedAuthGuard] },
+  {
+    path: '',
+    component: WelcomePageComponent,
+    canActivate: [LoggedAuthGuard],
+    title: 'Care Connect',
+  },
   {
     path: 'login',
     component: LoginPageComponent,
