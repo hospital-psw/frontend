@@ -81,7 +81,6 @@ export class CovidGuardComponent implements OnInit {
   }
 
   advScrollToElement($element: any): void {
-    console.log($element);
     this.scrollToElement('#contact');
     if ($element === '#contact') {
       return;
@@ -156,7 +155,6 @@ export class CovidGuardComponent implements OnInit {
   selectActivity(name: string) {
     this.makeActive(name);
     if (this.activities.includes(name)) {
-      console.log('USAO SAM OVDE');
       this.activities = this.activities.filter((e) => e != name);
       if (this.activities.length === 0) this.reachedEnd = false;
       return;
@@ -253,13 +251,11 @@ export class CovidGuardComponent implements OnInit {
       }
     });
 
-    console.log(this.data);
   }
 
   getResults() {
     this.setUpData();
     this.predictionService.predict(this.data).subscribe((response) => {
-      console.log(response);
     });
   }
 }

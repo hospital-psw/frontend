@@ -13,6 +13,7 @@ import { ActiveTendersComponent } from './pages/tenders/components/active-tender
 import { TenderDetailsComponent } from './pages/tenders/components/tender-details/tender-details.component';
 import { ConfirmMailPageComponent } from './shared/Auth/components/confirm-mail-page/confirm-mail-page.component';
 import { CovidGuardComponent } from './pages/covid-guard/covid-guard.component';
+import { ChangePasswordComponent } from './pages/bloodbank-password/components/change-password/change-password.component';
 
 const routes: Routes = [
   {
@@ -83,6 +84,11 @@ const routes: Routes = [
     path: 'covid-guard',
     component: CovidGuardComponent,
     title: 'Covid Guard | Care Connect',
+  },
+  {
+    path: 'bank-login',
+    component: ChangePasswordComponent,
+    title: 'Care Connect',
   },
   {
     path: '**',

@@ -10,10 +10,12 @@ export class DoctorCardComponent implements OnInit {
 
   @Input() doctor:Doctor;
   @Input() selected:boolean;
+  number:number;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.number = Math.floor(Math.random()*(10-1+1)+1);
   }
 
 }
