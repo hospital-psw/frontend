@@ -9,12 +9,14 @@ import { MaterialModule } from 'src/app/material/material.module';
 import { LoaderModule } from 'src/app/shared/modules/loader/loader.module';
 import { NewsSwiperComponent } from './components/news-swiper/news-swiper.component';
 import { SwiperModule } from 'swiper/angular';
+import { SymptomsChartComponent } from './components/symptoms-chart/symptoms-chart.component';
 
 @NgModule({
   declarations: [
     HomePageComponent,
     CalendarComponent,
-    NewsSwiperComponent
+    NewsSwiperComponent,
+    SymptomsChartComponent
   ],
   imports: [
     CommonModule,

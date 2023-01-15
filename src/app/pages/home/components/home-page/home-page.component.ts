@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from 'src/app/pages/welcome/services/news.service';
+import { SymptomStatistics } from '../../interface/SymptomStatistics';
+import { StatisticService } from '../../services/statistic.service';
 
 @Component({
   selector: 'app-home-page',
@@ -9,7 +11,7 @@ import { NewsService } from 'src/app/pages/welcome/services/news.service';
 export class HomePageComponent implements OnInit {
 
   news:any = []
-  bloodBank:string = ''
+  symptoms: any = []
   constructor(private newsService: NewsService) { }
 
   ngOnInit(): void {
