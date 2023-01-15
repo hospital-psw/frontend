@@ -47,7 +47,7 @@ export class ChangePasswordComponent implements OnInit {
       (res) => {
         if (res) {
           this.service.showSuccess('You already changed dummy password.');
-          this.router.navigate(['']);
+          this.router.navigate(['/app/tenders']);
         } else {
           this.credentialsCorrect = true;
           this.showWrongUsernameOrPass = false;
@@ -66,8 +66,8 @@ export class ChangePasswordComponent implements OnInit {
       this.changePasswordDTO.NewPassword = this.newPassword;
       this.service.changePassword(this.changePasswordDTO).subscribe(
         (res) => {
-          this.service.showSuccess('Your successfully changed password.');
-          this.router.navigate(['']);
+          this.service.showSuccess('You successfully changed password.');
+          this.router.navigate(['/app/tenders']);
         },
         (err) => this.service.showError('Username or password is incorect.')
       );

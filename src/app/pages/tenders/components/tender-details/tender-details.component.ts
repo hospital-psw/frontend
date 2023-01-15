@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { BloodType } from '../../enum/BloodType';
 import { Tender } from '../../interface/Tender';
@@ -15,7 +15,7 @@ export class TenderDetailsComponent implements OnInit {
   tender: Tender;
   form: FormGroup;
   tenderId: number;
-  constructor(private fb: FormBuilder, private tenderService: TenderService, private route: ActivatedRoute, private toastrService: ToastrService) { }
+  constructor(private fb: FormBuilder, private tenderService: TenderService, private route: ActivatedRoute, private toastrService: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadTender();
@@ -67,6 +67,7 @@ export class TenderDetailsComponent implements OnInit {
       this.tenderService.makeAnOffer(this.form.value, this.tenderId).subscribe(
         (res) => {
           this.toastrService.success("You've successfully made an offer! We'll get back to you by emai!")
+          this.router.navigate(['/app/tenders']);
         }
       )
     }

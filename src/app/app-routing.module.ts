@@ -13,6 +13,7 @@ import { ActiveTendersComponent } from './pages/tenders/components/active-tender
 import { TenderDetailsComponent } from './pages/tenders/components/tender-details/tender-details.component';
 import { ConfirmMailPageComponent } from './shared/Auth/components/confirm-mail-page/confirm-mail-page.component';
 import { CovidGuardComponent } from './pages/covid-guard/covid-guard.component';
+import { ChangePasswordComponent } from './pages/bloodbank-password/components/change-password/change-password.component';
 
 const routes: Routes = [
   { path: '', component: WelcomePageComponent, canActivate: [LoggedAuthGuard] },
@@ -46,7 +47,7 @@ const routes: Routes = [
     canActivate: [LoggedAuthGuard],
     title: 'Confirm email | Care Connect',
   },
-  {
+  /*{
     path: 'tenders',
     component: ActiveTendersComponent,
     canActivate: [AuthGuard],
@@ -57,6 +58,11 @@ const routes: Routes = [
     component: TenderDetailsComponent,
     canActivate: [AuthGuard],
     title: 'Tender Details | CareConnect',
+  },*/
+  {
+    path: 'bloodbank-login',
+    component: ChangePasswordComponent,
+    title: 'Bloodbank login | Care Connect',
   },
   {
     path: 'app',

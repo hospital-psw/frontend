@@ -39,7 +39,7 @@ export class ActiveTendersComponent implements OnInit {
   }
 
   makeAnOffer(id: number) {
-    this.router.navigate(['/tender/', id])
+    this.router.navigate(['/app/tender/', id])
   }
 
 }

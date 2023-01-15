@@ -8,12 +8,16 @@ import { HomePageComponent } from '../pages/home/components/home-page/home-page.
 import { LoginPageComponent } from '../pages/login/components/login-page/login-page.component';
 import { ProfilePageComponent } from '../pages/patient-profile/components/profile-page/profile-page.component';
 import { RegistrationFormComponent } from '../pages/registration/components/registration-form/registration-form/registration-form.component';
+import { ActiveTendersComponent } from '../pages/tenders/components/active-tenders/active-tenders.component';
+import { TenderDetailsComponent } from '../pages/tenders/components/tender-details/tender-details.component';
 import { AuthGuard } from '../shared/Auth/guard/auth.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent, canActivate:[AuthGuard]},
   { path: 'feedback', component: FeedbackPageComponent, canActivate:[AuthGuard]},
-  { path: 'changePassword', component: ChangePasswordComponent},
+  { path: 'bloodbank-login', component: ChangePasswordComponent},
+  { path: 'tenders', component: ActiveTendersComponent},
+  { path: 'tender/:id', component: TenderDetailsComponent},
   { path: 'profile', component: ProfilePageComponent, canActivate:[AuthGuard]},
   { path: 'reservation', component: AppointmentReservationComponent, canActivate:[AuthGuard]},
 ];
