@@ -1,24 +1,26 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-
+const integrationApi = 'https://integrationapiserver.azurewebsites.net/api';
+const hospitalApi = 'https://hospitalapiserver.azurewebsites.net/api';
 export const environment = {
   production: false,
-  apiUrl: "http://localhost:16177/api",
-  apiAuthUrl : "http://localhost:16177/api/Auth/login",
-  apiAuthBaseUrl : "http://localhost:16177/api/Auth",
-  apiFeedbackUrl : "http://localhost:16177/api/Feedback",
-  apiNewsUrl : "http://localhost:45488/api/News",
+  apiUrl: hospitalApi,
+  apiAuthUrl : hospitalApi + "/Auth/login",
+  apiAuthBaseUrl : hospitalApi + "/Auth",
+  apiFeedbackUrl : hospitalApi + "/Feedback",
+  apiNewsUrl : integrationApi + "/News",
+  apiTenderUrl : integrationApi + "/Tender",
 
-  apiPatientUrl : "http://localhost:16177/api/ApplicationPatient",
-  apiAppointmentUrl: "http://localhost:16177/api/Appointment",
+  apiPatientUrl : hospitalApi + "/ApplicationPatient",
+  apiAppointmentUrl: hospitalApi + "/Appointment",
   forgotPasswordUrl: "http://localhost:4200/reset-password",
 
-  apiBloodBankUrl: "http://localhost:45488/api/BloodBank",
-  apiApplicationDoctor : "http://localhost:16177/api/ApplicationDoctor",
-  apiAppointment: "http://localhost:16177/api/Appointment",
-  apiEventSourcing: "http://localhost:16177/api/AppointmentSchedulingControler",
-  apiStatistics: "http://localhost:16177/api/Statistical/examination/symptom-count"
+  apiBloodBankUrl: integrationApi + "/BloodBank",
+  apiApplicationDoctor : hospitalApi + "/ApplicationDoctor",
+  apiAppointment: hospitalApi + "/Appointment",
+  apiEventSourcing: hospitalApi + "/AppointmentSchedulingControler",
+  apiStatistics: hospitalApi + "/Statistical/examination/symptom-count"
 };
 
 /*

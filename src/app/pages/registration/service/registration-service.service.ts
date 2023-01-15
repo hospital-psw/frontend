@@ -15,12 +15,12 @@ export class RegistrationServiceService {
 
 
   findAllAllergies() {
-    return this.http.get<Allergies[]>('http://localhost:16177/api/Allergies/all');
+    return this.http.get<Allergies[]>(`${environment.apiUrl}/Allergies/all`);
   }
   findAllDoctors() {
-    return this.http.get<Doctor[]>('http://localhost:16177/api/ApplicationDoctor/allrecommended');
+    return this.http.get<Doctor[]>(`${environment.apiUrl}/ApplicationDoctor/allrecommended`);
   }
   register(user : Patient) {
-    return this.http.post<Patient>('http://localhost:16177/api/Auth/register/patient',user);
+    return this.http.post<Patient>(`${environment.apiUrl}/Auth/register/patient`,user);
   }
 }

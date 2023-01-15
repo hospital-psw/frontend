@@ -14,7 +14,7 @@ export class AuthService{
     private tokenExpirationTimer: any
     user = new BehaviorSubject<User>(null as any);
     api=environment.apiAuthUrl
-    bloodBankApi = 'http://localhost:45488/api/BloodBank'
+    bloodBankApi = environment.apiBloodBankUrl;
     
     constructor(private http: HttpClient, 
                 private toastr: ToastrService, 

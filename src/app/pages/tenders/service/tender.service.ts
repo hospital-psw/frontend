@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Tender } from '../interface/Tender';
 import { TenderItem } from '../interface/TenderItem';
 
@@ -12,14 +13,14 @@ export class TenderService {
   constructor(private http: HttpClient) {}
 
   getActiveTenders() : Observable<Tender[]> {
-    return this.http.get<Tender[]>(`${this.apiString}/active`);
+    return this.http.get<Tender[]>(`${environment.apiTenderUrl}/active`);
   }
 
   getTender(id: number) : Observable<Tender> {
-    return this.http.get<Tender>(`${this.apiString}/${id}`);
+    return this.http.get<Tender>(`${environment.apiTenderUrl}/${id}`);
   }
 
   makeAnOffer(items: TenderItem[], tenderId: number) {
-    return this.http.put<TenderItem[]>(`${this.apiString}/MakeAnOffer/${tenderId}`, items);
+    return this.http.put<TenderItem[]>(`${environment.apiTenderUrl}/MakeAnOffer/${tenderId}`, items);
   }
 }

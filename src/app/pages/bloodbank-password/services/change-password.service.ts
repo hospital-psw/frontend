@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { environment } from 'src/environments/environment';
 import { BloodBankManagerLoginDTO } from '../dto/BloodBankManagerLoginDTO';
 import { ChangePasswordDTO } from '../dto/ChangePasswordDTO';
 
@@ -8,15 +9,15 @@ import { ChangePasswordDTO } from '../dto/ChangePasswordDTO';
   providedIn: 'root',
 })
 export class ChangePasswordService {
-  apiString: string = 'http://localhost:45488';
+  apiString: string = environment.apiBloodBankUrl;
   constructor(private http: HttpClient, private toastr: ToastrService) {}
 
   checkCredentials(bbDto: BloodBankManagerLoginDTO) {
-    return this.http.post(`${this.apiString}/api/BloodBank/Login`, bbDto);
+    return this.http.post(`${this.apiString}/Login`, bbDto);
   }
   changePassword(bbDto: ChangePasswordDTO) {
     return this.http.post(
-      `${this.apiString}/api/BloodBank/ChangePassword`,
+      `${this.apiString}/ChangePassword`,
       bbDto
     );
   }
