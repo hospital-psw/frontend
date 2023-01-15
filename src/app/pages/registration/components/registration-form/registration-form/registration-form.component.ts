@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Allergies } from '../../../interface/Allergies';
 import { applicationUserDTO } from '../../../interface/ApplicationUser';
 import { Doctor } from '../../../interface/Doctor';
-import { Patient } from '../../../interface/Patient';
+import { Patient } from '../../../interface/patient';
 import { RegistrationServiceService } from '../../../service/registration-service.service';
 
 

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Allergies } from '../interface/Allergies';
 import { Doctor } from '../interface/Doctor';
-import { Patient } from '../interface/Patient';
+import { Patient } from '../interface/patient';
 
 @Injectable({
   providedIn: 'root'
