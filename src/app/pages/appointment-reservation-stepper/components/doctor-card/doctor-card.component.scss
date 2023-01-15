@@ -1,27 +1,31 @@
 .background{
-  background-color: #0066FF;
+  background-color: #fefefe;
   display: flex;
   margin: 1rem auto;
   width: 50%;
   border-radius: 10px;
+  border: 2px solid #0066FF;
   transition: all ease 300ms;
-  color: #fefefe;
+  color: #0066FF;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 .selected {
   display: flex;
   margin: 1rem auto;
-  width: 35%;
-  background-color: #0147af;
+  width: 40%;
+  background-color: #0066FF;
+  border-radius: 10px;
   color: #fefefe;
-  border: black 4px solid;
   transition: all ease 300ms;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 .selected > h3 {
   font-weight: 500;
 }
 .background:hover{
-  transform: scale(110%);
-  background-color: #3785fb !important;
+  transform: scale(105%);
+  background-color: #0066FF !important;
+  color: #fefefe;
   cursor: pointer;
 }
 .credentials{
@@ -29,4 +33,15 @@
   width: 100%;
   display: grid;
   place-items: center;
+}
+h3 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+p {
+  font-size: 1.2rem;
+}
+.profile_photo{
+  padding: 5%;
+  height: 200px;
 }

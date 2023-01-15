@@ -15,9 +15,9 @@ export class AuthService{
     user = new BehaviorSubject<User>(null as any);
     api=environment.apiAuthUrl
     bloodBankApi = 'http://localhost:45488/api/BloodBank'
-    
-    constructor(private http: HttpClient, 
-                private toastr: ToastrService, 
+
+    constructor(private http: HttpClient,
+                private toastr: ToastrService,
                 private router: Router,
                 private decoder: JWTService){}
 
@@ -37,7 +37,7 @@ export class AuthService{
     public checkUser(response: LoginResponseDTO){
         const tokenData: any = this.decoder.decode(response.token)
         if(tokenData.role === 'Patient'){
-            this.handleLogin(response)       
+            this.handleLogin(response)
         }else{
             response.id = -1;
         }
@@ -78,7 +78,7 @@ export class AuthService{
     if (!userData) {
       return;
     }
-    
+
     const loadedUser = new User(
       userData.email,
       userData.id,
@@ -104,7 +104,7 @@ export class AuthService{
 
   public logout() {
     this.user.next(null as any);
-    this.router.navigate(['']);
+    this.router.navigate(['/']);
     this.toastr.success('You have been successfully logged out.', 'Goodbye!');
     localStorage.removeItem('userData');
     if (this.tokenExpirationTimer) {
