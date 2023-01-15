@@ -29,13 +29,103 @@ html {
   height: 300px;
 }
 
-.chart-symptoms {
-  width: 50%;
-  height: 330px;
-}
-
 .small-title {
   margin-bottom: 1rem;
   text-transform: uppercase;
   color: var(--blue);
+}
+
+.section {
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  transition: all .2s ease-in-out;
+}
+
+.header {
+  width: 100%;
+  height: 330px;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background-image: linear-gradient(to right bottom, rgba(64, 112, 244, 0.8),
+      rgba(113, 219, 235, 0.8));
+
+  &:hover {
+    transform: scale(0.95);
+  }
+
+  &__image {
+
+    background-image: linear-gradient(to right bottom, rgba(64, 112, 244, 0.8),
+        rgba(113, 219, 235, 0.8)), url('../../../../../assets/guard/covid-guard.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    height: 100%;
+    width: 100%;
+  }
+
+  &__text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .btn-container {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    height: 5%;
+  }
+
+  .heading-primary {
+    color: #fff;
+
+    backface-visibility: hidden;
+    margin-bottom: 6rem;
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+
+    &--icon {
+      display: block;
+      height: 64px;
+      width: 64px;
+      background-image: url("../../../../../assets/guard/covid-guard.png");
+    }
+
+    &--main {
+      height: 40%;
+      white-space: nowrap;
+      font-size: 5rem;
+      font-weight: 400;
+      letter-spacing: 1rem;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+    }
+
+    &--sub {
+      display: block;
+      font-size: 1.2rem;
+      font-weight: 400;
+      letter-spacing: 0.3rem;
+      white-space: nowrap;
+    }
+  }
+
+
 }
