@@ -17,5 +17,7 @@ export const environment = {
   apiApplicationDoctor : hospitalApi + "/ApplicationDoctor",
   apiAppointment: hospitalApi + "/Appointment",
   apiEventSourcing: hospitalApi + "/AppointmentSchedulingControler",
-  apiStatistics: hospitalApi + "/Statistical/examination/symptom-count"
+  apiStatistics: hospitalApi + "/Statistical/examination/symptom-count",
+  apiCovidPrediction:
+    'https://careconnectcovidprediction.azurewebsites.net/model',
 };
