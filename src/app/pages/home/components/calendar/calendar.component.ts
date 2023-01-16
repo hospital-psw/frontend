@@ -152,8 +152,7 @@ export class CalendarComponent implements OnInit {
       ' ' +
       appointment.doctor.lastName +
       '\n' +
-      appointment.room.floor.building.name +
-      ', Floor: ' +
+      'Floor: ' +
       appointment.room.floor.number +
       ', Room: ' +
       appointment.room.number

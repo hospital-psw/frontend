@@ -3,6 +3,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../shared/Auth/services/auth.service';
+import { CoronaResultsData } from '../shared/modal-dialog/interface/CoronaReultsData';
+import { ModalDialogService } from '../shared/modal-dialog/modal-dialog.service';
 
 @Component({
   selector: 'app-navbar',
@@ -16,7 +18,10 @@ export class NavbarComponent implements OnInit, OnDestroy{
   isToggled: boolean= false
   name: string = ''
 
-  constructor(private authService: AuthService, private http: HttpClient, private router: Router) { }
+  constructor(private authService: AuthService, 
+              private http: HttpClient, 
+              private router: Router, 
+              private modalService: ModalDialogService) { }
   
   ngOnInit(){
     this.userSub = this.authService.user.subscribe(user =>{
@@ -40,4 +45,5 @@ export class NavbarComponent implements OnInit, OnDestroy{
   onToggle(){
     this.isToggled = !this.isToggled;
   }
+
 }

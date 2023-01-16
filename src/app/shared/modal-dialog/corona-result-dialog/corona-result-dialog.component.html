@@ -1,0 +1,17 @@
+<div
+  class="wrapper"
+  [ngClass]="[handlePrediction() ? 'positive ' : 'negative']"
+>
+  <div class="title">
+    <h1>Your results are</h1>
+  </div>
+  <div class="prediction">
+    <div class="prediction-text">
+      {{ data.prediction }}
+    </div>
+  </div>
+  <div class="confidence">
+    <div class="confidence-text">{{ data.confidence }}%</div>
+    <div class="accuracy">Accuracy</div>
+  </div>
+</div>

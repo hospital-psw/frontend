@@ -21,7 +21,8 @@ export class PrimeNgCarouselComponent implements OnInit {
     if(creator === "Anonymous")
       return "../../../../../assets/people/anonymous.png";
 
-    return `../../../../../assets/people/profile2.jpg`;
+    return `../../../../../assets/people/profile1.jpg`;
   
   }
+
 }

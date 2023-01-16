@@ -1,6 +1,6 @@
 <header>
   <nav>
-    <img (click)="onHome()" src="assets/navbar/logo.webp" class="logo shrink" />
+    <div class="logo">Care Connect</div>
     <ul>
       <li class="shrink">
         <a
@@ -20,26 +20,26 @@
       </li>
       <li class="shrink">
         <a
-          routerLink=""
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
-          >About</a
-        >
-      </li>
-      <li class="shrink">
-        <a
           routerLink="/app/reservation"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }"
           >Reservations</a
         >
       </li>
-      <li class="shrink">
+      <!-- <li class="shrink">
         <a
           routerLink="/tenders"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }"
           >Active tenders</a
+        >
+      </li> -->
+      <li class="shrink">
+        <a
+          routerLink="/covid-guard"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Covid Guard</a
         >
       </li>
     </ul>
