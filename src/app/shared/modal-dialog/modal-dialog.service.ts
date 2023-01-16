@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
+import { CoronaResultDialogComponent } from "./corona-result-dialog/corona-result-dialog.component";
+import { CoronaResultsData } from "./interface/CoronaReultsData";
 import { LegendDialogData } from "./interface/LegendDialogData";
 import { ModalDialogData } from "./interface/ModalDialogData";
 import { LegendDialogComponent } from "./legend-dialog/legend-dialog.component";
@@ -28,6 +30,19 @@ export class ModalDialogService{
       width: "450px",
       data: {
         title: data.title,
+      }
+    });
+  }
+
+  //Corona Modal
+  public openCoronaResultsDialog(data: CoronaResultsData): MatDialogRef<any>{
+    return this.dialog.open(CoronaResultDialogComponent, {
+      width: "550px",
+      panelClass: 'app-full-bleed-dialog', 
+      height: "350px",
+      data: {
+        prediction: data.prediction,
+        confidence: data.confidence
       }
     });
   }

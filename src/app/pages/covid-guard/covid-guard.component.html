@@ -1,12 +1,11 @@
+<app-loader *ngIf="isLoading"></app-loader>
 <div class="main">
   <section id="hero" class="section header">
     <div class="header__image">
       <div class="header__text-box">
         <h1 class="heading-primary">
-          <span class="heading-primary--upmain">Care Connect</span>
-          <span class="heading-primary--main"
-            ><span class="copyright">©</span>COVID GUARD</span
-          >
+          <span class="heading-primary--upmain">Care Connect &copy;</span>
+          <span class="heading-primary--main">COVID GUARD</span>
           <span class="heading-primary--sub"
             >- The Ultimate COVID-19 Detection Solution -</span
           >
@@ -22,6 +21,7 @@
   </section>
   <section id="description">
     <div class="section">
+      <div class="leave" (click)="leavePage()"></div>
       <div class="description padding">
         <div class="description__header" id="hd">
           Rapid COVID-19 Detection: Accurate Results in Real-Time
@@ -48,6 +48,7 @@
   </section>
   <div class="symp-container">
     <section id="symptoms" class="section">
+      <div class="leave" (click)="leavePage()"></div>
       <div class="symptoms-wrapper">
         <div class="symptoms">
           <div class="symptoms__header-div">
@@ -169,6 +170,7 @@
       </div>
     </section>
     <section id="conditions" class="section">
+      <div class="leave" (click)="leavePage()"></div>
       <div class="contidions-wrapper">
         <div class="conditions">
           <div class="conditions__header">Chronic conditions</div>
@@ -290,6 +292,7 @@
       </div>
     </section>
     <section id="contact" class="section">
+      <div class="leave" (click)="leavePage()"></div>
       <div class="contact-wrapper">
         <div class="contact">
           <div class="contact__header">Contact with carriers</div>
@@ -376,6 +379,7 @@
   </div>
   <div class="finishing-steps-container">
     <section id="finishing-steps" class="section">
+      <div class="leave" (click)="leavePage()"></div>
       <div class="finishing-wrapper">
         <div class="finishing">
           <div class="finishing__header">Almost done</div>
