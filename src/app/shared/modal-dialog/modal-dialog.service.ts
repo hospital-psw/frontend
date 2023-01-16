@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
-import { CloseDialogComponent } from "./close-dialog/close-dialog.component";
 import { CoronaResultDialogComponent } from "./corona-result-dialog/corona-result-dialog.component";
 import { CoronaResultsData } from "./interface/CoronaReultsData";
 import { LegendDialogData } from "./interface/LegendDialogData";
@@ -46,12 +45,5 @@ export class ModalDialogService{
         confidence: data.confidence
       }
     });
-  }
-
-
-  public openCloseDialog() : MatDialogRef<any>{
-    return this.dialog.open(CloseDialogComponent, {
-      width: "550px"
-    })
   }
 }
