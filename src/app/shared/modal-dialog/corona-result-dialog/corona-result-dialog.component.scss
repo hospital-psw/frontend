@@ -1,0 +1,54 @@
+.wrapper {
+  box-sizing: border-box;
+  padding: 5%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Anonymous Pro',
+    monospace;
+
+  .title {
+    text-align: center;
+    font-size: 2rem;
+    height: 10%;
+  }
+
+  .prediction {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55%;
+    text-align: center;
+    font-size: 5rem;
+    letter-spacing: 15px;
+    text-transform: uppercase;
+  }
+
+  .confidence {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 35%;
+    font-size: 1rem;
+    line-height: 1.7rem;
+  }
+
+  .confidence-text {
+    font-size: 2rem;
+  }
+}
+
+.positive {
+  background-image: linear-gradient(to bottom right, rgba(215, 129, 106, 1), rgba(189, 79, 108, 1));
+  color: white;
+}
+
+.negative {
+  background-image: linear-gradient(to bottom right, #20BF55, #01BAEF);
+  color: white;
+}
+
+.mat-dialog-container {
+  padding: 0px !important;
+}
