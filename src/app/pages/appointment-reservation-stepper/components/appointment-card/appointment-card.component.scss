@@ -1,27 +1,32 @@
 .background{
-    background-color: #0066FF;
+    background-color: #fefefe;
     display: flex;
     margin: 1rem auto;
     width: 60%;
+    border: 2px solid #0066FF;
     transition: all ease 300ms;
     border-radius: 10px;
+    color: #0066FF;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
   }
   .selected {
     display: flex;
     margin: 1rem auto;
-    width: 50%;
-    background-color: #0147af;
-    border: black 4px solid;
+    width: 55%;
+    border-radius: 10px;
+    background-color: #0066FF;
     transition: all ease 300ms;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
   }
   .background:hover{
     transform: scale(110%);
-    background-color: #3785fb !important;
+    background-color: #0066FF !important;
+    color: #fefefe;
     cursor: pointer;
   }
   h3 {
-    color: #fefefe;
-    font-size: 1.5rem;
+    color: #030303;
+    font-size: 1.8rem;
   }
   .info {
     padding: 1rem;
@@ -35,14 +40,14 @@
   .head {
    border-bottom: #fefefe 1px solid;
   }
-  p{
-    font-size: 1rem;
-  }
   .date-time{
     display: flex;
     text-align: center;
     justify-content: space-evenly;
   }
   .recommendation{
-    color: #fefefe;
+    color: #030303;
+  }
+  p {
+    font-size: 1.3rem;
   }

@@ -165,7 +165,7 @@ a {
 
 .not-logged-buttons {
   display: flex;
-  justify-content: end;
+  justify-content:space-between;
   margin-right: 5rem;
   color: var(--white);
 }
@@ -182,4 +182,8 @@ a {
 
 .shrink:hover {
   transform: scale(0.9);
+}
+
+.left {
+  margin-left: 3rem;
 }

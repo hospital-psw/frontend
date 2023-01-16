@@ -1,26 +1,29 @@
 .background {
-  background-color: #0066FF;
+  background-color: #fefefe;
   width: 80%;
   margin: 0 auto;
   padding: 1rem 0rem;
   border-radius: 10px;
+  border: 2px solid #0066FF;
   transition: all ease 300ms;
-  color: #fefefe;
+  color: #0066FF;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 .background:hover {
   transform: scale(110%);
-  background-color: #3785fb !important;
+  background-color: #0066FF !important;
+  color: #fefefe;
   cursor: pointer;
 }
 .selected {
-  width: 60%;
+  width: 75%;
   margin: 0 auto;
   padding: 1rem 0rem;
   border-radius: 10px;
-  background-color: #0147af;
+  background-color: #0066FF;
   color: #fefefe;
-  border: black 4px solid;
   transition: all ease 300ms;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 .selected > h3 {
   font-weight: 500;
@@ -28,4 +31,5 @@
 h3 {
   margin: 0;
   padding: 0;
+  font-size: 1.7rem;
 }
