@@ -38,6 +38,7 @@ export class ModalDialogService{
   public openCoronaResultsDialog(data: CoronaResultsData): MatDialogRef<any>{
     return this.dialog.open(CoronaResultDialogComponent, {
       width: "550px",
+      panelClass: 'app-full-bleed-dialog', 
       height: "350px",
       data: {
         prediction: data.prediction,
