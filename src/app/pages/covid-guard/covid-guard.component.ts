@@ -272,7 +272,10 @@ export class CovidGuardComponent implements OnInit {
         prediction: response.prediction_str,
         confidence: response.confidence,
       };
-      this.modalService.openCoronaResultsDialog(data);
+      this.modalService.openCoronaResultsDialog(data).afterClosed().subscribe(()=>{
+        this.router.navigate(['/app/home'])
+      })
+      
     });
   }
 

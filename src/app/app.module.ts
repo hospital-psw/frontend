@@ -39,11 +39,12 @@ import { DatePipe } from '@angular/common';
 import { CovidGuardComponent } from './pages/covid-guard/covid-guard.component';
 import { CardComponent } from './pages/covid-guard/card/card.component';
 import { CoronaResultDialogComponent } from './shared/modal-dialog/corona-result-dialog/corona-result-dialog.component';
+import { CloseDialogComponent } from './shared/modal-dialog/close-dialog/close-dialog.component';
 
 @NgModule({
   declarations: [AppComponent, AppointmentReservationComponent, ModalDialogComponent, 
                 MedicalBranchCardComponent, DoctorCardComponent, AppointmentCardComponent, SelectionInfoComponent, 
-                ForgotPasswordPageComponent, ResetPasswordPageComponent, ConfirmMailPageComponent, LegendDialogComponent, CovidGuardComponent, CardComponent, CoronaResultDialogComponent],
+                ForgotPasswordPageComponent, ResetPasswordPageComponent, ConfirmMailPageComponent, LegendDialogComponent, CovidGuardComponent, CardComponent, CoronaResultDialogComponent, CloseDialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
