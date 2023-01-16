@@ -8,6 +8,25 @@
   overflow: hidden !important;
 }
 
+.leave {
+    position: absolute;
+    top: 1.5%;
+    left: 1%;
+    height: 1.5rem;
+    width: 1.5rem;
+    background-image: url('../../../assets/guard/ICONS/close.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all .5s;
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+        transition: all .5s;
+    }
+}
+
 .section {
   height: 100vh;
   width: 100%;

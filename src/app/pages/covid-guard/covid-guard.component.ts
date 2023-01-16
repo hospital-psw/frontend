@@ -15,6 +15,7 @@ import { PredictionBody } from './interface/PredictionBody';
 import { ModalDialogService } from 'src/app/shared/modal-dialog/modal-dialog.service';
 import { da } from 'date-fns/locale';
 import { CoronaResultsData } from 'src/app/shared/modal-dialog/interface/CoronaReultsData';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-covid-guard',
@@ -32,8 +33,11 @@ export class CovidGuardComponent implements OnInit {
   reachedEnd: boolean = false;
   data: PredictionBody;
 
-  constructor(private predictionService: PredictionService, 
-              private modalService: ModalDialogService) {}
+  constructor(
+    private predictionService: PredictionService,
+    private modalService: ModalDialogService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     init();
@@ -41,8 +45,7 @@ export class CovidGuardComponent implements OnInit {
     this.conditions = [];
     this.activities = [];
     this.createData();
-    this.predictionService.train().subscribe((res) => {
-    });
+    this.predictionService.train().subscribe((res) => {});
   }
 
   createData() {
@@ -253,27 +256,29 @@ export class CovidGuardComponent implements OnInit {
           break;
       }
     });
+  }
 
+  leavePage() {
+    this.router.navigate(['/app/home']);
   }
 
   getResults() {
-    this.isLoading = true
+    this.isLoading = true;
     this.setUpData();
     this.predictionService.predict(this.data).subscribe((response) => {
-      this.setLoaderTimeout()
-      console.log(response)
+      this.setLoaderTimeout();
+      console.log(response);
       const data: CoronaResultsData = {
         prediction: response.prediction_str,
-        confidence: response.confidence
-      }
-      this.modalService.openCoronaResultsDialog(data)
+        confidence: response.confidence,
+      };
+      this.modalService.openCoronaResultsDialog(data);
     });
   }
 
-
-  private setLoaderTimeout(){
-     setTimeout(() =>{
-      this.isLoading= false;
+  private setLoaderTimeout() {
+    setTimeout(() => {
+      this.isLoading = false;
     }, 4000);
   }
 }
